@@ -77,6 +77,7 @@ In progress ...
    :caption: Wi-Fi intrusions
 
    docs/wi-fi/README.md
+   docs/wi-fi/scanning.md
    docs/wi-fi/*
 
 .. toctree::
