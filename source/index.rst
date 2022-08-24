@@ -1,7 +1,8 @@
 Riches in the ground
 ================================================
 
-In progress ...
+.. image:: _static/images/in-progress.png
+  :alt: In Progress ...
 
 .. toctree::
    :glob:
