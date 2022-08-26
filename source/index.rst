@@ -75,6 +75,15 @@ Riches in the ground
    :glob:
    :maxdepth: 1
    :includehidden:
+   :caption: Router strikes
+
+   docs/routers/README.md
+   docs/routers/*
+
+.. toctree::
+   :glob:
+   :maxdepth: 1
+   :includehidden:
    :caption: Wi-Fi intrusions
 
    docs/wi-fi/README.md
@@ -98,15 +107,6 @@ Riches in the ground
 
    docs/box/README.md
    docs/box/*
-
-.. toctree::
-   :glob:
-   :maxdepth: 1
-   :includehidden:
-   :caption: Router strikes
-
-   docs/routers/README.md
-   docs/routers/*
 
 .. toctree::
    :caption: Links
