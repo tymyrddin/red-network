@@ -12,7 +12,7 @@ Hacking the heart of the Internet.
 
 ## How?
 
-1. [Sniffing](Sniffing.md)
+1. [Sniffing](sniffing.md)
 2. [Reading and writing PCAP dump files](PCAP-dumps.md)
 3. [Password sniffer](password-sniffer.md)
 4. [Sniffer detection](sniffer-detection.md)

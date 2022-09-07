@@ -20,7 +20,7 @@ Riches in the ground
    :caption: TCP/IP maneuvers
 
    docs/tcp-ip/README.md
-   docs/tcp-ip/Sniffing.md
+   docs/tcp-ip/sniffing.md
    docs/tcp-ip/PCAP-dumps.md
    docs/tcp-ip/password-sniffer.md
    docs/tcp-ip/sniffer-detection.md
