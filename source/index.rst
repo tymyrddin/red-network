@@ -84,11 +84,11 @@ Riches in the ground
    :glob:
    :maxdepth: 1
    :includehidden:
-   :caption: Wi-Fi intrusions
+   :caption: Wireless intrusions
 
-   docs/wi-fi/README.md
-   docs/wi-fi/scanning.md
-   docs/wi-fi/*
+   docs/wireless/README.md
+   docs/wireless/scanning.md
+   docs/wireless/*
 
 .. toctree::
    :glob:
