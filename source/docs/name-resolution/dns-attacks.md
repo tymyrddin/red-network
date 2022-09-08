@@ -1,13 +1,14 @@
-# DNS attacks
+# DNS attacks overview
 
 ## Attack tree
 
 ```text
-1 DNS poisoning
-2 DNS amplification for DDoS attacks on other servers
+1 DNS cache snooping
+2 DNS poisoning
+3 DNS amplification for DDoS attacks on other servers
     2.1 Create a botnet to send thousands of lookup requests to open DNS servers (with a spoofed source address 
-    and configured to maximize the amount of data returned by each DNS server)
-3 DDoS attack against a DNS server itself 
+    and configured to maximise the amount of data returned by each DNS server)
+4 DDoS attack against a DNS server itself 
 ```
 
 ## Notes

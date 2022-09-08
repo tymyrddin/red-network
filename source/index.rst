@@ -45,7 +45,10 @@ Riches in the ground
    :caption: Name resolution skirmishes
 
    docs/name-resolution/README.md
-   docs/name-resolution/*
+   docs/name-resolution/dns-snooping.md
+   docs/name-resolution/dns-spoofing
+   docs/name-resolution/dns-attacks
+   docs/name-resolution/llmnr-netbios.md
 
 .. toctree::
    :glob:
