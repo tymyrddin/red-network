@@ -1,6 +1,6 @@
 # Attacking LLMNR and NetBIOS
 
-## Attck tree
+## Attack tree
 
 ```text
 1 LLMNR/NBT-NS poisoning
@@ -27,7 +27,7 @@ will be obtained. Responder creates logs of every session. All the hashes dumped
 2. Save the hashes in a file named `hash.txt` and use hashcat to crack it:
 
 ```text
-hashcat -m 5600 hash.txt /usr/share/wordlists/rockyou.txt
+# hashcat -m 5600 hash.txt /usr/share/wordlists/rockyou.txt
 ```
 
 * Module 5600 is the hash type to crack NetNTLMv2. 5500 is for NetNTLMv1/NetNTLMv1+ESS.
@@ -53,7 +53,7 @@ These can be viewed in the logs under the name HTTP-NTLMv2-<someIPv6Address>.txt
 2. Use hashcat to crack it:
 
 ```text
-hashcat -m 5600 HTTP-NTLMv2-<someIPv6Address>.txt /usr/share/wordlists/rockyou.txt
+# hashcat -m 5600 HTTP-NTLMv2-<someIPv6Address>.txt /usr/share/wordlists/rockyou.txt
 ```
 
 * Module 5600 is the hash type to crack NetNTLMv2. 5500 is for NetNTLMv1/NetNTLMv1+ESS.
@@ -81,5 +81,8 @@ configuration and finally sends the request to the destination.
 
 * [Responder](https://github.com/lgandx/Responder)
 * [Hashcat](https://www.kali.org/tools/hashcat/)
+
+## Resources
+
 * [rockyou.txt](https://github.com/redfiles/rockyou.txt)
 * [Generic hash types](https://hashcat.net/wiki/doku.php?id=example_hashes)
