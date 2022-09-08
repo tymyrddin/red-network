@@ -42,10 +42,10 @@ Riches in the ground
    :glob:
    :maxdepth: 1
    :includehidden:
-   :caption: DNS skirmishes
+   :caption: Name resolution skirmishes
 
-   docs/dns/README.md
-   docs/dns/*
+   docs/name-resolution/README.md
+   docs/name-resolution/*
 
 .. toctree::
    :glob:

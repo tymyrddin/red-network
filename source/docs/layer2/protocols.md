@@ -1,4 +1,4 @@
-# Protocols
+# Protocols and services
 
 * [Ethernet](https://wiki.wireshark.org/Ethernet), the most common local area networking technology, and, with gigabit and 10 gigabit Ethernet, is also being used for metropolitan-area and wide-area networking.
 * [Link layer discovery protocol (LLDP)](https://wiki.wireshark.org/LinkLayerDiscoveryProtocol), commonly used as a component in network management and network monitoring applications.
