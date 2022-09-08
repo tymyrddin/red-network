@@ -6,8 +6,6 @@ Hacking the heart of the Internet.
 
 ## Why?
 
-![IP header](../../_static/images/ip-header.png)
-
 * Despite attempts to make TCP as secure as possible, there still are some attacks that abuse it.
 * Three major attacks are possible: Address spoofing, TCP sequence number prediction, and port scanning.
 * And several minor attacks.
