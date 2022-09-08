@@ -1,6 +1,6 @@
 ﻿# Sniffing
 
-Depending on the network topology, there are many ways of gaining read-access to a network to conduct passive attacks. The most common method compromises a general purpose operating system on the segment and installs sniffer software that puts a network interface card in promiscuous mode and captures traffic. [ARP/MAC spoofing](../layer2/ARP-spoofing.md) may be necessary to sniff traffic on switched networks.
+Depending on the network topology, there are many ways of gaining read-access to a network to conduct passive attacks. The most common method compromises a general purpose operating system on the segment and installs sniffer software that puts a network interface card in promiscuous mode and captures traffic. [ARP/MAC spoofing](../layer2/arp-spoofing.md) may be necessary to sniff traffic on switched networks.
 
 ## Attack tree
 

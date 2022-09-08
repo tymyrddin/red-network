@@ -18,7 +18,16 @@
 
 ## Notes
 
-There are two different addressing schemes for computers on a LAN, the global IP address and the local MAC address. The Address Resolution Protocol (ARP) was created to carry IP traffic. By merely injecting two ARP Reply packets into a trusting LAN, any device is able to receive all traffic going back and forth between any two devices on the LAN. 
+### What is in a name
+
+The terms ARP Spoofing and [ARP poisoning](arp-cache-poisoning.md) are generally used interchangeably. Technically, 
+spoofing refers to an attacker impersonating another machine’s MAC address, while poisoning denotes the act of 
+corrupting the ARP tables on one or more victim machines. In practice, these are both sub-elements of the same attack, 
+and both terms are used to refer to the attack as a whole. Other similar terms might include ARP cache poisoning or 
+ARP table corruption.
+
+### Adressing schemes
+
 
 In an ARP spoofing attack, an adversary sends spoofed ARP messages over a LAN in order to link the adversary's MAC address with the IP address of a legitimate member of the network. Data that is intended for the host’s IP address gets sent to the adversary instead.
 * ARP spoofing can be used to steal information, modify data-in-transit or stop traffic on a LAN.
