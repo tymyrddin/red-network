@@ -2,13 +2,11 @@
 
 ## What?
 
-There are several protocols for hostname-to-IP resolutions: Domain Name System (DNS), Link-Local Multicast Name 
-Resolution (LLMNR), and NetBIOS. 
-* DNS works at the application layer and provides essential lookup services for devices connected to the Internet 
-or a private network.
-* LLMNR and NetBIOS are used by Microsoft operating systems to allow clients to help improve network communication 
-efficiency and not send lookup requests outside network that can be resolved internally on the local area network 
-(LAN). 
+Name-resolution exploits are exploits against technologies that resolve names to IP addresses, such as DNS, which works 
+at the application layer and provides essential lookup services for devices connected to the Internet or a private 
+network, the NetBIOS name service that converts computer names to IP addresses, and the Link-local Multicast Name 
+Resolution (LLMNR) protocol that converts hostnames to an IPv4 or IPv6 address. Common name-resolution ports are 
+UDP port 137 (NetBIOS name service), UDP 138 (NetBIOS datagram service), and TCP port 139 (NetBIOS session service).
 
 Hacking name resolution protocols is like hacking the telephone book of the internet or intranet. 
 
@@ -28,5 +26,6 @@ what is asked after authentication.
 * [DNS spoofing](dns-spoofing.md)
 * [DNS attacks overview](dns-attacks.md)
 * [Attacking LLMNR and NetBIOS](llmnr-netbios.md)
+* [NTLM relay attack](ntlm-relay.md)
 
 

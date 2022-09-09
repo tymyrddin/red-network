@@ -12,11 +12,12 @@
 
 ### LLMNR/NBT-NS poisoning through SMB
 
-1. Start responder with the NIC (for example `eth0`) to listen for LLMNR requests on. The responder run 
+1. Use `ifconfig` to find NIC <interface> name of attack machine
+1. Start responder with the NIC to listen for LLMNR requests on. The responder run 
 starts LLMNR and NBT-NS poisoning by default:
 
 ```text
-# responder -I eth0
+# responder -I <interface>
 ```
 
 When a user in the same logical location as the attack host tries to access a non-existent shared drive. The drive 
@@ -34,11 +35,12 @@ will be obtained. Responder creates logs of every session. All the hashes dumped
 
 ### LLMNR/NBT-NS poisoning through WPAD
 
-1. Start responder with the NIC (for example `eth0`) and the options to configure a WPAD rogue proxy server (`w`) and
+1. Use `ifconfig` to find NIC <interface> name of attack machine
+2. Start responder with the NIC and the options to configure a WPAD rogue proxy server (`w`) and
 add the switch for DHCP injection (`d`:
 
 ```text
-# responder -I eth0 -wd
+# responder -I <interface> -wd
 ```
 
 When a user enters an invalid URL, the browser fails to load that page using DNS and sends out an LLMNR request to 
@@ -50,7 +52,7 @@ Responder poisons and injects DHCP response with WPAD’s IP and the browser tri
 and gives a login prompt. When the user inputs credentials, the NLTM hashes are ours.
 These can be viewed in the logs under the name HTTP-NTLMv2-<someIPv6Address>.txt
 
-2. Use hashcat to crack it:
+3. Use hashcat to crack it:
 
 ```text
 # hashcat -m 5600 HTTP-NTLMv2-<someIPv6Address>.txt /usr/share/wordlists/rockyou.txt

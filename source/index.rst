@@ -49,6 +49,7 @@ Riches in the ground
    docs/name-resolution/dns-spoofing
    docs/name-resolution/dns-attacks
    docs/name-resolution/llmnr-netbios.md
+   docs/name-resolution/ntlm-relay.md
 
 .. toctree::
    :glob:
