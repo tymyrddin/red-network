@@ -17,6 +17,19 @@ Riches in the ground
    :glob:
    :maxdepth: 1
    :includehidden:
+   :caption: Name resolution skirmishes
+
+   docs/name-resolution/README.md
+   docs/name-resolution/dns-snooping.md
+   docs/name-resolution/dns-spoofing
+   docs/name-resolution/dns-attacks
+   docs/name-resolution/llmnr-netbios.md
+   docs/name-resolution/ntlm-relay.md
+
+.. toctree::
+   :glob:
+   :maxdepth: 1
+   :includehidden:
    :caption: TCP/IP maneuvers
 
    docs/tcp-ip/README.md
@@ -37,19 +50,6 @@ Riches in the ground
    docs/tcp-ip/TCP-SNP.md
    docs/tcp-ip/Hijack-network-session.md
    docs/tcp-ip/SSL-hijacking.md
-
-.. toctree::
-   :glob:
-   :maxdepth: 1
-   :includehidden:
-   :caption: Name resolution skirmishes
-
-   docs/name-resolution/README.md
-   docs/name-resolution/dns-snooping.md
-   docs/name-resolution/dns-spoofing
-   docs/name-resolution/dns-attacks
-   docs/name-resolution/llmnr-netbios.md
-   docs/name-resolution/ntlm-relay.md
 
 .. toctree::
    :glob:
