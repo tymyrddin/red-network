@@ -8,15 +8,6 @@ Riches in the ground
    :glob:
    :maxdepth: 1
    :includehidden:
-   :caption: Layer 2 charges
-
-   docs/layer2/README.md
-   docs/layer2/*
-
-.. toctree::
-   :glob:
-   :maxdepth: 1
-   :includehidden:
    :caption: Name resolution skirmishes
 
    docs/name-resolution/README.md
@@ -30,22 +21,36 @@ Riches in the ground
    :glob:
    :maxdepth: 1
    :includehidden:
+   :caption: Packet manipulation
+
+   docs/packet-manipulation/README.md
+   docs/packet-manipulation/sniffing.md
+   docs/packet-manipulation/PCAP-dumps.md
+   docs/packet-manipulation/sniffer-detection.md
+
+.. toctree::
+   :glob:
+   :maxdepth: 1
+   :includehidden:
+   :caption: Layer 2 charges
+
+   docs/layer2/README.md
+   docs/layer2/*
+
+.. toctree::
+   :glob:
+   :maxdepth: 1
+   :includehidden:
    :caption: TCP/IP maneuvers
 
    docs/tcp-ip/README.md
-   docs/tcp-ip/sniffing.md
-   docs/tcp-ip/PCAP-dumps.md
-   docs/tcp-ip/password-sniffer.md
-   docs/tcp-ip/sniffer-detection.md
    docs/tcp-ip/IP-spoofing.md
-   docs/tcp-ip/SYN-flooder.md
    docs/tcp-ip/DoS.md
    docs/tcp-ip/DDoS.md
    docs/tcp-ip/DrDoS.md
    docs/tcp-ip/port-scanning.md
    docs/tcp-ip/port-scan-detection.md
    docs/tcp-ip/ICMP-redirection.md
-   docs/tcp-ip/RST-daemon.md
    docs/tcp-ip/Replay-attack.md
    docs/tcp-ip/TCP-SNP.md
    docs/tcp-ip/Hijack-network-session.md
