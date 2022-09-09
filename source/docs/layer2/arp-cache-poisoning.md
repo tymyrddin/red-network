@@ -10,6 +10,15 @@
     3.2 Send an ARP reply to the router mapping a particular host IP to your attack machine MAC address and another ARP reply to the host machine mapping the router IP to your attack machine MAC address. 
     3.3 Flood switch and sniff.
 ```
+
+## Example
+
+```text
+# echo 1 > /proc/sys/net/ipv4/ip_forward
+# arpspoof -i <interface> -t <target IP address 1> <target IP address 2>
+# arpspoof -i <interface> -t <target IP address 2> <target IP address 1>
+```
+
 ## Notes
 
 All the devices that are connected to the layer 2 network have an ARP cache. This cache contains the mapping of all 
@@ -27,9 +36,13 @@ ARP table corruption.
 
 Many network switches when overloaded can start acting like a hub and start broadcasting all the network traffic to 
 all the hosts connected to the network. As a hub, the switch does not enable its port security feature, and now it 
-broadcasts all the network traffic. Snifffff. 
+broadcasts all the network traffic. Sniff. 
 
 ### ARP cache poisoning likelihood
 
 Poisoning ARP cache remotely is at minimum a 2-step exploitation chain, as it requires either physical access to the 
 network or control of one of the machines in the network.
+
+## Tools
+
+* [dsniff package contains arpspoof](https://www.kali.org/tools/dsniff/)

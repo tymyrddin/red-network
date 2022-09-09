@@ -53,7 +53,6 @@ relay (forward) to. Choose selectively to create minimal noise in the network.
 7. Run responder:
 
 ```text
-# cd Responder
 # responder -I <interface> -rv
 ```
 8. Wait for a connection: Hopefully, someone mistypes trying to open a shared drive (a drive that does not exist). 

@@ -28,7 +28,6 @@ ARP table corruption.
 
 ### Adressing schemes
 
-
 In an ARP spoofing attack, an adversary sends spoofed ARP messages over a LAN in order to link the adversary's MAC address with the IP address of a legitimate member of the network. Data that is intended for the host’s IP address gets sent to the adversary instead.
 * ARP spoofing can be used to steal information, modify data-in-transit or stop traffic on a LAN.
 * ARP spoofing attacks can also be used to facilitate other types of attacks, including [DoS](../tcp-ip/DoS.md) attacks, [session hijacking](../tcp-ip/Hijack-network-session.md) and [MitM](../box/MitM.md) attacks.
