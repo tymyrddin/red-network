@@ -24,8 +24,9 @@ Riches in the ground
    :caption: Packet manipulation
 
    docs/packet-manipulation/README.md
-   docs/packet-manipulation/sniffing.md
    docs/packet-manipulation/PCAP-dumps.md
+   docs/packet-manipulation/sniffing.md
+   docs/packet-manipulation/forging.md
 
 .. toctree::
    :glob:

@@ -24,5 +24,6 @@ what is asked after authentication.
 
 * [PCAP files](PCAP-dumps.md)
 * [Sniffing](sniffing.md)
+* [Forging and decoding packets](forging.md)
 
 

@@ -58,7 +58,10 @@ remove only one 802.1Q tag. In Double tagging attack, an attacker changes the or
 An outer tag of his own VLAN and an inner hidden tag of the victim's VLAN. The adversary's attack machine must 
 belong to the native VLAN of the trunk link.
 
+## Tools
+
+* [Scapy](https://scapy.net/)
+
 ## Resources
 
 * [802.1Q](https://standards.ieee.org/ieee/802.1Q/6844/)
-* [Scapy](https://scapy.net/)
