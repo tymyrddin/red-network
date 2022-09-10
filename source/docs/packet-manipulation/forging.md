@@ -2,8 +2,8 @@
 
 ## Notes
 
-Scapy (https://scapy.net) is a Python program that can assist with packet manipulation
-by forging and decoding packets. Scapy supports many use cases.
+Scapy is a Python program that can assist with packet manipulation by forging and decoding packets. Scapy supports 
+many use cases.
 
 ## Tools
 

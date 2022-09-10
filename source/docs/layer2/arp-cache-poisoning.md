@@ -16,14 +16,6 @@
 All the devices that are connected to the layer 2 network have an ARP cache. This cache contains the mapping of all 
 the MAC and IP address for the network devices that particular host has already communicated with.
 
-### What is in a name
-
-The terms [ARP spoofing](arp-spoofing.md) and ARP poisoning are generally used interchangeably. Technically, 
-spoofing refers to an attacker impersonating another machine’s MAC address, while poisoning denotes the act of 
-corrupting the ARP tables on one or more victim machines. In practice, these are both sub-elements of the same attack, 
-and both terms are used to refer to the attack as a whole. Other similar terms might include ARP cache poisoning or 
-ARP table corruption.
-
 ### Switches
 
 Many network switches when overloaded can start acting like a hub and start broadcasting all the network traffic to 
