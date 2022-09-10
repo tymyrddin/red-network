@@ -50,8 +50,6 @@ Riches in the ground
    docs/tcp-ip/DoS.md
    docs/tcp-ip/DDoS.md
    docs/tcp-ip/DrDoS.md
-   docs/tcp-ip/port-scanning.md
-   docs/tcp-ip/port-scan-detection.md
    docs/tcp-ip/ICMP-redirection.md
    docs/tcp-ip/Replay-attack.md
    docs/tcp-ip/TCP-SNP.md
