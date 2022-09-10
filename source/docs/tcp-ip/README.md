@@ -16,7 +16,6 @@ Hacking the heart of the Internet.
 * [Denial of Service (DoS)](DoS.md)
 * [Distributed Denial of Service (DDoS)](DDoS.md)
 * [Distributed Deflection Denial of Service (DrDoS)](DrDoS.md)
-* [ICMP redirection](ICMP-redirection.md)
 * [Replay attack](Replay-attack.md)
 * [TCP sequence number prediction attack](TCP-SNP.md)
 * [Hijack session (network)](Hijack-network-session.md)
