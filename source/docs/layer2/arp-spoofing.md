@@ -1,4 +1,4 @@
-# ARP spoofing
+# Simple ARP spoofing
 
 ## Attack tree
 
@@ -16,14 +16,22 @@
         1.4.4 Perform a DoS
 ```
 
+## Example
+
+```text
+# echo 1 > /proc/sys/net/ipv4/ip_forward
+# arpspoof -i <interface> -t <target IP address 1> <target IP address 2>
+# arpspoof -i <interface> -t <target IP address 2> <target IP address 1>
+```
+
 ## Notes
 
 ### What is in a name
 
-The terms ARP Spoofing and [ARP poisoning](arp-cache-poisoning.md) are generally used interchangeably. Technically, 
+The terms ARP Spoofing and ARP poisoning are generally used interchangeably. Technically, 
 spoofing refers to an attacker impersonating another machine’s MAC address, while poisoning denotes the act of 
 corrupting the ARP tables on one or more victim machines. In practice, these are both sub-elements of the same attack, 
-and both terms are used to refer to the attack as a whole. Other similar terms might include ARP cache poisoning or 
+and both terms are used to refer to the attack as a whole. Other terms used may be ARP cache poisoning or 
 ARP table corruption.
 
 ### Adressing schemes
@@ -31,11 +39,6 @@ ARP table corruption.
 In an ARP spoofing attack, an adversary sends spoofed ARP messages over a LAN in order to link the adversary's MAC address with the IP address of a legitimate member of the network. Data that is intended for the host’s IP address gets sent to the adversary instead.
 * ARP spoofing can be used to steal information, modify data-in-transit or stop traffic on a LAN.
 * ARP spoofing attacks can also be used to facilitate other types of attacks, including [DoS](../tcp-ip/DoS.md) attacks, [session hijacking](../tcp-ip/Hijack-network-session.md) and [MitM](../box/MitM.md) attacks.
-
-## Scripts
-* [simple ARP spoofer script](https://github.com/tymyrddin/ymrir/tree/master/arp_spoofer)
-* [simple file interceptor](https://github.com/tymyrddin/ymrir/tree/master/file_interceptor)
-* [simple code injecor](https://github.com/tymyrddin/ymrir/tree/master/code_injector)
 
 ## Network tools
 * [dsniff](https://www.monkey.org/~dugsong/dsniff/)

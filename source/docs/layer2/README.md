@@ -16,7 +16,7 @@ a trusting LAN, any device is able to receive all traffic going back and forth b
 
 ## How?
 
-* [ARP spoofing](arp-spoofing.md)
-* [ARP cache poisoning](arp-cache-poisoning.md)
-
+* [Simple ARP spoofing](arp-spoofing.md)
+* [Network ARP cache poisoning](arp-cache-poisoning.md)
+* [VLAN hopping attacks](vlan-hopping.md)
 

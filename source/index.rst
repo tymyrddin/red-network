@@ -26,7 +26,6 @@ Riches in the ground
    docs/packet-manipulation/README.md
    docs/packet-manipulation/sniffing.md
    docs/packet-manipulation/PCAP-dumps.md
-   docs/packet-manipulation/sniffer-detection.md
 
 .. toctree::
    :glob:
@@ -35,7 +34,9 @@ Riches in the ground
    :caption: Layer 2 charges
 
    docs/layer2/README.md
-   docs/layer2/*
+   docs/layer2/arp-spoofing.md
+   docs/layer2/arp-cache-poisoning.md
+   docs/layer2/vlan-hopping.md
 
 .. toctree::
    :glob:

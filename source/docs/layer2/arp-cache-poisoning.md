@@ -1,4 +1,4 @@
-# ARP cache poisoning
+# Network ARP cache poisoning
 
 ## Attack tree
 
@@ -9,14 +9,6 @@
     3.1 Send an ARP reply mapping an IP address on network with a wrong or non-existent MAC address. For example, a fake ARP reply mapping the network router IP with a non-existent MAC will bring down the whole network.
     3.2 Send an ARP reply to the router mapping a particular host IP to your attack machine MAC address and another ARP reply to the host machine mapping the router IP to your attack machine MAC address. 
     3.3 Flood switch and sniff.
-```
-
-## Example
-
-```text
-# echo 1 > /proc/sys/net/ipv4/ip_forward
-# arpspoof -i <interface> -t <target IP address 1> <target IP address 2>
-# arpspoof -i <interface> -t <target IP address 2> <target IP address 1>
 ```
 
 ## Notes

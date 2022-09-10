@@ -11,7 +11,7 @@ Depending on the network topology, there are many ways of gaining read-access to
         1.1.2 Install and use sniffing software
     1.2 Tap physical medium (OR)
     1.3 Redirect traffic through a compromised host    
-2 Sniff information 
+2 Sniff information (if possible)
     2.1 Email traffic
     2.2 FTP passwords
     2.3 Web traffic
@@ -20,10 +20,6 @@ Depending on the network topology, there are many ways of gaining read-access to
     2.5 Chat sessions
     2.6 DNS traffic
 ```
-
-## Scripts
-
-* [simple sniffer script](https://github.com/tymyrddin/ymrir/tree/master/packet_sniffer)
 
 ## Network tools
 * [BetterCAP](https://www.bettercap.org/)

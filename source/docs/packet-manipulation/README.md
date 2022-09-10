@@ -22,8 +22,7 @@ what is asked after authentication.
 
 ## How?
 
+* [PCAP files](PCAP-dumps.md)
 * [Sniffing](sniffing.md)
-* [Reading and writing PCAP dump files](PCAP-dumps.md)
-* [Sniffer detection](sniffer-detection.md)
 
 

@@ -137,7 +137,3 @@ name, after which the DNS server resolves the domain to the spoofed website, unt
 
 * [Ettercap](https://www.ettercap-project.org)
 * [BeEF XSS](https://www.kali.org/tools/beef-xss/)
-
-## Scripts
-
-* [Hijack local DNS](https://github.com/tymyrddin/ymrir/tree/master/dns_spoofer)
