@@ -83,15 +83,6 @@ Riches in the ground
    :glob:
    :maxdepth: 1
    :includehidden:
-   :caption: Router strikes
-
-   docs/routers/README.md
-   docs/routers/*
-
-.. toctree::
-   :glob:
-   :maxdepth: 1
-   :includehidden:
    :caption: Wireless intrusions
 
    docs/wireless/README.md
