@@ -19,6 +19,11 @@ threats and countermeasures is critical.
 
 ## How?
 
-* [Wi-fi scanner](scanning.md)
-* [Attack domestic Wi-fi](domestic.md)
+* [Overview common Wi-Fi attacks](overview.md)
+* [Scanning and sniffing](scanning.md)
+* [Cracking WEP encryption](wep.md)
+* [WPS pin attack](wps-pin.md)
+* [Cracking WPA/WPA2 keys](wpa.md)
+* [Using Wifite](wifite.md)
+
 

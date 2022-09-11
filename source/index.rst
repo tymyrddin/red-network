@@ -76,8 +76,12 @@ Riches in the ground
    :caption: Wireless intrusions
 
    docs/wireless/README.md
+   docs/wireless/overview.md
    docs/wireless/scanning.md
-   docs/wireless/*
+   docs/wireless/wep.md
+   docs/wireless/wps-pin.md
+   docs/wireless/wpa.md
+   docs/wireless/wifite
 
 .. toctree::
    :glob:
