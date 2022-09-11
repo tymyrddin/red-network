@@ -62,22 +62,12 @@ Riches in the ground
    :caption: HTTP hacks
 
    docs/http/README.md
-   docs/http/header-dumper.md
-   docs/http/referer-spoofing.md
-   docs/http/cookie-manipulation.md
    docs/http/auth-sniffing.md
-   docs/http/webserver-scanner.md
-   docs/http/SQL-injection.md
-   docs/http/command-injection.md
-   docs/http/xss.md
-   docs/http/HTTPS.md
-   docs/http/SSL-TLS-sniffing.md
+   docs/http/ssl-tls-sniffing.md
    docs/http/drive-by-download.md
-   docs/http/SSL-stripping.md
-   docs/http/SSL-beast.md
-   docs/http/HTTPS-spoofing.md
-   docs/http/proxy-scanner.md
-   docs/http/proxy-port-scanner.md
+   docs/http/ssl-stripping.md
+   docs/http/ssl-beast.md
+   docs/http/https-spoofing.md
 
 .. toctree::
    :glob:

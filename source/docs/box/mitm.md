@@ -39,8 +39,8 @@ complete identity theft and for gaining a foothold during the infiltration stage
 The adversary first subverts the address infrastructure (intercepts traffic). In passive interception forms, an 
 adversary makes, for example, an infected Wi-Fi hotspot available to the public. Active forms use some sort of spoofing. 
 After subverting the address infrastructure, any two-way encrypted traffic needs to be decrypted. This can be done by, 
-for example, [SSL spoofing](../http/SSL-stripping.md) (does not attack SSL itself, but the transition from non-encrypted to 
-encrypted communications), [spoofing HTTPS](../http/HTTPS-spoofing.md), an [SSL BEAST attack](../http/SSL-beast.md), or 
+for example, [SSL spoofing](../http/ssl-stripping.md) (does not attack SSL itself, but the transition from non-encrypted to 
+encrypted communications), [spoofing HTTPS](../http/https-spoofing.md), an [SSL BEAST attack](../http/ssl-beast.md), or 
 [hijacking SSL](../tcp-ip/SSL-hijacking.md). [Session replay](../tcp-ip/Replay-attack.md) and hijacking attacks can be used to bypass 
 authentication. If a root certificate can be installed on the target, the adversary can replace it and maintain a secure connection.
  
