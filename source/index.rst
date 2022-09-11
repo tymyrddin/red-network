@@ -91,7 +91,7 @@ Riches in the ground
 
    docs/bluetooth/README.md
    docs/bluetooth/protocol-stacks.md
-   docs/bluetooth/*
+   docs/bluetooth/recon.md
 
 .. toctree::
    :glob:

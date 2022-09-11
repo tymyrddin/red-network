@@ -19,6 +19,6 @@ like Android, iOS, Windows and Linux.
 ## How?
 
 * [Protocol stacks](protocol-stacks.md)
-* [Scanning](scanning.md)
+* [Bluetooth recon](recon.md)
 
 

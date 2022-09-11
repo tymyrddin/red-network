@@ -1,4 +1,4 @@
-# Bluetooth scanning
+# Bluetooth recon
 
 ## Attack tree
 
