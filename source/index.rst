@@ -90,6 +90,7 @@ Riches in the ground
    :caption: Bluetooth barrages
 
    docs/bluetooth/README.md
+   docs/bluetooth/protocol-stacks.md
    docs/bluetooth/*
 
 .. toctree::
