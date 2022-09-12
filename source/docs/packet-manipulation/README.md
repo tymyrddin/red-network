@@ -22,7 +22,7 @@ what is asked after authentication.
 
 ## How?
 
-* [PCAP files](PCAP-dumps.md)
+* [PCAP files](pcap.md)
 * [Sniffing](sniffing.md)
 * [Forging and decoding packets](forging.md)
 

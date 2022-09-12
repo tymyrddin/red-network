@@ -24,7 +24,7 @@ Riches in the ground
    :caption: Packet manipulation
 
    docs/packet-manipulation/README.md
-   docs/packet-manipulation/PCAP-dumps.md
+   docs/packet-manipulation/pcap.md
    docs/packet-manipulation/sniffing.md
    docs/packet-manipulation/forging.md
 
@@ -37,7 +37,9 @@ Riches in the ground
    docs/layer2/README.md
    docs/layer2/arp-spoofing.md
    docs/layer2/arp-cache-poisoning.md
+   docs/layer2/stp.md
    docs/layer2/vlan-hopping.md
+   docs/layer2/bypass-controls.md
 
 .. toctree::
    :glob:
@@ -46,28 +48,25 @@ Riches in the ground
    :caption: TCP/IP maneuvers
 
    docs/tcp-ip/README.md
-   docs/tcp-ip/IP-spoofing.md
-   docs/tcp-ip/DoS.md
-   docs/tcp-ip/DDoS.md
-   docs/tcp-ip/DrDoS.md
-   docs/tcp-ip/Replay-attack.md
-   docs/tcp-ip/TCP-SNP.md
-   docs/tcp-ip/Hijack-network-session.md
-   docs/tcp-ip/SSL-hijacking.md
+   docs/tcp-ip/ip-spoofing.md
+   docs/tcp-ip/replay-attack.md
+   docs/tcp-ip/tcp-snp.md
+   docs/tcp-ip/hijack-session.md
+   docs/tcp-ip/ssl-hijacking.md
 
 .. toctree::
    :glob:
    :maxdepth: 1
    :includehidden:
-   :caption: HTTP hacks
+   :caption: Application layer hacks
 
-   docs/http/README.md
-   docs/http/auth-sniffing.md
-   docs/http/ssl-tls-sniffing.md
-   docs/http/drive-by-download.md
-   docs/http/ssl-stripping.md
-   docs/http/ssl-beast.md
-   docs/http/https-spoofing.md
+   docs/application/README.md
+   docs/application/auth-sniffing.md
+   docs/application/ssl-tls-sniffing.md
+   docs/application/drive-by-download.md
+   docs/application/ssl-stripping.md
+   docs/application/ssl-beast.md
+   docs/application/https-spoofing.md
 
 .. toctree::
    :glob:
@@ -97,9 +96,12 @@ Riches in the ground
    :glob:
    :maxdepth: 1
    :includehidden:
-   :caption: Breaking out of the box
+   :caption: Distinctive drives
 
    docs/box/README.md
+   docs/box/dos.md
+   docs/box/ddos.md
+   docs/box/drdos.md
    docs/box/*
 
 .. toctree::

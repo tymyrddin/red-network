@@ -12,13 +12,10 @@ Hacking the heart of the Internet.
 
 ## How?
 
-* [IP-Spoofing](IP-spoofing.md)
-* [Denial of Service (DoS)](DoS.md)
-* [Distributed Denial of Service (DDoS)](DDoS.md)
-* [Distributed Deflection Denial of Service (DrDoS)](DrDoS.md)
-* [Replay attack](Replay-attack.md)
-* [TCP sequence number prediction attack](TCP-SNP.md)
-* [Hijack session (network)](Hijack-network-session.md)
-* [SSL hijacking](SSL-hijacking.md)
+* [IP-Spoofing](ip-spoofing.md)
+* [Replay attack](replay-attack.md)
+* [TCP sequence number prediction attack](tcp-snp.md)
+* [Hijack session (network)](hijack-session.md)
+* [SSL hijacking](ssl-hijacking.md)
 
 
