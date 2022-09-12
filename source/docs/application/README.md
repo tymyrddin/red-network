@@ -20,3 +20,7 @@ It is so dominant that many people even think HTTP (or the WWW) ***is*** the Int
 * [SSL stripping](ssl-stripping.md)
 * [SSL beast](ssl-beast.md)
 * [HTTPS spoofing](https-spoofing.md)
+* [SMB exploits](smb.md)
+* [SNMP exploits](snmp.md)
+* [SMTP exploits](smtp.md)
+* [FTP exploits](ftp.md)

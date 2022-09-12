@@ -67,6 +67,10 @@ Riches in the ground
    docs/application/ssl-stripping.md
    docs/application/ssl-beast.md
    docs/application/https-spoofing.md
+   docs/application/smb.md
+   docs/application/snmp.md
+   docs/application/smtp.md
+   docs/application/ftp.md
 
 .. toctree::
    :glob:
