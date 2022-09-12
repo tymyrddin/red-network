@@ -2,10 +2,8 @@
 
 ## What?
 
-Techniques such as spoofing emails, IP brute forcing, Google hacking, DHCP hijacking, MitM, Hijacking BGP, and 
-port redirection.
-
-Some nice overviews, creative hacks, tools, tips and codes.
+Some overviews, creative hacks, tools, tips and codes, like Google hacking, DHCP hijacking, MitM, Hijacking BGP, and 
+port redirection, ...
 
 ## Why?
 
