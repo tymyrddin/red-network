@@ -13,6 +13,14 @@
 
 ## Example
 
+```text
+msf > search smtp
+msf > search scanner name:smtp
+msf > search exploit name:smtp -S excellent
+```
+
+### Lucky trail
+
 Run a port scan against the email server (first try 25):
 
 ```text

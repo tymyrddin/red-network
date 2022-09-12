@@ -14,6 +14,14 @@
 ## Example
 
 ```text
+msf > search smb
+msf > search scanner name:smb
+msf > search exploit name:smb -S excellent
+```
+
+### Lucky trail
+
+```text
 # smbclient -L <IP address samba server>
 ```
 
