@@ -7,19 +7,19 @@
     1.1 L2 Spoofing 
         1.1.1 ARP/MAC spoofing (OR)
         1.1.2 VLAN hopping (OR)
-        1.1.3 STP (RSTP, PVSTP, MSTP) spoofing (OR)
+        1.1.3 STP (RSTP, PVSTP, MSTP) spoofing 
     1.2 L3 Spoofing 
         1.2.1 SLAAC attack (OR)
         1.2.2 Hijacking HSRP (VRRP, CARP) (OR)
         1.2.3 Hijacking BGP (OR)
         1.2.4 Routing table poisoning (OR)
-        1.2.5 Redirecting ICMP (OR)
+        1.2.5 Redirecting ICMP 
     1.3 L4+ Spoofing
         1.3.1 NetBIOS (LLMNR) spoofing (OR)
         1.3.2 DHCP spoofing (OR)
         1.3.3 Rogue Access Point (OR)
         1.3.4 IP spoofing (OR)
-        1.3.5 DNS spoofing (OR)
+        1.3.5 DNS spoofing 
 2 Decrypt (AND)
     2.2 SSL BEAST (OR)
     2.3 Hijack SSL (OR)
