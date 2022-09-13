@@ -4,11 +4,12 @@
 
 ```text
 1 Use an ARP spoofing tool such as Arpspoof, Cain & Abel, Arpoison, or Ettercap
-    1.1 Set the IP address of the tool to match the IP subnet of the victim (scans the network to find out 
-        the IP address and MAC address of all the hosts on the subnetwork) (AND)
+    1.1 Set the IP address of the tool to match the IP subnet of the victim (scans the network 
+        to find the IP address and MAC address of all the hosts on the subnetwork) (AND)
     1.2.Select a target (AND)
-    1.3 Send ARP packet, replacing the MAC address of the target with own MAC address while keeping IP address 
-        as is, causing packets meant for the target now being rerouted to the attacker (AND)
+    1.3 Send ARP packet, replacing the MAC address of the target with own MAC address while 
+        keeping IP address as is, causing packets meant for the target now being rerouted to 
+        the attacker (AND)
     1.4 When packets for the victim arrive, launch further attacks
         1.4.1 Associate multiple IP addresses to a single MAC address on a network (IP aliasing)
         1.4.2 Sit in between the communication between two users (MitM)

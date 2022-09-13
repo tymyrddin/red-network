@@ -6,10 +6,10 @@
 1 Spoof a source IP or MAC address of a valid device (macchanger)
 2 Exploit implementation weaknesses
     2.1 Weak authentication mechanisms in wireless protocols (OR)
-    2.2 Assign a static IP address on the network instead of trying to get one through DHCP (OR)
+    2.2 Assign a static IP address instead of trying to get one through DHCP (OR)
     2.3 ...
-3 Take advantage of NAC configuration weaknesses, for example, NAC enforces policy on IPv4 addresses but is not 
-configured to protect IPv6 addresses
+3 Take advantage of NAC configuration weaknesses, for example, NAC enforces policy on IPv4 
+  addresses but is not configured to protect IPv6 addresses
 4 Use a rogue wireless access point
 ```
 
