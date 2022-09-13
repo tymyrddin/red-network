@@ -22,11 +22,11 @@ Evaluate the reach of a wireless network, whether the traffic flowing over that 
 
 * [Overview common Wi-Fi attacks](overview.md)
 * [Scanning and sniffing](scanning.md)
-* [Rogue access points](rogue-ap.md)
-* [Downgrade and SSL strip](downgrade.md)
 * [Deauthentication attack](deauthentication.md)
 * [Cracking WEP encryption](wep.md)
 * [WPS pin attack](wps-pin.md)
 * [Cracking WPA/WPA2 keys](wpa.md)
 * [Using Wifite](wifite.md)
 * [Dragonblood attack](dragonblood.md)
+* [Rogue access points](rogue-ap.md)
+* [Downgrade and SSL strip](downgrade.md)

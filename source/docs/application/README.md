@@ -12,7 +12,7 @@ Enough reasons to have a deeper look at the security in some applications.
 
 ## How?
 
-* [Attacks on http](http.md)
+* [Attacks on HTTP](http.md)
 * [Attacks against SSL](ssl.md)
 * [HTTPS spoofing](https-spoofing.md)
 * [SMB exploits](smb.md)

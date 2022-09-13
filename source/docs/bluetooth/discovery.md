@@ -1,4 +1,4 @@
-# Bluetooth recon
+# Device discovery
 
 ## Attack tree
 

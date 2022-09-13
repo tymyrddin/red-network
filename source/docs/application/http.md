@@ -1,4 +1,4 @@
-# Attacks on http
+# Attacks on HTTP
 
 ## Attack tree
 

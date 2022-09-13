@@ -19,6 +19,8 @@ like Android, iOS, Windows and Linux.
 ## How?
 
 * [Protocol stacks](protocol-stacks.md)
-* [Bluetooth recon](recon.md)
+* [Device discovery](discovery.md)
+* [Bluesnarfing](bluesnarfing.md)
+* [Bluejacking](bluejacking.md)
 
 

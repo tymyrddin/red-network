@@ -74,14 +74,14 @@ Riches in the ground
    docs/wireless/README.md
    docs/wireless/overview.md
    docs/wireless/scanning.md
-   docs/wireless/rogue-ap.md
-   docs/wireless/downgrade.md
    docs/wireless/deauthentication.md
    docs/wireless/wep.md
    docs/wireless/wps-pin.md
    docs/wireless/wpa.md
    docs/wireless/wifite
    docs/wireless/dragonblood.md
+   docs/wireless/rogue-ap.md
+   docs/wireless/downgrade.md
 
 .. toctree::
    :glob:
@@ -91,7 +91,9 @@ Riches in the ground
 
    docs/bluetooth/README.md
    docs/bluetooth/protocol-stacks.md
-   docs/bluetooth/recon.md
+   docs/bluetooth/discovery.md
+   docs/bluetooth/bluesnarfing.md
+   docs/bluetooth/bluejacking.md
 
 .. toctree::
    :glob:
