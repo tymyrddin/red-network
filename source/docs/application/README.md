@@ -14,7 +14,6 @@ It is so dominant that many people even think HTTP (or the WWW) ***is*** the Int
 
 ## How?
 
-* [SSL/TLS sniffing](ssl-tls-sniffing.md)
 * [SSL stripping](ssl-stripping.md)
 * [SSL beast](ssl-beast.md)
 * [SSL hijacking](ssl-hijacking.md)

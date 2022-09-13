@@ -1,9 +1,6 @@
 Riches in the ground
 ================================================
 
-.. image:: _static/images/in-progress.png
-  :alt: In Progress ...
-
 .. toctree::
    :glob:
    :maxdepth: 1
@@ -60,7 +57,6 @@ Riches in the ground
    :caption: Application layer hacks
 
    docs/application/README.md
-   docs/application/ssl-tls-sniffing.md
    docs/application/ssl-stripping.md
    docs/application/ssl-beast.md
    docs/application/ssl-hijacking.md
