@@ -19,6 +19,7 @@ It is so dominant that many people even think HTTP (or the WWW) ***is*** the Int
 * [Drive-by-Download](drive-by-download.md)
 * [SSL stripping](ssl-stripping.md)
 * [SSL beast](ssl-beast.md)
+* [SSL hijacking](ssl-hijacking.md)
 * [HTTPS spoofing](https-spoofing.md)
 * [SMB exploits](smb.md)
 * [SNMP exploits](snmp.md)

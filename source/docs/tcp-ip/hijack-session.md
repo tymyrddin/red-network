@@ -1,4 +1,4 @@
-# Hijack session (network)
+# Hijack session
 
 ## Attack tree
 

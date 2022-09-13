@@ -15,7 +15,4 @@ Hacking the heart of the Internet.
 * [IP-Spoofing](ip-spoofing.md)
 * [Replay attack](replay-attack.md)
 * [TCP sequence number prediction attack](tcp-snp.md)
-* [Hijack session (network)](hijack-session.md)
-* [SSL hijacking](ssl-hijacking.md)
-
-
+* [Hijack session](hijack-session.md)

@@ -52,7 +52,6 @@ Riches in the ground
    docs/tcp-ip/replay-attack.md
    docs/tcp-ip/tcp-snp.md
    docs/tcp-ip/hijack-session.md
-   docs/tcp-ip/ssl-hijacking.md
 
 .. toctree::
    :glob:
@@ -66,6 +65,7 @@ Riches in the ground
    docs/application/drive-by-download.md
    docs/application/ssl-stripping.md
    docs/application/ssl-beast.md
+   docs/application/ssl-hijacking.md
    docs/application/https-spoofing.md
    docs/application/smb.md
    docs/application/snmp.md
@@ -85,6 +85,7 @@ Riches in the ground
    docs/wireless/wps-pin.md
    docs/wireless/wpa.md
    docs/wireless/wifite
+   docs/wireless/fake-ap.md
 
 .. toctree::
    :glob:
