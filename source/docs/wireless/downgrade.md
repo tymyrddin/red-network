@@ -5,7 +5,7 @@ traffic coming from the wireless client.
 
 The connection with the server uses normal HTTPS. The connection with the client uses either a weaker version of SSL 
 (downgrade attack, more easily cracked), or no encryption at all, using cleartext HTTP 
-([SSL strip attack](../application/ssl-stripping.md)) between the hack machine and the client.
+([SSL strip attack](../application/ssl.md)) between the hack machine and the client.
 
 Both cases depend on the user permitting a connection to a website with an untrusted certificate. The certificate 
 used in a downgrade attack is a self-signed certificate from the adversary machine. 

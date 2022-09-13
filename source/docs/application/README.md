@@ -2,21 +2,18 @@
 
 ## What?
 
-Hyper Text Transfer Protocol (HTTP) is probably the most known protocol of the Internet. There are information 
-sites, shopping portals, search engines, e-mail and forum services, office software, wikis, blogs, calendars, 
-social networks, chat software, e-government applications etc., all HTTP-based. 
-It is so dominant that many people even think HTTP (or the WWW) ***is*** the Internet. 
+Hacking the layer of the OSI Model just beneath the surface of user interfaces, and on top of the other 6 layers of 
+the model. In this layer, data is presented in a form that user-facing applications can use. 
 
 ## Why?
 
-* Most attacks nowadays are aimed at web applications, and web browsers are one of the favourite attack tools. 
-* Enough reasons to have a deeper look at the security of the web in these directions.
+Most attacks nowadays are aimed at web applications, and web browsers are one of the favourite attack tools. 
+Enough reasons to have a deeper look at the security in some applications.
 
 ## How?
 
-* [SSL stripping](ssl-stripping.md)
-* [SSL beast](ssl-beast.md)
-* [SSL hijacking](ssl-hijacking.md)
+* [Attacks on http](http.md)
+* [Attacks against SSL](ssl.md)
 * [HTTPS spoofing](https-spoofing.md)
 * [SMB exploits](smb.md)
 * [SNMP exploits](snmp.md)

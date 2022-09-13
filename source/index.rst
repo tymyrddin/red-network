@@ -57,9 +57,8 @@ Riches in the ground
    :caption: Application layer hacks
 
    docs/application/README.md
-   docs/application/ssl-stripping.md
-   docs/application/ssl-beast.md
-   docs/application/ssl-hijacking.md
+   docs/application/http.md
+   docs/application/ssl.md
    docs/application/https-spoofing.md
    docs/application/smb.md
    docs/application/snmp.md
