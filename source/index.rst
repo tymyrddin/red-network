@@ -76,6 +76,7 @@ Riches in the ground
    docs/wireless/overview.md
    docs/wireless/scanning.md
    docs/wireless/rogue-ap.md
+   docs/wireless/downgrade.md
    docs/wireless/deauthentication.md
    docs/wireless/wep.md
    docs/wireless/wps-pin.md
