@@ -21,8 +21,10 @@ threats and countermeasures is critical.
 
 * [Overview common Wi-Fi attacks](overview.md)
 * [Scanning and sniffing](scanning.md)
+* [Rogue access points](rogue-ap.md)
+* [Deauthentication attack](deauthentication.md)
 * [Cracking WEP encryption](wep.md)
 * [WPS pin attack](wps-pin.md)
 * [Cracking WPA/WPA2 keys](wpa.md)
 * [Using Wifite](wifite.md)
-* [Evil twins](fake-ap.md)
+* [Dragonblood attack](dragonblood.md)

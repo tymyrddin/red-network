@@ -81,11 +81,13 @@ Riches in the ground
    docs/wireless/README.md
    docs/wireless/overview.md
    docs/wireless/scanning.md
+   docs/wireless/rogue-ap.md
+   docs/wireless/deauthentication.md
    docs/wireless/wep.md
    docs/wireless/wps-pin.md
    docs/wireless/wpa.md
    docs/wireless/wifite
-   docs/wireless/fake-ap.md
+   docs/wireless/dragonblood.md
 
 .. toctree::
    :glob:

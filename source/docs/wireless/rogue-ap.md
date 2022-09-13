@@ -1,10 +1,11 @@
-# Fake access points
+# Rogue access points
 
 ## Attack tree
 
 ```text
-1 Evil twin attack
-2 Karma attack
+1 Evil twin attack (OR)
+2 Karma attack (OR)
+3 Captive portal
 ```
 
 ## Notes
@@ -32,8 +33,21 @@ suspicion.
 
 ### Downgrade and SSL strip
 
+Both Karma and Evil Twin can be used in combination with an on-path attack which intercepts all
+traffic coming from the wireless client.
+
 The connection with the server uses normal HTTPS. The connection with the client uses either a weaker version of SSL 
-(downgrade attack), or no encryption at all, using cleartext HTTP ([SSL strip attack](../application/ssl-stripping.md)).
+(downgrade attack, more easily cracked), or no encryption at all, using cleartext HTTP 
+([SSL strip attack](../application/ssl-stripping.md)) between the hack machine and the client.
 
 Both cases depend on the user permitting a connection to a website with an untrusted certificate. The certificate 
 used in a downgrade attack is a self-signed certificate from the adversary machine. 
+
+### Captive portal
+
+A captive portal is the term for the web page that appears that asks users for their login credentials when 
+connecting to a wireless network, most likely a guest wireless network, such as wireless networks found at airports or 
+cafés. A captive portal attack occurs when the adversary sets up a captive portal for the evil twin
+network that is used to prompt the user for the user’s password. Unsuspecting users may enter their passwords, 
+not knowing they are connected to the fake Wi-Fi network. Once the adversary has the password, no time needs to 
+be spent on capturing and cracking wireless traffic.
