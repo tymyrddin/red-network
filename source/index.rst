@@ -60,9 +60,7 @@ Riches in the ground
    :caption: Application layer hacks
 
    docs/application/README.md
-   docs/application/auth-sniffing.md
    docs/application/ssl-tls-sniffing.md
-   docs/application/drive-by-download.md
    docs/application/ssl-stripping.md
    docs/application/ssl-beast.md
    docs/application/ssl-hijacking.md
