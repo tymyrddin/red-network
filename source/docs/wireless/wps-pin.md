@@ -47,7 +47,10 @@ Using Reaver:
 ## Notes
 
 Wi-Fi Protected Setup, or WPS, is a wireless standard protocol used by WPA and WPA2 protected networks that helps 
-autoconfigure wireless clients with the wireless encryption password so that they do not need to input the password.
+autoconfigure wireless clients with the wireless encryption password so that they do not need to input the password. 
+WPS is commonly found in consumer appliances and may use in-band methods, such as using a personal identification 
+number (PIN) during setup or pushing a button to initiate the network discovery process, or out-of-band methods such 
+as near field communication (NFC), where proximity initiates the connection.
 
 * Many wireless access points and routers have a WPS button that you can press to connect a wireless 
 client to the network via the WPS protocol. After clicking the button, you then go to the client device (typically 

@@ -31,18 +31,6 @@ can respond with their own rogue AP information and prompt the client to connect
 In a karma attack, the adversary does not need to broadcast a spoofed SSID to entice users and potentially raise 
 suspicion.
 
-### Downgrade and SSL strip
-
-Both Karma and Evil Twin can be used in combination with an on-path attack which intercepts all
-traffic coming from the wireless client.
-
-The connection with the server uses normal HTTPS. The connection with the client uses either a weaker version of SSL 
-(downgrade attack, more easily cracked), or no encryption at all, using cleartext HTTP 
-([SSL strip attack](../application/ssl-stripping.md)) between the hack machine and the client.
-
-Both cases depend on the user permitting a connection to a website with an untrusted certificate. The certificate 
-used in a downgrade attack is a self-signed certificate from the adversary machine. 
-
 ### Captive portal
 
 A captive portal is the term for the web page that appears that asks users for their login credentials when 
