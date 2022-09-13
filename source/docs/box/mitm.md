@@ -1,4 +1,4 @@
-# Man-in-the-Middle (MitM)
+# On-path attack
 
 ## Attack tree
 

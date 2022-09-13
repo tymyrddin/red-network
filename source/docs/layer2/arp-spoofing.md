@@ -40,7 +40,8 @@ In an ARP spoofing attack, an adversary sends spoofed ARP messages over a LAN in
 * ARP spoofing can be used to steal information, modify data-in-transit or stop traffic on a LAN.
 * ARP spoofing attacks can also be used to facilitate other types of attacks, including [DoS](../box/dos.md) attacks, [session hijacking](../tcp-ip/hijack-session.md) and [MitM](../box/mitm.md) attacks.
 
-## Network tools
+## Tools
+
 * [dsniff](https://www.monkey.org/~dugsong/dsniff/)
 * [arpwatch](https://ee.lbl.gov/)
 

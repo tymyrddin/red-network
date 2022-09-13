@@ -1,4 +1,4 @@
-# SSL Stripping
+# SSL stripping
 
 ## Attack tree
 
@@ -16,6 +16,13 @@
 
 ## Notes
 
-* SSL stripping downgrades an HTTPS connection to HTTP by intercepting the TLS authentication sent from the application to the user. The adversary sends an unencrypted version of the application’s site to the user while maintaining the secured session with the application. The user’s session is visible to the adversary.
-* SSL stripping is one of the most potent [MitM attacks](../box/mitm.md) between a client device and a server because it allows for exploitation of services that people assume to be secure.
+SSL stripping downgrades an HTTPS connection to HTTP by intercepting the TLS authentication sent from the 
+application to the user. The adversary sends an unencrypted version of the application’s site to the user while 
+maintaining the secured session with the application. The user’s session is visible to the adversary.
+It is one of the most potent [on-path attack](../box/mitm.md) between a client device and a server because it 
+allows for exploitation of services that people assume to be secure.
 
+## Tools
+
+* [dsniff](https://www.monkey.org/~dugsong/dsniff/)
+* [sslstrip](https://www.kali.org/tools/sslstrip/)

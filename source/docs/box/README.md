@@ -14,7 +14,7 @@ Because they do not fit into the other categories or span several of them.
 * [Denial of Service (DoS)](dos.md)
 * [Distributed Denial of Service (DDoS)](ddos.md)
 * [Distributed Deflection Denial of Service (DrDoS)](drdos.md)
-* [Man-in-the-Middle (MitM)](mitm.md)
+* [On-path attack](mitm.md)
 * [Port redirection](port-redirection.md)
 * [Router compromise](router.md)
 * [Virtual host confusion attack](host-confusion.md)
