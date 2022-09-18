@@ -41,7 +41,7 @@ adversary makes, for example, an infected Wi-Fi hotspot available to the public.
 After subverting the address infrastructure, any two-way encrypted traffic needs to be decrypted. This can be done by, 
 for example, [SSL spoofing](../application/ssl.md) (does not attack SSL itself, but the transition from non-encrypted to 
 encrypted communications), [spoofing HTTPS](../application/https-spoofing.md), an [SSL BEAST attack](../application/ssl.md), or 
-[hijacking SSL](../application/ssl.md). [Session replay](../tcp-ip/replay-attack.md) and hijacking attacks can be used to bypass 
+[hijacking SSL](../application/ssl.md). [Session replay](../transport/replay-attack.md) and hijacking attacks can be used to bypass 
 authentication. If a root certificate can be installed on the target, the adversary can replace it and maintain a secure connection.
  
 NetBIOS is outdated but still lives on in some older systems, sometimes for backward compatability. It is the equivalent of broadcasting names to look for each other but is not routable. It is local network only. If no one on the other network can use it for your network, then no one there can access your NetBIOS shared folders and printers, unless one has gained access to your local network. You can also access NetBIOS machines with a WINS server. That is the NetBIOS equivalent of a DNS server.

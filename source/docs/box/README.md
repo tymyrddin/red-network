@@ -11,9 +11,9 @@ Because they do not fit into the other categories or span several of them.
 
 ## How?
 
-* [Denial of Service (DoS)](dos.md)
-* [Distributed Denial of Service (DDoS)](ddos.md)
-* [Distributed Deflection Denial of Service (DrDoS)](drdos.md)
+* [Denial of Service (DoS)](../internet/dos.md)
+* [Distributed Denial of Service (DDoS)](../internet/ddos.md)
+* [Distributed Deflection Denial of Service (DrDoS)](../internet/drdos.md)
 * [On-path attack](mitm.md)
 * [Port redirection](port-redirection.md)
 * [Router compromise](router.md)

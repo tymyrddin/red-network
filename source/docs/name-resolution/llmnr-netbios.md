@@ -13,7 +13,7 @@
 ### LLMNR/NBT-NS poisoning through SMB
 
 1. Use `ifconfig` to find NIC <interface> name of attack machine
-1. Start responder with the NIC to listen for LLMNR requests on. The responder run 
+2. Start responder with the NIC to listen for LLMNR requests on. The responder run 
 starts LLMNR and NBT-NS poisoning by default:
 
 ```text
@@ -25,7 +25,7 @@ has been made available and is asking for user credentials. Even if the user doe
 will be obtained. Responder creates logs of every session. All the hashes dumped can be found in the folder 
 `/usr/share/responder/logs`
 
-2. Save the hashes in a file named `hash.txt` and use hashcat to crack it:
+3. Save the hashes in a file named `hash.txt` and use hashcat to crack it:
 
 ```text
 # hashcat -m 5600 hash.txt /usr/share/wordlists/rockyou.txt

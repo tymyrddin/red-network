@@ -5,65 +5,12 @@ Riches in the ground
    :glob:
    :maxdepth: 1
    :includehidden:
-   :caption: Name resolution skirmishes
-
-   docs/name-resolution/README.md
-   docs/name-resolution/dns-snooping.md
-   docs/name-resolution/dns-spoofing
-   docs/name-resolution/dns-attacks
-   docs/name-resolution/llmnr-netbios.md
-   docs/name-resolution/ntlm-relay.md
-
-.. toctree::
-   :glob:
-   :maxdepth: 1
-   :includehidden:
    :caption: Packet manipulation
 
    docs/packet-manipulation/README.md
    docs/packet-manipulation/pcap.md
    docs/packet-manipulation/sniffing.md
    docs/packet-manipulation/forging.md
-
-.. toctree::
-   :glob:
-   :maxdepth: 1
-   :includehidden:
-   :caption: Layer 2 charges
-
-   docs/layer2/README.md
-   docs/layer2/arp-spoofing.md
-   docs/layer2/arp-cache-poisoning.md
-   docs/layer2/stp.md
-   docs/layer2/vlan-hopping.md
-   docs/layer2/bypass-controls.md
-
-.. toctree::
-   :glob:
-   :maxdepth: 1
-   :includehidden:
-   :caption: TCP/IP maneuvers
-
-   docs/tcp-ip/README.md
-   docs/tcp-ip/ip-spoofing.md
-   docs/tcp-ip/replay-attack.md
-   docs/tcp-ip/tcp-snp.md
-   docs/tcp-ip/hijack-session.md
-
-.. toctree::
-   :glob:
-   :maxdepth: 1
-   :includehidden:
-   :caption: Application layer hacks
-
-   docs/application/README.md
-   docs/application/http.md
-   docs/application/ssl.md
-   docs/application/https-spoofing.md
-   docs/application/smb.md
-   docs/application/snmp.md
-   docs/application/smtp.md
-   docs/application/ftp.md
 
 .. toctree::
    :glob:
@@ -99,12 +46,73 @@ Riches in the ground
    :glob:
    :maxdepth: 1
    :includehidden:
+   :caption: Network access altercations
+
+   docs/access/README.md
+   docs/access/arp-spoofing.md
+   docs/access/arp-cache-poisoning.md
+   docs/access/stp.md
+   docs/access/vlan-hopping.md
+   docs/access/bypass-controls.md
+
+.. toctree::
+   :glob:
+   :maxdepth: 1
+   :includehidden:
+   :caption: Internet incursions
+
+   docs/internet/README.md
+   docs/internet/ip-spoofing.md
+   docs/internet/dos.md
+   docs/internet/ddos.md
+   docs/internet/drdos.md
+
+.. toctree::
+   :glob:
+   :maxdepth: 1
+   :includehidden:
+   :caption: Transport raids
+
+   docs/transport/README.md
+   docs/transport/replay-attack.md
+   docs/transport/tcp-snp.md
+   docs/transport/hijack-session.md
+
+.. toctree::
+   :glob:
+   :maxdepth: 1
+   :includehidden:
+   :caption: Application layer hacks
+
+   docs/application/README.md
+   docs/application/http.md
+   docs/application/ssl.md
+   docs/application/https-spoofing.md
+   docs/application/smb.md
+   docs/application/snmp.md
+   docs/application/smtp.md
+   docs/application/ftp.md
+
+.. toctree::
+   :glob:
+   :maxdepth: 1
+   :includehidden:
+   :caption: Name resolution skirmishes
+
+   docs/name-resolution/README.md
+   docs/name-resolution/dns-snooping.md
+   docs/name-resolution/dns-spoofing
+   docs/name-resolution/dns-attacks
+   docs/name-resolution/llmnr-netbios.md
+   docs/name-resolution/ntlm-relay.md
+
+.. toctree::
+   :glob:
+   :maxdepth: 1
+   :includehidden:
    :caption: Distinctive drives
 
    docs/box/README.md
-   docs/box/dos.md
-   docs/box/ddos.md
-   docs/box/drdos.md
    docs/box/*
 
 .. toctree::
