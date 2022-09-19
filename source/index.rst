@@ -4,11 +4,13 @@ Riches in the ground
 The concept at the very heart of all scarcity theories — even the utopian ones, albeit by negation — is that of
 scarcity, itself a contested concept. The relevant literature identifies three categories of scarcity: absolute
 scarcity, relative scarcity and political scarcity. Absolute scarcity broadly refers to the idea that all goods,
-including natural ones, are finite. Makes sense on a finite planet.
+including natural ones, are finite. Makes sense beyond concepts, what with earth being a finite planet.
 
-But this is the digital world. Aside from all of the resources to make and maintain the equipment, and the energy
+And this concerns the digital world. Aside from all of the resources to make and maintain the equipment, and the energy
 used to keep it all going on the physical level, on the other levels there is hardly limit to the riches we can dig
-for as red team, as most of it was built with new features for more convenience (and profit) in mind, not security.
+for as red team, as the ground principle seems to have been building new features for more convenience (and profit),
+with only some security in mind. That seems to be improving, and in many cases gets tacked on. When one digs deep
+enough though ...
 
 .. toctree::
    :glob:
