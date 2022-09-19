@@ -24,9 +24,7 @@
         3.3 Disassociation/deauthentication attack
 ```
 
-## Notes
-
-### WEP
+## WEP
 
 WEP was the standard before WPA. The WEP encryption process uses the RC4 stream cipher. RC4 is a symmetric key 
 cipher used to expand a short key into an infinite pseudo-random keystream.
@@ -46,7 +44,7 @@ Key reuse in the encryption stream (24-bit IV) makes it vulnerable to cracking, 
 and replay attacks. `aireplay-ng` can be used to generate IV samples and `aircrack-ng` to
 [decipher the secret key](wep.md). You can also use [wifite](wifite.md) to conduct attacks against WEP.
 
-### WPA and WPA2
+## WPA and WPA2
 
 WPA was introduced as an interim replacement for WEP and did not require
 consumers to replace hardware to support the new security measure. Instead, most

@@ -9,8 +9,8 @@ including natural ones, are finite. Makes sense beyond concepts, what with earth
 And this concerns the digital world. Aside from all of the resources to make and maintain the equipment, and the energy
 used to keep it all going on the physical level, on the other levels there is hardly any limit to the riches we can dig
 for as red team, as its grounding principle seems to have been building new features upon new features for human
-convenience and (increasing) profit, with only some security now and then in mind. That seems to be improving, and in
-many cases gets tacked on. When one digs deep enough though ...
+convenience and (increasing) profit, with only some security and privacy concerns in mind. That seems to be improving,
+and in many cases security measures get tacked on. When one digs deep enough though ...
 
 .. toctree::
    :glob:
@@ -125,6 +125,7 @@ many cases gets tacked on. When one digs deep enough though ...
 
    docs/ad/README.md
    docs/ad/kerberos.md
+   docs/ad/vulns.md
    docs/ad/recon.md
 
 .. toctree::

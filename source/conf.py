@@ -45,11 +45,11 @@ html_theme_options = {
     'prev_next_buttons_location': 'bottom',
     'style_external_links': True,
     # Toc options
-    'collapse_navigation': False,
+    'collapse_navigation': True,
     'sticky_navigation': False,
-    'navigation_depth': 3,
+    'navigation_depth': 4,
     'includehidden': True,
-    'titles_only': True
+    'titles_only': False
 }
 
 html_title = "Riches in the ground"
