@@ -124,6 +124,7 @@ and in many cases security measures get tacked on. When one digs deep enough tho
    :caption: Active directory run-ins
 
    docs/ad/README.md
+   docs/ad/overview.md
    docs/ad/kerberos.md
    docs/ad/vulns.md
    docs/ad/recon.md

@@ -53,3 +53,21 @@ Name (SPN) of the service the client wants to access.
 service, then sends a valid session key for the service to the client. 
 5. KRB-AP-REQ - The client requests the service and sends the valid session key to prove the user has access. 
 6. KRB-AP-REP - The service grants access
+
+## Kerberos tickets overview 
+
+The main ticket that you will see is a ticket-granting ticket. These can come in various forms such as a `.kirbi` 
+for Rubeus, `.ccache` for Impacket. A ticket is typically base64 encoded and can be used for various attacks. 
+
+* A normal TGT will only work with the given service.
+* A KRBTGT allows for getting any service ticket, in turn allowing access to anything on the domain.
+
+## Attack privilege requirements
+
+* Kerbrute Enumeration - No domain access required 
+* Pass the Ticket - Access as a user to the domain required
+* Kerberoasting - Access as any user required
+* AS-REP Roasting - Access as any user required
+* Silver Ticket - Service hash required 
+* Golden Ticket - Full domain compromise (domain admin) required
+* Skeleton Key - Full domain compromise (domain admin) required
