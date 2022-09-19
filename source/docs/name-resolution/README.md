@@ -27,5 +27,3 @@ what is asked after authentication.
 * [DNS attacks overview](dns-attacks.md)
 * [Attacking LLMNR and NetBIOS](llmnr-netbios.md)
 * [NTLM relay attack](ntlm-relay.md)
-
-

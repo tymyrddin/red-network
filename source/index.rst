@@ -110,6 +110,16 @@ Riches in the ground
    :glob:
    :maxdepth: 1
    :includehidden:
+   :caption: Active directory run-ins
+
+   docs/ad/README.md
+   docs/ad/kerberos.md
+   docs/ad/recon.md
+
+.. toctree::
+   :glob:
+   :maxdepth: 1
+   :includehidden:
    :caption: Distinctive drives
 
    docs/box/README.md
