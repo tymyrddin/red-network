@@ -1,4 +1,4 @@
-# Reconnaissance AD
+# Recon active directory
 
 ## Attack tree
 
