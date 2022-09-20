@@ -21,3 +21,4 @@ without having to set up multiple users on a machine. Active Directory does it a
 * [Recon active directory](recon.md)
 * [Attacktive directory](attacktive.md)
 * [Attacking kerberos](kerberos.md)
+* [Post exploitation basics](post.md)
