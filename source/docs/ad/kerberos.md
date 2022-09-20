@@ -1,5 +1,7 @@
 # Attacking kerberos
 
+![Golden ticket](../../_static/images/golden-ticket.png)
+
 ## Attack tree
 
 ```text
@@ -37,6 +39,8 @@ Add the following line to `/etc/hosts` file (as root):
 Enumerate users with kerbrute
 
     /opt/kerbrute/kerbrute userenum --dc CONTROLLER.local -d CONTROLLER.local User.txt -t 100
+
+![Results kerbrute controller.local](../../_static/images/kerbrute-controllerlocal.png)
 
 ### Harvesting & brute-forcing tickets
 

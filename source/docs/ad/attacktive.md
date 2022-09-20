@@ -1,5 +1,7 @@
 # Attacktive directory
 
+![Kerberos](../../_static/images/kerberosfun.png)
+
 ## Attack tree
 
 ```text
@@ -50,6 +52,8 @@ wget https://raw.githubusercontent.com/Sq00ky/attacktive-directory-tools/master/
 Run the kerbrute command in the ~/Downloads directory:
 
     # /opt/kerbrute/kerbrute userenum --dc spookysec.local -d spookysec.local userlist.txt -t 100
+
+![Results kerbrute spooky.local](../../_static/images/kerbrute-spookylocal.png)
 
 ### Exploiting Kerberos
 

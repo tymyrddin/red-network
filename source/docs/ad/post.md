@@ -1,5 +1,7 @@
 # Post exploitation basics
 
+![Bloodhound](../../_static/images/bloodhound.png)
+
 ## Attack tree
 
 ```text
