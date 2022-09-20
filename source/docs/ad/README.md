@@ -16,7 +16,8 @@ without having to set up multiple users on a machine. Active Directory does it a
 ## How?
 
 * [Active directory overview](overview.md)
-* [Kerberos authentication](kerberos.md)
+* [Kerberos authentication](authentication.md)
 * [Active directory vulnerabilities](vulns.md)
 * [Recon active directory](recon.md)
 * [Attacktive directory](attacktive.md)
+* [Attacking kerberos](kerberos.md)

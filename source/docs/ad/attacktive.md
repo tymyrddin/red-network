@@ -3,17 +3,17 @@
 ## Attack tree
 
 ```text
-1 Discovery
+1 Discovery (AND)
     1.1 Scan ports
     1.2 Enumerate 139/445
-2 Enumerate DC users via kerberos (AND)
+2 Enumerate DC users (AND)
 3 Exploit Kerberos
     3.1 Query a ticket from users (if possible) (AND)
     3.2 Crack the hash
-4 Enumerate the DC further 
+4 Enumerate the DC further (AND)
     4.1 Map remote SMB shares
-    4.2 Search for files with information for further escalation
-    4.3 Decode if necessary
+    4.2 Search for information for further escalation
+    4.3 Decode or crack if necessary
 5 Elevate privileges within the domain
     5.1 Dump ntds.dit
     5.2 Get administrators NTLM hash
@@ -21,6 +21,8 @@
 ```
 
 ## Example
+
+The example was made from doing the [THM: Attacktive Directory room](https://tryhackme.com/room/attacktivedirectory)
 
 ### Discovery
 
@@ -32,7 +34,7 @@
 
     # enum4linux <IP address target>
 
-## Enumerate the DC
+### Enumerate the DC
 
 Add the following line to `/etc/hosts` file:
 

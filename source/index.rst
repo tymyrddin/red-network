@@ -125,10 +125,11 @@ and in many cases security measures get tacked on. When one digs deep enough tho
 
    docs/ad/README.md
    docs/ad/overview.md
-   docs/ad/kerberos.md
+   docs/ad/authentication.md
    docs/ad/vulns.md
    docs/ad/recon.md
    docs/ad/attacktive.md
+   docs/ad/kerberos.md
 
 .. toctree::
    :glob:
