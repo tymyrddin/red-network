@@ -1,6 +1,8 @@
 # Attacktive directory
 
-![Kerberos](../../_static/images/kerberosfun.png)
+| ![Kerberos](../../_static/images/kerberosfun.png) |
+|:--:|
+| The example was made from doing the [THM: Attacktive Directory room](https://tryhackme.com/room/attacktivedirectory) |
 
 ## Attack tree
 
@@ -22,21 +24,15 @@
     5.3 Pass the hash with Evil-WinRM
 ```
 
-## Example
-
-The example was made from doing the [THM: Attacktive Directory room](https://tryhackme.com/room/attacktivedirectory)
-
-### Discovery
-
-#### Scan with nmap
+## Scan with nmap
 
     # nmap -sV -sC -T4 <IP address target>
 
-#### Enumerate 139/445
+## Enumerate 139/445
 
     # enum4linux <IP address target>
 
-### Enumerate the DC
+## Enumerate the DC
 
 Add the following line to `/etc/hosts` file:
 
@@ -55,7 +51,7 @@ Run the kerbrute command in the ~/Downloads directory:
 
 ![Results kerbrute spooky.local](../../_static/images/kerbrute-spookylocal.png)
 
-### Exploiting Kerberos
+## Exploiting Kerberos
 
 Kerberos pre-authentication has been disabled for svc-admin. Get the ticket:
 
@@ -90,7 +86,7 @@ python3 secretsdump.py spookysec.local/backup:FOUNDPASSWORDHERE@spookysec.local 
 
 Now we have the password: management2005
 
-### Enumerate the DC further
+## Enumerate the DC further
 
 Map remote shares:
 
@@ -121,7 +117,7 @@ The username of the account "backup" indicated it is the backup account for the 
 This account has a unique permission that allows all Active Directory changes to be synced with this user account. 
 This includes password hashes.
 
-### Elevate privileges within the domain
+## Elevate privileges within the domain
 
 Retrieve all password hashes that this user account (which is synced with the domain controller) has to offer. 
 Exploiting this, we may have full control over the AD Domain.

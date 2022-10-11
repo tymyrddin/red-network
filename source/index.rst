@@ -131,6 +131,7 @@ and in many cases security measures get tacked on. When one digs deep enough tho
    docs/ad/attacktive.md
    docs/ad/kerberos.md
    docs/ad/post.md
+   More active directory hacks <https://tymyrddin.github.io/red-ad/>
 
 .. toctree::
    :glob:
