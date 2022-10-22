@@ -2,8 +2,7 @@
 
 ## What?
 
-Some overviews, creative hacks, tools, tips and codes, like Google hacking, DHCP hijacking, MitM, Hijacking BGP, and 
-port redirection, ...
+Some overviews, creative hacks, tools, tips and codes.
 
 ## Why?
 
