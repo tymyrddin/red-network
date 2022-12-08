@@ -145,5 +145,5 @@ and in many cases security measures get tacked on. When one digs deep enough tho
 .. toctree::
    :caption: Links
 
-   Red Team <https://tymyrddin.github.io/red/>
+   Red Team <https://red.tymyrddin.dev/>
 
