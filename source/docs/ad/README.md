@@ -22,4 +22,4 @@ without having to set up multiple users on a machine. Active Directory does it a
 * [Attacktive directory](attacktive.md)
 * [Attacking kerberos](kerberos.md)
 * [Post exploitation basics](post.md)
-* [More active directory hacks](https://tymyrddin.github.io/red-ad/)
+* [More active directory hacks](red-ad:index)
