@@ -12,6 +12,8 @@ for as red team, as its grounding principle seems to have been building new feat
 convenience and (increasing) profit, with only some security and privacy concerns in mind. That seems to be improving,
 and in many cases security measures get tacked on. When one digs deep enough though ...
 
+----
+
 .. toctree::
    :glob:
    :maxdepth: 1
@@ -141,9 +143,3 @@ and in many cases security measures get tacked on. When one digs deep enough tho
 
    docs/box/README.md
    docs/box/*
-
-.. toctree::
-   :caption: Links
-
-   Red Team <https://red.tymyrddin.dev/>
-
