@@ -27,7 +27,7 @@ Many network switches when overloaded can start acting like a hub and start broa
 all the hosts connected to the network. As a hub, the switch does not enable its port security feature, and now it 
 broadcasts all the network traffic. Sniff. 
 
-### ARP cache poisoning likelihood
+### ARP cache poisoning exploitability
 
 Poisoning ARP cache remotely is at minimum a 2-step exploitation chain, as it requires either physical access to the 
 network or control of one of the machines in the network.
