@@ -1,18 +1,24 @@
 Riches in the ground
 ================================================
 
-The concept at the very heart of all scarcity theories — even the utopian ones, albeit by negation — is that of
-scarcity, itself a contested concept. The relevant literature identifies three categories of scarcity: absolute
-scarcity, relative scarcity and political scarcity. Absolute scarcity broadly refers to the idea that all goods,
-including natural ones, are finite. Makes sense beyond concepts, what with earth being a finite planet.
+The concept at the very heart of all scarcity theories — even the utopian ones, albeit by negation — is that of scarcity, itself a contested concept. The relevant literature identifies three categories of scarcity: absolute scarcity, relative scarcity and political scarcity. Absolute scarcity broadly refers to the idea that all goods, including natural ones, are finite. Makes sense beyond concepts, what with earth being a finite planet.
 
-And this concerns the digital world. Aside from all of the resources to make and maintain the equipment, and the energy
-used to keep it all going on the physical level, on the other levels there is hardly any limit to the riches we can dig
-for as red team, as its grounding principle seems to have been building new features upon new features for human
-convenience and (increasing) profit, with only some security and privacy concerns in mind. That seems to be improving,
-and in many cases security measures get tacked on. When one digs deep enough though ...
+And this concerns the digital world. Aside from all of the resources to make and maintain the equipment, and the energy used to keep it all going on the physical level, on the other levels there is hardly any limit to the riches we can dig for, as its grounding principle seems to have been building new features upon new features for human convenience and (increasing) profit, with only some security and privacy concerns in mind. That seems to be improving, and in many cases security measures get tacked on. When one digs deep enough though ...
+
+.. image:: _static/images/in-progress.png
+  :alt: Forever in progress ...
 
 ----
+
+.. toctree::
+   :maxdepth: 1
+   :includehidden:
+   :caption: Preparation
+
+   Build a local testlab: Network tools <https://red.tymyrddin.dev/projects/testlab/en/latest/docs/network/README.html>
+   Build a local testlab: Wireless tools <https://red.tymyrddin.dev/projects/testlab/en/latest/docs/wireless/README.html>
+   Reconnaissance <https://red.tymyrddin.dev/projects/recon/en/latest/docs/scanning/README.html>
+   Enumeration <https://red.tymyrddin.dev/projects/enum/en/latest/docs/system/README.html>
 
 .. toctree::
    :glob:
