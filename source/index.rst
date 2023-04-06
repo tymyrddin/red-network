@@ -1,9 +1,7 @@
 Riches in the ground
 ================================================
 
-The concept at the very heart of all scarcity theories — even the utopian ones, albeit by negation — is that of scarcity, itself a contested concept. The relevant literature identifies three categories of scarcity: absolute scarcity, relative scarcity and political scarcity. Absolute scarcity broadly refers to the idea that all goods, including natural ones, are finite. Makes sense beyond concepts, what with earth being a finite planet.
-
-And this concerns the digital world. Aside from all of the resources to make and maintain the equipment, and the energy used to keep it all going on the physical level, on the other levels there is hardly any limit to the riches we can dig for, as its grounding principle seems to have been building new features upon new features for human convenience and (increasing) profit, with only some security and privacy concerns in mind. That seems to be improving, and in many cases security measures get tacked on. When one digs deep enough though ...
+Aside from all of the resources to make and maintain the equipment, and the energy used to keep it all going on the physical level, on the other levels there is hardly any limit to the riches we can dig for, as its grounding principle seems to have been building new features upon new features for human convenience and (increasing) profit, with only some security and privacy concerns in mind. That seems to be improving, and in many cases security measures get tacked on. When one digs deep enough though ...
 
 .. image:: _static/images/in-progress.png
   :alt: Forever in progress ...
@@ -13,139 +11,88 @@ And this concerns the digital world. Aside from all of the resources to make and
 .. toctree::
    :maxdepth: 1
    :includehidden:
+   :caption: Testlab
+
+   Virtual machines <https://red.tymyrddin.dev/projects/testlab/en/latest/docs/vm/README.html>
+   Network tools <https://red.tymyrddin.dev/projects/testlab/en/latest/docs/network/README.html>
+   Wireless tools <https://red.tymyrddin.dev/projects/testlab/en/latest/docs/wireless/README.html>
+
+.. toctree::
+   :maxdepth: 1
+   :includehidden:
    :caption: Preparation
 
-   Build a local testlab: Network tools <https://red.tymyrddin.dev/projects/testlab/en/latest/docs/network/README.html>
-   Build a local testlab: Wireless tools <https://red.tymyrddin.dev/projects/testlab/en/latest/docs/wireless/README.html>
    Reconnaissance <https://red.tymyrddin.dev/projects/recon/en/latest/docs/scanning/README.html>
    Enumeration <https://red.tymyrddin.dev/projects/enum/en/latest/docs/system/README.html>
 
-.. toctree::
-   :glob:
-   :maxdepth: 1
-   :includehidden:
-   :caption: Packet manipulation
-
-   docs/packet-manipulation/README.md
-   docs/packet-manipulation/pcap.md
-   docs/packet-manipulation/sniffing.md
-   docs/packet-manipulation/forging.md
+----
 
 .. toctree::
-   :glob:
    :maxdepth: 1
    :includehidden:
-   :caption: Wireless intrusions
+   :caption: Notes on techniques
 
-   docs/wireless/README.md
-   docs/wireless/overview.md
-   docs/wireless/scanning.md
-   docs/wireless/deauthentication.md
-   docs/wireless/wep.md
-   docs/wireless/wps-pin.md
-   docs/wireless/wpa.md
-   docs/wireless/wifite
-   docs/wireless/dragonblood.md
-   docs/wireless/rogue-ap.md
-   docs/wireless/downgrade.md
+   docs/notes/README.md
+   docs/notes/manipulation.md
+   docs/notes/intrusions.md
+   docs/notes/barrages.md
+   docs/notes/altercations.md
+   docs/notes/incursions.md
+   docs/notes/raids.md
+   docs/notes/hacks.md
+   docs/notes/skirmishes.md
+   docs/notes/run-ins.md
+
+----
+
+.. image:: _static/images/coding.png
+  :alt: coding
 
 .. toctree::
-   :glob:
    :maxdepth: 1
    :includehidden:
-   :caption: Bluetooth barrages
+   :caption: Network pentesting scripts
 
-   docs/bluetooth/README.md
-   docs/bluetooth/protocol-stacks.md
-   docs/bluetooth/discovery.md
-   docs/bluetooth/bluesnarfing.md
-   docs/bluetooth/bluejacking.md
+   MAC changer <https://github.com/tymyrddin/scripts-network/tree/master/mac_changer>
+   ARP spoofer <https://github.com/tymyrddin/scripts-network/blob/master/arp_spoofer>
+   File interceptor <https://github.com/tymyrddin/scripts-network/blob/master/file_interceptor>
+   Code injector <https://github.com/tymyrddin/scripts-network/blob/master/code_injector>
+   Client-server skeleton <https://github.com/tymyrddin/scripts-network/blob/master/client_server>
+   Network scanner <https://github.com/tymyrddin/scripts-network/blob/master/network_scanner>
+   DNS spoofer <https://github.com/tymyrddin/scripts-network/blob/master/dns_spoofer>
+   Packet sniffer <https://github.com/tymyrddin/scripts-network/blob/master/packet_sniffer>
+   Netcat replace <https://github.com/tymyrddin/scripts-network/blob/master/netcat_replace>
+   Wireless <https://github.com/tymyrddin/scripts-network/blob/master/wireless>
+
+----
+
+.. image:: _static/images/try-hack-me.png
+  :alt: try hack me rooms
 
 .. toctree::
-   :glob:
    :maxdepth: 1
    :includehidden:
-   :caption: Network access altercations
+   :caption: TryHackMe rooms
 
-   docs/access/README.md
-   docs/access/arp-spoofing.md
-   docs/access/arp-cache-poisoning.md
-   docs/access/stp.md
-   docs/access/vlan-hopping.md
-   docs/access/bypass-controls.md
+   docs/thm/README.md
+   docs/thm/attacktive.md
+   docs/thm/kerberos.md
+   Mythical blue lake (scenario) <https://red.tymyrddin.dev/projects/ad/en/latest/>
 
-.. toctree::
-   :glob:
-   :maxdepth: 1
-   :includehidden:
-   :caption: Internet incursions
+----
 
-   docs/internet/README.md
-   docs/internet/ip-spoofing.md
-   docs/internet/dos.md
-   docs/internet/ddos.md
-   docs/internet/drdos.md
+.. image:: _static/images/root-me.png
+  :alt: root-me challenges
 
 .. toctree::
    :glob:
    :maxdepth: 1
    :includehidden:
-   :caption: Transport raids
+   :caption: Root-me Network challenges
 
-   docs/transport/README.md
-   docs/transport/replay-attack.md
-   docs/transport/tcp-snp.md
-   docs/transport/hijack-session.md
+   docs/root-me/README.md
 
-.. toctree::
-   :glob:
-   :maxdepth: 1
-   :includehidden:
-   :caption: Application layer hacks
+----
 
-   docs/application/README.md
-   docs/application/http.md
-   docs/application/ssl.md
-   docs/application/https-spoofing.md
-   docs/application/smb.md
-   docs/application/snmp.md
-   docs/application/smtp.md
-   docs/application/ftp.md
-
-.. toctree::
-   :glob:
-   :maxdepth: 1
-   :includehidden:
-   :caption: Name resolution skirmishes
-
-   docs/name-resolution/README.md
-   docs/name-resolution/dns-snooping.md
-   docs/name-resolution/dns-spoofing
-   docs/name-resolution/dns-attacks
-   docs/name-resolution/llmnr-netbios.md
-   docs/name-resolution/ntlm-relay.md
-
-.. toctree::
-   :glob:
-   :maxdepth: 1
-   :includehidden:
-   :caption: Active directory run-ins
-
-   docs/ad/README.md
-   docs/ad/overview.md
-   docs/ad/authentication.md
-   docs/ad/vulns.md
-   docs/ad/recon.md
-   docs/ad/attacktive.md
-   docs/ad/kerberos.md
-   docs/ad/post.md
-   More active directory hacks <https://red.tymyrddin.dev/projects/ad/en/latest/>
-
-.. toctree::
-   :glob:
-   :maxdepth: 1
-   :includehidden:
-   :caption: Distinctive drives
-
-   docs/box/README.md
-   docs/box/*
+.. image:: _static/images/books.png
+  :alt: Useful books
