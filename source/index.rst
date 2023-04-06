@@ -91,6 +91,15 @@ Aside from all of the resources to make and maintain the equipment, and the ener
    :caption: Root-me Network challenges
 
    docs/root-me/README.md
+   docs/root-me/ftp-authentication.md
+   docs/root-me/telnet-authentication.md
+   docs/root-me/ethernet-frame.md
+   docs/root-me/twitter-authentication.md
+   docs/root-me/bl-unknown-file.md
+   docs/root-me/cisco-password.md
+   docs/root-me/zone-transfer.md
+   docs/root-me/ip-ttl.md
+   docs/root-me/ldap-null.md
 
 ----
 
