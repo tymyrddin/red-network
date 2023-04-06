@@ -263,7 +263,7 @@ In a new terminal window, do a deauthentication attack on all clients connected:
 # aireplay-ng --deauth 0 -a <bssid of access point> wlan0mon
 ```
 
-This allows the `airodump-ng` command running in the other terminal to capture the handshake traffic when re-authentication happens. After a few minutes, switch back to the terminal where`airodump-ng` is running, to view the the WPA handshake information that was captured (top of the screen).
+This allows the `airodump-ng` command running in the other terminal to capture the handshake traffic when re-authentication happens. After a few minutes, switch back to the terminal where`airodump-ng` is running, to view the WPA handshake information that was captured (top of the screen).
 
 Switch back to the `aireplay-ng` terminal to stop the deauthentication traffic (Ctrl+C).
 

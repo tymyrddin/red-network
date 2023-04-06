@@ -34,7 +34,7 @@ Hacking the transport layer of the Internet:
 
 ## TCP sequence number prediction attack
 
-TCP suffers from well-known design flaws which make it possible to hijack or terminate applications that use it as their transport protocol. A SCP sequence prediction attack is an attempt to predict the sequence number used to identify the packets in a TCP connection, which can be used to forge packets, for example in a BGP Hijack.
+TCP suffers from well-known design flaws which make it possible to hijack or terminate applications that use it as their transport protocol. An SCP sequence prediction attack is an attempt to predict the sequence number used to identify the packets in a TCP connection, which can be used to forge packets, for example in a BGP Hijack.
 
 ```text
 1 Blind spoofing attack (OR)
@@ -60,7 +60,7 @@ Often two types of session hijacking are distinguished depending on how they are
         2.2 Discover valuable information or passwords
 ```
 
-## BGP hijaack
+## BGP hijack
 
 BGP hijacking happens often, there is no practical way to prevent it, we have to live with it. Internet routing was designed to be a conversation between trusted parties. HTTPS encryption is backed by SSL/TLS PKI, which itself trusts Internet routing. Routing announcements are accepted practically without any validation, creating the possibility of a network operator announcing someone else's network prefixes without permission. Testing has shown that sending spoofed updates as a blind adversary is more difficult than thought, while launching this attack from a compromised/misconfigured router turned out relatively easy.
 
