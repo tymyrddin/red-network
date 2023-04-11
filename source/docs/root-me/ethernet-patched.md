@@ -8,7 +8,7 @@ Password’s format is 10 bytes in hexadecimal notation (i.e. 20 characters)
 
 ![Ethernet](../../_static/images/802-3.png)
 
-## First packet
+## First frame
 
 ```text
 >>> INGRESS >>>
@@ -33,7 +33,7 @@ Using [text2pcap](https://www.wireshark.org/docs/man-pages/text2pcap.html):
 
 ![Patched](../../_static/images/ethernet-patched1.png)
 
-## Second packet
+## Second frame
 
 ```text
 >>> INGRESS >>>
@@ -58,7 +58,7 @@ Using [text2pcap](https://www.wireshark.org/docs/man-pages/text2pcap.html):
 
 ![Patched2](../../_static/images/ethernet-patched2.png)
 
-## Third packet
+## Third frame
 
 ```text
 >>> INGRESS >>>
@@ -83,7 +83,7 @@ Using [text2pcap](https://www.wireshark.org/docs/man-pages/text2pcap.html):
 
 ![Patched3](../../_static/images/ethernet-patched3.png)
 
-## Fourth packet
+## Fourth frame
 
 ```text
 <<< EGRESS <<<
@@ -104,7 +104,7 @@ Using [text2pcap](https://www.wireshark.org/docs/man-pages/text2pcap.html):
 | 802.1Q TAG (VLAN) (4 octets)   | ?? ?? 01 86        |
 | Ethertype or length (2 octets) | 86 dd (IPv6 frame) |
 
-First and third packet have incorrect checksums, so this could be a reply to the second (on the same VLAN):
+First and third frames have incorrect checksums, so this could be a reply to the second (on the same VLAN):
 
 | Field                          | Value              |
 |:-------------------------------|:-------------------|
