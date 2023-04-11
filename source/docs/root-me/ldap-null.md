@@ -5,3 +5,9 @@
     dc=challenge01,dc=root-me,dc=org
 
 Get access to its data and get his email adress.
+
+----
+
+```text
+ldapsearch -x -b "ou=anonymous,dc=challenge01,dc=root-me,dc=org" -H "ldap://challenge01.root-me.org:54013"
+```

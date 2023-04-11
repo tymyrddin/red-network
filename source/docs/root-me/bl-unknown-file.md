@@ -7,3 +7,12 @@ The answer is the SHA-1 hash of the concatenation of the MAC address (uppercase)
 **Example:**
 
     AB:CD:EF:12:34:56myPhone -> 023cc433c380c2618ed961000a681f1d4c44f8f1
+
+----
+
+1. `wget` the `bin` from root-me
+2. `file ch18.bin`
+3. `strings ch18.bin`
+4. `hcidump -r ch18.bin`
+5. Extract MAC address and phone name, concat
+6. Hash it

@@ -2,7 +2,7 @@
 
 For many years now, ISPs deliver a router including an access point. And Wi-fi is integrated into more devices than just homes or company LANs. Every mobile phone or tablet has Wi-fi support nowadays. The VoIP infrastructure of some supermarket announcements are routed over Wi-fi. Advertising panels in buses, railways and at stations, and even surveillance cameras often use Wi-fi as a transport medium.
 
-Wi-fi is cheap, individually deployable and popular and therefore often built into the most unexpected places, blind to the associated massive security risks. In this evolving industry with ever more devices connected to wireless networks, understanding wireless security threats and countermeasures is critical.
+Wireless is cheap, individually deployable and popular and therefore often built into the most unexpected places, blind to the associated massive security risks. In this evolving industry with ever more devices connected to wireless networks, understanding wireless security threats and countermeasures is critical.
 
 ## Common attack vectors wireless
 

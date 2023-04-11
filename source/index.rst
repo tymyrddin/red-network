@@ -100,6 +100,7 @@ Aside from all of the resources to make and maintain the equipment, and the ener
    docs/root-me/zone-transfer.md
    docs/root-me/ip-ttl.md
    docs/root-me/ldap-null.md
+   docs/root-me/pop-apop.md
 
 ----
 
