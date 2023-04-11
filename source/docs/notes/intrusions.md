@@ -4,7 +4,13 @@ For many years now, ISPs deliver a router including an access point. And Wi-fi i
 
 Wi-fi is cheap, individually deployable and popular and therefore often built into the most unexpected places, blind to the associated massive security risks. In this evolving industry with ever more devices connected to wireless networks, understanding wireless security threats and countermeasures is critical.
 
-Hack wireless networks: Evaluate the reach of a wireless network, whether the traffic flowing over that network can be intercepted (or influenced) by an adversary and if an attacker can gain access to the wireless network.
+## Common attack vectors wireless
+
+* Many of the attacks on wireless networks involve eavesdropping, the process of capturing the traffic, making a copy of it so that it can be read if it is not encrypted (or cracking the encryption key if it is encrypted).
+* An attacker can perform a man-in-the-middle (MiTM) attack (on-path attack), intercept the traffic, and then modify the traffic before forwarding it on to the wireless access point.
+* Data corruption attack methods involve altering or corrupting the data so that it is not readable by the destination system.
+* A relay attack is the capturing of a wireless signal and sending it somewhere else. This type of attack is commonly used to compromise vehicle key fobs. Using a special transmitter, an adversary can relay the signal from the key fob of a car to a teammate who receives the relayed signal to open the door of the car.
+* Spoofing refers to altering a source address, whether that is the source MAC address or source IP address of a packet, or the source email address of an email message. It is a common phenomenon in wireless attacks for bypassing MAC filtering on a wireless access point.
 
 ## Common Wi-Fi attack scenarios
 
