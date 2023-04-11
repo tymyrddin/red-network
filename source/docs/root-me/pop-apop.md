@@ -40,4 +40,6 @@ quit
 hashcat -a 0 -m 10 hash.txt /usr/share/wordlists/rockyou.txt
 ```
 
-concatenate a password wordlist with the captured string `<1755.1.5f403625.BcWGgpKzUPRC8vscWn0wuA==@vps-7e2f5a72>`. Apply MD5 and compare the result with the MD5 hash `4ddd4137b84ff2db7291b568289717f0` captured in the traffic.
+## Resources
+
+* [rfc1939](https://repository.root-me.org/RFC/EN%20-%20rfc1939.txt)

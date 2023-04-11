@@ -20,5 +20,9 @@ Investigate captured traffic, network services, and perform packet analysis.
 * [IP Time To Live](ip-ttl.md)
 * [LDAP null bind](ldap-null.md)
 * [POP-APOP](pop-apop.md)
+* [SIP authentication](sip-authentication.md)
+* [ETHERNET patched transmission](ethernet-patched.md)
+* [Global system traffic for mobile communication](global-mobile.md)
+* [SSL HTTP exchange](ssl.md)
 
 

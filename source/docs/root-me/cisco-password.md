@@ -16,4 +16,9 @@ username guest password 7 124F163C42340B112F3830
 
 Use the [Cisco Password Cracker](https://www.ifm.net.nz/cookbooks/passwordcracker.html) on those. Pattern emerges.
 
-Prepend recursively with pattern in a [rule-base hashcat attack](https://hashcat.net/wiki/doku.php?id=rule_based_attack).
+Prepend recursively with pattern in a [rule-based hashcat attack](https://hashcat.net/wiki/doku.php?id=rule_based_attack).
+
+## Resources
+
+* [Cisco passwords](https://repository.root-me.org/R%C3%A9seau/EN%20-%20Cisco%20passwords.pdf)
+* [Cisco passwords encryption facts](https://repository.root-me.org/R%C3%A9seau/EN%20-%20Cisco%20passwords%20encryption%20facts.pdf)
