@@ -76,8 +76,8 @@ Short read: 0 bytes available (expecting 2)
 
 ## Resources
 
-* [BlackHat USA 09 Zusman AttackExtSSL slides](https://repository.root-me.org/R%C3%A9seau/EN%20-%20BlackHat%20USA%2009%20Zusman%20AttackExtSSL%20slides.pdf)
-* [BlackHat USA 09 Marlin Spike DefeatSSL slides](https://repository.root-me.org/R%C3%A9seau/EN%20-%20BlackHat%20USA%2009%20Marlin%20Spike%20DefeatSSL%20slides.pdf)
-* [BlackHat USA 09 Zusman AttackExtSSL paper](https://repository.root-me.org/R%C3%A9seau/EN%20-%20BlackHat%20USA%2009%20Zusman%20AttackExtSSL%20paper.pdf)
+* [BlackHat USA 09 Zusman Attack](https://repository.root-me.org/R%C3%A9seau/EN%20-%20BlackHat%20USA%2009%20Zusman%20AttackExtSSL%20slides.pdf)
+* [BlackHat USA 09 Marlin Spike Defeat](https://repository.root-me.org/R%C3%A9seau/EN%20-%20BlackHat%20USA%2009%20Marlin%20Spike%20DefeatSSL%20slides.pdf)
+* [BlackHat USA 09 Zusman Attack](https://repository.root-me.org/R%C3%A9seau/EN%20-%20BlackHat%20USA%2009%20Zusman%20AttackExtSSL%20paper.pdf)
 * [Breaking TLS using SSLv2](https://repository.root-me.org/Cryptographie/Asym%C3%A9trique/EN%20-%20DROWN:%20Breaking%20TLS%20using%20SSLv2.pdf)
 * [rfc2246](https://repository.root-me.org/RFC/EN%20-%20rfc2246.txt)
