@@ -137,7 +137,7 @@ Using [text2pcap](https://www.wireshark.org/docs/man-pages/text2pcap.html), and 
 
 ![Patched4](../../_static/images/ethernet-patched4.png)
 
-Concatenate the missing info just filled in for the flag.
+Concatenate the missing info just filled in to get the flag.
 
 ----
 
