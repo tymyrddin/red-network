@@ -45,9 +45,6 @@ Aside from all of the resources to make and maintain the equipment, and the ener
 
 ----
 
-.. image:: _static/images/coding.png
-  :alt: coding
-
 .. toctree::
    :maxdepth: 1
    :includehidden:
@@ -66,9 +63,6 @@ Aside from all of the resources to make and maintain the equipment, and the ener
 
 ----
 
-.. image:: _static/images/try-hack-me.png
-  :alt: try hack me rooms
-
 .. toctree::
    :maxdepth: 1
    :includehidden:
@@ -78,33 +72,6 @@ Aside from all of the resources to make and maintain the equipment, and the ener
    docs/thm/attacktive.md
    docs/thm/kerberos.md
    Mythical blue lake (scenario) <https://red.tymyrddin.dev/projects/ad/en/latest/>
-
-----
-
-.. image:: _static/images/root-me.png
-  :alt: root-me challenges
-
-.. toctree::
-   :glob:
-   :maxdepth: 1
-   :includehidden:
-   :caption: Root-me Network challenges
-
-   docs/root-me/README.md
-   docs/root-me/ftp-authentication.md
-   docs/root-me/telnet-authentication.md
-   docs/root-me/ethernet-frame.md
-   docs/root-me/twitter-authentication.md
-   docs/root-me/bl-unknown-file.md
-   docs/root-me/cisco-password.md
-   docs/root-me/zone-transfer.md
-   docs/root-me/ip-ttl.md
-   docs/root-me/ldap-null.md
-   docs/root-me/pop-apop.md
-   docs/root-me/sip-authentication.md
-   docs/root-me/ethernet-patched.md
-   docs/root-me/global-mobile.md
-   docs/root-me/ssl.md
 
 ----
 
