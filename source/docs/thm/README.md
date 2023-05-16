@@ -12,5 +12,3 @@ To build experience with threat intelligence and network penetration testing to 
 
 * [Attacktive directory](attacktive.md)
 * [Attacking kerberos](kerberos.md)
-* [Mythical blue lake](red-ad:index)]
-

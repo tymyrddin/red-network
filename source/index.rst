@@ -13,17 +13,17 @@ Aside from all of the resources to make and maintain the equipment, and the ener
    :includehidden:
    :caption: Testlab
 
-   Virtual machines <https://red.tymyrddin.dev/projects/testlab/en/latest/docs/vm/README.html>
-   Network tools <https://red.tymyrddin.dev/projects/testlab/en/latest/docs/network/README.html>
-   Wireless tools <https://red.tymyrddin.dev/projects/testlab/en/latest/docs/wireless/README.html>
+   Virtual machines <https://testlab.tymyrddin.dev/docs/vm/README>
+   Network tools <https://testlab.tymyrddin.dev/docs/network/README>
+   Wireless tools <https://testlab.tymyrddin.dev/wireless/README>
 
 .. toctree::
    :maxdepth: 1
    :includehidden:
    :caption: Preparation
 
-   Reconnaissance <https://red.tymyrddin.dev/projects/recon/en/latest/docs/scanning/README.html>
-   Enumeration <https://red.tymyrddin.dev/projects/enum/en/latest/docs/system/README.html>
+   Reconnaissance <https://recon.tymyrddin.dev/docs/scanning/README>
+   Enumeration <https://enum.tymyrddin.dev/docs/system/README>
 
 ----
 
@@ -71,7 +71,13 @@ Aside from all of the resources to make and maintain the equipment, and the ener
    docs/thm/README.md
    docs/thm/attacktive.md
    docs/thm/kerberos.md
-   Mythical blue lake (scenario) <https://red.tymyrddin.dev/projects/ad/en/latest/>
+
+.. toctree::
+   :maxdepth: 1
+   :includehidden:
+   :caption: More
+
+   Mythical blue lake (scenario) <https://ad.tymyrddin.dev/>
 
 ----
 
