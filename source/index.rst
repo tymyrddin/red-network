@@ -81,5 +81,41 @@ Aside from all of the resources to make and maintain the equipment, and the ener
 
 ----
 
-.. image:: _static/images/books.png
-  :alt: Useful books
+Books
+---------------------------
+
+.. grid:: 3
+    :gutter: 1
+
+    .. grid-item-card::
+        :link: https://nostarch.com/nsm
+
+        .. image:: _static/images/bookcovers/practice-network-security-monitoring.png
+
+    .. grid-item-card::
+        :link: https://www.packtpub.com/product/packet-analysis-with-wireshark/9781785887819
+
+        .. image:: _static/images/bookcovers/packet-analysis-wireshark.png
+
+    .. grid-item-card::
+        :link: https://nostarch.com/networkprotocols
+
+        .. image:: _static/images/bookcovers/attacking-network-protocols.png
+
+.. grid:: 3
+    :gutter: 1
+
+    .. grid-item-card::
+        :link: https://www.packtpub.com/product/nmap-network-exploration-and-security-auditing-cookbook-third-edition/9781838649357
+
+        .. image:: _static/images/bookcovers/nmap-network-exploration.png
+
+    .. grid-item-card::
+        :link: https://nostarch.com/black-hat-python2E
+
+        .. image:: _static/images/bookcovers/black-hat-python.png
+
+    .. grid-item-card::
+        :link: https://www.wiley.com/en-us/Artificial+Intelligence+and+Data+Mining+Approaches+in+Security+Frameworks-p-9781119760436
+
+        .. image:: _static/images/bookcovers/ai-security-frameworks.png
