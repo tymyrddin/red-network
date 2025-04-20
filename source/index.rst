@@ -11,45 +11,61 @@ Aside from all of the resources to make and maintain the equipment, and the ener
 .. toctree::
    :maxdepth: 1
    :includehidden:
-   :caption: Highway
+   :caption: Rootways of the World Tree
 
-   docs/trees/README.md
-   docs/trees/tcp.md
-   docs/trees/ip.md
-   docs/trees/bgp.md
-   docs/trees/bgpsec.md
-   docs/trees/icmp.md
-   docs/trees/dns.md
-   docs/trees/tls-ssl.md
-   docs/trees/tcp-ao.md
-   docs/trees/md5.md
-   docs/trees/rpki.md
+   docs/roots/README.md
+   docs/roots/tcp.md
+   docs/roots/ip.md
+   docs/roots/bgp.md
+   docs/roots/bgpsec.md
+   docs/roots/icmp.md
+   docs/roots/dns.md
+   docs/roots/tls-ssl.md
+   docs/roots/tcp-ao.md
+   docs/roots/md5.md
+   docs/roots/rpki.md
 
 ----
 
 .. toctree::
    :maxdepth: 1
    :includehidden:
-   :caption: Testlab (Other locations)
+   :caption: Mycelium Patch
 
-   Virtual machines <https://testlab.tymyrddin.dev/docs/vm/README>
-   Network tools <https://testlab.tymyrddin.dev/docs/network/README>
-   Wireless tools <https://testlab.tymyrddin.dev/docs/wireless/readme>
+   docs/patches/README.md
+   docs/patches/rip.md
+   docs/patches/eigrp.md
+   docs/patches/ospf.md
+   docs/patches/is-is.md
+   docs/patches/bgp.md
+   docs/patches/static.md
+   docs/patches/fhrp.md
+
+----
+
+.. toctree::
+   :maxdepth: 1
+   :includehidden:
+   :caption: Spore Nursery (Other locations)
+
+   Mimic Mushrooms <https://testlab.tymyrddin.dev/docs/vm/README>
+   Tidefinger Lichen <https://testlab.tymyrddin.dev/docs/network/README>
+   Driftspore Lanterns <https://testlab.tymyrddin.dev/docs/wireless/readme>
 
 .. toctree::
    :maxdepth: 1
    :includehidden:
    :caption: Preparation (Other locations)
 
-   Reconnaissance <https://recon.tymyrddin.dev/docs/scanning/README>
-   Enumeration <https://enum.tymyrddin.dev/docs/system/README>
+   Mapping the Dew Trails <https://recon.tymyrddin.dev/docs/scanning/README>
+   Counting the Fruiting Bodies <https://enum.tymyrddin.dev/docs/system/README>
 
 ----
 
 .. toctree::
    :maxdepth: 1
    :includehidden:
-   :caption: Notes on techniques
+   :caption: Mycelial glossary
 
    docs/notes/README.md
    docs/notes/manipulation.md

@@ -1,16 +1,14 @@
-# How the Internet Finds Its Way
+# Introduction
+
+*How the Mycelium Whispers Its Maps*
 
 Imagine the Internet as a giant, constantly shifting map where every network (run by companies like Google, ISPs, or 
 cloud providers) has to figure out how to send data to every other network. This is not done with a single master 
 plan. It works through a mix of cooperation, handshake agreements, and some technology under the hood.
 
-## The neighborhood routes
+## Rootways of the World Tree
 
-Inside a single company or ISP, routers use protocols like OSPF or EIGRP to keep track of the best paths, almost like 
-how you might memorize the quickest way to your local grocery store. These protocols update automatically if a link 
-goes down, ensuring traffic takes the next best route without humans needing to intervene.
-
-## The highway system
+*Vast, ancient roots intertwining beneath continents—essential for life, but vulnerable where they surface.*
 
 When data needs to leave one network and enter another, like when you load a website hosted halfway across the world,
 things get more complicated. This is where BGP (Border Gateway Protocol) comes in. Unlike the neighborhood routes, 
