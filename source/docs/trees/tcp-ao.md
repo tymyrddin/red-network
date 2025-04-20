@@ -91,3 +91,4 @@
 * Quantum pre-computation attacks on static MKTs
 * AI-assisted ISN prediction for hijacking
 * Firmware exploits targeting NIC offload of AES-CMAC
+

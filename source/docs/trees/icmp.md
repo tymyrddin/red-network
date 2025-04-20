@@ -127,3 +127,4 @@ ICMP is used for error reporting (for example, if a BGP peer is unreachable).
 * ML-Based Traffic Profiling: Detecting ICMP tunnels via entropy analysis of payloads (for example Palo Alto ML-Powered NGFW).
 * QUIC/HTTP/3 Monitoring: ICMP used for QUIC path validation—filter malicious probes.
 * Hardware-Assisted Filtering: SmartNICs offloading ICMP flood mitigation (for example AWS Nitro Cards).
+

@@ -123,3 +123,4 @@ Automation & AI-Enhanced Attacks. Attackers use ML to:
 * RPKI Real-Time Sync: Projects like RPKI-in-the-Router reduce propagation gaps.
 * Post-Quantum BGPsec: NIST’s CRYSTALS-Dilithium in experimental deployments.
 * Zero-Trust for ASes: Mandatory MFA for RPKI CA access and key signing.
+

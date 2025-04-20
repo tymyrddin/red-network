@@ -109,4 +109,3 @@ path-vector routing (as opposed to distance-vector or link-state).
 * BGPsec Experiments: Limited deployment due to complexity.
 * Geopolitical Filtering: ISPs drop routes from "untrusted" ASes.
 
-

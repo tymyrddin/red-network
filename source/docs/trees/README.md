@@ -33,7 +33,7 @@ Every time you send a message, stream a video, or load a webpage, this invisible
 the background. BGP stitches together the Internet’s fragmented networks, while the underlying tech (TCP, IP, and 
 error-checking systems like ICMP) keeps the whole thing running smoothly. 
 
-It is not perfect, Below are the attack trees on some of the various components that hold the digital world together:
+It is not perfect. Below are the attack trees on some of the various components that hold the digital world together:
 
 * [Transmission Control Protocol](tcp.md)
 * [Internet Protocol](ip.md)

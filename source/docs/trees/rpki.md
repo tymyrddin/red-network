@@ -193,3 +193,4 @@ AND-gates = Requires multiple steps (poison RPKI and spoof BGPsec).
 * Strict cross-protocol validation (reject routes unless both RPKI+BGPsec valid).
 * Faster revocation sync (real-time RPKI + BGPsec updates).
 * Post-quantum crypto migration (switching to Falcon/Dilithium).
+

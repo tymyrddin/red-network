@@ -289,6 +289,58 @@ Prerequisite: Networks trust BGPsec-validated routes blindly
         3.2.3 0-RTT enabled (allows replay)
 ```
 
+## Attack trends
 
-## Notes
+Post-Quantum harvesting: Attackers store encrypted traffic today to decrypt later with quantum computers (Shor’s 
+algorithm threatens RSA/ECC). Targets are Long-lived TLS sessions, VPNs.
+
+Cross-Protocol attacks: Exploiting shared cryptographic parameters across protocols (like ALPACA attack mixing HTTPS 
+and SMTP).
+
+TLS 1.3 downgrade bypasses: Middlebox interference forces fallback to TLS 1.2 (Terrapin attack, 2023).
+
+0-RTT Replay Abuse: Exploiting early data in QUIC/TLS 1.3 for replay attacks (API credential reuse).
+
+BGP-Hijacked certificates: Combining BGP route hijacks with ACME validation to issue trusted certs (like the Slack/ProtonMail incidents).
+
+CA Trust Erosion: Legacy CAs (Symantec) or misconfigured CAA records enabling spoofing.
+
+Memory Corruption in libraries: OpenSSL CVEs (like CVE-2022-3602 RCE) affecting routers/cloud services.
+
+Side-Channel leaks: Minerva (ECDSA), Raccoon (DH) exploiting timing variations.
+
+
+## Defense trends
+
+Post-Quantum TLS: NIST-standardized algorithms (CRYSTALS-Kyber) in hybrid deployments.
+
+Deprecating legacy crypto: Removal of RSA-1024, SHA-1, CBC ciphers (Chrome/Firefox enforce TLS 1.3).
+
+Strict ALPN/SNI validation: Blocking cross-protocol attacks (like ALPACA mitigations).
+
+0-RTT mitigations: Replay tokens, rate-limiting early data.
+
+Certificate Transparency (CT): Mandatory logging for all certs (Chrome requires CT after 2023).
+
+Multi-Factor Domain validation: CAs now validate IP ownership via BGP + WHOIS cross-checks.
+
+Memory-Safe TLS Libraries: Migration to Rust-based stacks (like AWS s2n-tls).
+
+Hardware-Backed Keys: HSMs for private key storage (like Cloudflare’s Keyless SSL).
+
+RPKI/ROV Adoption: 50% of routes now signed (up from 20% in 2020).
+
+BGP+TLS Correlation: Tools like BGPStream + CT logs detect hijacks/cert spoofing.
+
+## Emerging threats
+
+QUIC-specific attacks: Exploiting UDP-based QUIC for DDoS or connection migration hijacks.
+
+AI-Assisted Cryptoanalysis: Machine learning to accelerate breaking weak keys.
+
+## Future defenses
+
+Fully Quantum-Resistant TLS: NIST PQC standards (in rollout).
+
+Decentralized PKI: Blockchain-based cert issuance (Web3 experiments).
 
