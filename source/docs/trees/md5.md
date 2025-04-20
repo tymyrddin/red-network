@@ -11,7 +11,7 @@ Older BGP implementations used MD5 for securing BGP sessions (now deprecated in 
     
         1.1.1 Ability to generate arbitrary MD5 inputs
         
-        1.1.2 Target system accepts MD5 collisions (e.g., file verification, digital signatures)
+        1.1.2 Target system accepts MD5 collisions (file verification, digital signatures)
         
     1.2 Attack Methods (OR):
     
@@ -75,7 +75,7 @@ Older BGP implementations used MD5 for securing BGP sessions (now deprecated in 
     
         4.1.1 Physical/cloud proximity to target
         
-        4.1.2 Vulnerable implementation (e.g., software using MD5 insecurely)
+        4.1.2 Vulnerable implementation (software using MD5 insecurely)
 
     4.2 Attack Methods (OR):
     
@@ -93,7 +93,7 @@ Older BGP implementations used MD5 for securing BGP sessions (now deprecated in 
 
     5.1 Prerequisites (AND):
     
-        5.1.1 System uses MD5 in a vulnerable way (e.g., legacy protocols)
+        5.1.1 System uses MD5 in a vulnerable way (legacy protocols)
 
     5.2 Attack Methods (OR):
     
@@ -121,13 +121,13 @@ Older BGP implementations used MD5 for securing BGP sessions (now deprecated in 
     
         1.1.1. BGP session uses MD5 authentication (known or suspected)
         
-        1.1.2. Attacker can capture BGP packets (e.g., MITM position, compromised router)
+        1.1.2. Attacker can capture BGP packets (MITM position, compromised router)
         
         1.1.3. No IPsec or additional encryption protecting BGP traffic
         
         Steps (OR):
         
-        1.1.4. Extract MD5 hash from BGP packets (e.g., TCP Option 19)
+        1.1.4. Extract MD5 hash from BGP packets (TCP Option 19)
         
         1.1.5. Perform offline cracking:
         
@@ -135,7 +135,7 @@ Older BGP implementations used MD5 for securing BGP sessions (now deprecated in 
             
                 1.1.5.1.1. Use RTX 4090 (~100 GH/s) or cloud-based cracking
                 
-                1.1.5.1.2. Apply common BGP password patterns (e.g., router vendor defaults)
+                1.1.5.1.2. Apply common BGP password patterns (router vendor defaults)
                 
             1.1.5.2. Rainbow Table Attack (AND)
         
@@ -170,7 +170,7 @@ Older BGP implementations used MD5 for securing BGP sessions (now deprecated in 
         
         1.3.1. Physical/network proximity to BGP router
         
-        1.3.2. Router uses software-based MD5 (e.g., Linux/quagga implementations)
+        1.3.2. Router uses software-based MD5 (Linux/quagga implementations)
         
         Steps (OR):
         
@@ -216,13 +216,13 @@ Older BGP implementations used MD5 for securing BGP sessions (now deprecated in 
     * Strict Key Management: Regular rotation of BGP session keys (even if MD5 is used) and Hardware Security Modules (HSMs) for key storage
     * Network Segmentation: BGP speakers placed in isolated management VLANs; Physical access controls for core routers
 * Detection & Mitigation:
-    * Anomaly Detection Systems: ML-based monitoring of BGP updates (e.g., RPKI invalid announcements); Threshold alerts for sudden AS path changes
+    * Anomaly Detection Systems: ML-based monitoring of BGP updates (RPKI invalid announcements); Threshold alerts for sudden AS path changes
     * Forensic Readiness: PCAP logging of BGP sessions (post-mortem collision analysis); MD5 hash blacklisting for known malicious prefixes
 * Legacy MD5 Mitigations:
     * Salting Where Unavoidable: Router-specific salts for MD5 keys (breaks rainbow tables)
     * Rate-Limited Sessions: Lockout after repeated failed MD5 auth attempts; TCP RST injection for suspicious sessions
 * Vendor/Protocol Trends:
-    * BGP Software Updates: Disabling MD5 by default (e.g., FRRouting 8.0+); Deprecation warnings in Cisco IOS-XE/Junos
+    * BGP Software Updates: Disabling MD5 by default (FRRouting 8.0+); Deprecation warnings in Cisco IOS-XE/Junos
     * RPKI Adoption: ROA-based route origin validation (reduces impact of hijacking); ASPA for path validation (draft-ietf-sidrops-aspa-10)
 
 ## Emerging Defences

@@ -55,7 +55,7 @@ route authenticity.
     2.2 Cross-Protocol Attacks 
     (AND)
 
-        2.2.1 Shared ports (e.g., HTTPS/SMTP)
+        2.2.1 Shared ports (HTTPS/SMTP)
 
         2.2.2 Weak ALPN validation
 
@@ -69,7 +69,7 @@ route authenticity.
     3.1 Memory Corruption
     (AND)
 
-        3.1.1 Vulnerable OpenSSL (e.g., CVE-2022-3602)
+        3.1.1 Vulnerable OpenSSL (CVE-2022-3602)
 
         3.1.2 Malicious packet injection
 
@@ -90,7 +90,7 @@ route authenticity.
     4.1 CA Compromise
     (OR)
 
-        4.1.1 CA misissuance (e.g., Let's Encrypt CAA bypass)
+        4.1.1 CA misissuance (Let's Encrypt CAA bypass)
 
         4.1.2 Trust in legacy root CAs
 
@@ -123,22 +123,22 @@ route authenticity.
 ```text
 1. Exploit Weak TLS Handshake in BGP Sessions
 
-    Prerequisite: BGP routers use outdated TLS (e.g., OpenSSL 1.1.1 or older).
+    Prerequisite: BGP routers use outdated TLS (OpenSSL 1.1.1 or older).
     (OR: Either sub-path works)
 
     1.1. Downgrade BGP-over-TLS to Legacy Protocols
     (AND: Requires all conditions)
 
-        1.1.1. Attacker controls MITM position (e.g., ISP/IXP)
+        1.1.1. Attacker controls MITM position (ISP/IXP)
 
         1.1.2. Router supports TLS 1.2 or lower (prerequisite: outdated TLS)
 
-        1.1.3. No TLS downgrade protection (e.g., missing HSTS for BGP APIs)
+        1.1.3. No TLS downgrade protection (missing HSTS for BGP APIs)
 
     1.2. Force Weak Cipher Suites
     (AND: Requires all conditions)
 
-        1.2.1. Router accepts deprecated ciphers (e.g., AES-CBC-SHA) (prerequisite: outdated TLS)
+        1.2.1. Router accepts deprecated ciphers (AES-CBC-SHA) (prerequisite: outdated TLS)
 
         1.2.2. Attacker modifies ClientHello to exclude strong ciphers
 
@@ -146,15 +146,15 @@ route authenticity.
 
 2. Bypass Certificate Validation
 
-    Prerequisite: Weak CA trust anchors (e.g., accepting legacy CAs).
+    Prerequisite: Weak CA trust anchors (accepting legacy CAs).
     (OR: Either sub-path works)
 
     2.1. Obtain Fraudulent BGP/TLS Certificate
     (AND: Requires all conditions)
 
-        2.1.1. Exploit CA misissuance (e.g., Let’s Encrypt CAA bypass) (prerequisite: weak CA trust)
+        2.1.1. Exploit CA misissuance (Let’s Encrypt CAA bypass) (prerequisite: weak CA trust)
 
-        2.1.2. Validate ownership via BGP hijack (e.g., fake ROA) (prerequisite: missing RPKI/ROV)
+        2.1.2. Validate ownership via BGP hijack (fake ROA) (prerequisite: missing RPKI/ROV)
 
         2.1.3. CA does not enforce IP ownership cross-checks
 
@@ -163,7 +163,7 @@ route authenticity.
 
         2.2.1. Block OCSP/CRL requests (via DNS/BGP hijack)
 
-        2.2.2. Router ignores revocation status (e.g., stale CRL) (prerequisite: weak CA trust)
+        2.2.2. Router ignores revocation status (stale CRL) (prerequisite: weak CA trust)
 
         2.2.3. No OCSP stapling enforced
 
@@ -175,16 +175,16 @@ route authenticity.
     3.1. Memory Corruption in TLS Stack
     (AND: Requires all conditions)
 
-        3.1.1. Router uses vulnerable OpenSSL (e.g., CVE-2022-3602) (prerequisite: outdated TLS)
+        3.1.1. Router uses vulnerable OpenSSL (CVE-2022-3602) (prerequisite: outdated TLS)
 
-        3.1.2. Attacker sends malformed packets (e.g., crafted ClientHello)
+        3.1.2. Attacker sends malformed packets (crafted ClientHello)
 
-        3.1.3. No exploit mitigations (e.g., ASLR, stack canaries)
+        3.1.3. No exploit mitigations (ASLR, stack canaries)
 
     3.2. Side-Channel Attack on BGP Router
     (AND: Requires all conditions)
 
-        3.2.1. Router leaks timing info (e.g., Minerva ECDSA flaw) (prerequisite: outdated TLS)
+        3.2.1. Router leaks timing info (Minerva ECDSA flaw) (prerequisite: outdated TLS)
 
         3.2.2. Attacker measures handshake response times
 
@@ -227,7 +227,7 @@ Prerequisite: Partial RPKI/BGPsec adoption (<100% deployment)
     1.1 BGPsec Key Compromise
     (AND: All required)
 
-        1.1.1 Attacker steals BGPsec router private key (e.g., via supply chain)
+        1.1.1 Attacker steals BGPsec router private key (via supply chain)
 
         1.1.2 No HSM protection for keys
 
@@ -254,7 +254,7 @@ Prerequisite: CAs don't strictly validate IP ownership
 
         2.1.2 CA accepts BGP-routed IPs for validation
 
-        2.1.3 No secondary ownership checks (e.g., WHOIS)
+        2.1.3 No secondary ownership checks (WHOIS)
 
     2.2 RPKI-TLS Trust Collision
     (AND: All required)

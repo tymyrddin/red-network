@@ -55,13 +55,13 @@ ometimes used for resolving BGP router IDs or peer names (though BGP primarily u
 
     4.1 Registrar Hijacking
 
-        4.1.1 Steal API keys (e.g., Cloudflare, Route 53) OR
+        4.1.1 Steal API keys (Cloudflare, Route 53) OR
 
         4.1.2 Social engineer registrar support (post-GDPR WHOIS gaps)
 
     4.2 Subdomain Takeover
 
-        4.2.1 Find dangling CNAME (e.g., GitHub Pages) AND
+        4.2.1 Find dangling CNAME (GitHub Pages) AND
 
         4.2.2 Deploy malicious content
 
@@ -96,49 +96,49 @@ ometimes used for resolving BGP router IDs or peer names (though BGP primarily u
 
 ## Key trends in DNS attacks
 
-* Encrypted DNS (DoH/DoT/DoQ) Exploitation: Attackers correlating metadata (e.g., IPs, timestamps) from DNS-over-HTTPS (DoH) or DNS-over-TLS (DoT) to track users despite encryption; Forcing victims to fall back to unencrypted DNS via TCP RST injection or QUIC handshake manipulation; Machine learning analyzes encrypted DNS patterns to infer visited domains.
+* Encrypted DNS (DoH/DoT/DoQ) Exploitation: Attackers correlating metadata (IPs, timestamps) from DNS-over-HTTPS (DoH) or DNS-over-TLS (DoT) to track users despite encryption; Forcing victims to fall back to unencrypted DNS via TCP RST injection or QUIC handshake manipulation; Machine learning analyzes encrypted DNS patterns to infer visited domains.
 * Cloud & Kubernetes-Targeted Attacks: Attackers abusing AWS Route 53, Azure DNS, or Cloudflare Gateway for DNS tunneling (exfiltration via TXT/AAAA records) or Phantom domain attacks (overloading resolvers with fake queries).
-* Kubernetes DNS Threats: CoreDNS poisoning (malicious pods altering cluster resolution) and Sidecar proxy attacks (e.g., Istio’s DNS spoofing).
-* AI-Driven & Automated Attacks: AI-Generated Phishing Domains and Adversarial ML: Poisoning DNS reputation models (e.g., tricking security tools into whitelisting malicious domains).
+* Kubernetes DNS Threats: CoreDNS poisoning (malicious pods altering cluster resolution) and Sidecar proxy attacks (Istio’s DNS spoofing).
+* AI-Driven & Automated Attacks: AI-Generated Phishing Domains and Adversarial ML: Poisoning DNS reputation models (tricking security tools into whitelisting malicious domains).
 * Supply Chain & Registrar Compromises: 
-    * Registrar Hacks: API key theft (e.g., GoDaddy, Namecheap breaches) leading to domain hijacking.
-    * Subdomain Takeovers: Exploiting dangling CNAMEs in cloud services (e.g., AWS S3, GitHub Pages).
+    * Registrar Hacks: API key theft (GoDaddy, Namecheap breaches) leading to domain hijacking.
+    * Subdomain Takeovers: Exploiting dangling CNAMEs in cloud services (AWS S3, GitHub Pages).
     * TLD-Level Attacks: Manipulating new gTLDs (.app, .xyz) via registrar collusion or ICANN policy gaps.
-* Post-Quantum DNS Threats: Attackers collecting DNSSEC-signed records for future quantum-enabled breaks (e.g., ECDSA-P256) and Quantum key distribution (QKD) spoofing attacks targeting DNSSEC-authenticated zones.
+* Post-Quantum DNS Threats: Attackers collecting DNSSEC-signed records for future quantum-enabled breaks (ECDSA-P256) and Quantum key distribution (QKD) spoofing attacks targeting DNSSEC-authenticated zones.
 * Advanced DDoS & Amplification: QUIC’s UDP-based protocol enables new amplification vectors; Exploiting NSEC3 walking or large RSA-4096 signatures to overwhelm resolvers.
 * Zero-Trust & Internal DNS Abuse
     * ADIDNS Attacks: Manipulating Active Directory DNS for lateral movement.
     * Split-Horizon DNS Exploits: Bypassing internal DNS segmentation via DNS rebinding.
 * Geopolitical & State-Sponsored DNS Attacks
-    * DNSpionage: Nation-states hijack domains to redirect traffic (e.g., Sea Turtle campaign).
-    * Internet Shutdowns: Governments manipulate DNS to censor domains (e.g., Russia’s Sovereign Runet).
+    * DNSpionage: Nation-states hijack domains to redirect traffic (Sea Turtle campaign).
+    * Internet Shutdowns: Governments manipulate DNS to censor domains (Russia’s Sovereign Runet).
 
 ## Defence trends
 
 * Adoption of Encrypted DNS Protocols: DNS-over-HTTPS (DoH) / DNS-over-TLS (DoT) prevents eavesdropping and MITM attacks and major browsers (Chrome, Firefox) and OSes now default to DoH.
     * Oblivious DoH (ODoH) decouples client IP from queries via a proxy, enhancing privacy, used by Cloudflare, Apple, and Google.
 * DNSSEC Deployment & Modernization
-    * Wider Adoption: Governments (e.g., U.S. BOD 22-01) and enterprises enforce DNSSEC validation.
-    * Post-Quantum Prep: Testing hybrid signatures (e.g., ECDSA + Falcon-1024) for future-proofing.
+    * Wider Adoption: Governments (U.S. BOD 22-01) and enterprises enforce DNSSEC validation.
+    * Post-Quantum Prep: Testing hybrid signatures (ECDSA + Falcon-1024) for future-proofing.
     * Automated Key Rollovers: Tools like OpenDNSSEC 2.2+ streamline key management.
-* AI/ML-Powered Threat Detection: Anomaly Detection by ML models flag DNS tunneling (e.g., long subdomains, high TXT query volumes), and Darktrace, Cisco Umbrella, and F5 DNS Defense using behavioural AI.
+* AI/ML-Powered Threat Detection: Anomaly Detection by ML models flag DNS tunneling (long subdomains, high TXT query volumes), and Darktrace, Cisco Umbrella, and F5 DNS Defense using behavioural AI.
 * Generative AI for Threat Intel: Predicts typosquatting domains and fast-flux botnets via LLMs.
 * Zero Trust & DNS Filtering: 
     * DNS-as-a-Security Layer: Solutions like Cloudflare Gateway and Zscaler DNS Security enforce policies at the DNS level.
-    * RPZ (Response Policy Zones): Blocks malicious domains in real-time using threat feeds (e.g., Quad9, ThreatFox).
+    * RPZ (Response Policy Zones): Blocks malicious domains in real-time using threat feeds (Quad9, ThreatFox).
 * Cloud-Native DNS Protections:
-    * Kubernetes Hardening: CoreDNS plugins (e.g., k8s_gateway) prevent cluster-level poisoning; NetworkPolicy rules restrict DNS traffic between pods.
-    * Serverless DNS Security: AWS GuardDuty monitors Route 53 for suspicious activity (e.g., domain hijacking).
+    * Kubernetes Hardening: CoreDNS plugins (k8s_gateway) prevent cluster-level poisoning; NetworkPolicy rules restrict DNS traffic between pods.
+    * Serverless DNS Security: AWS GuardDuty monitors Route 53 for suspicious activity (domain hijacking).
 * Anti-DDoS & Resilience Measures:
     * Anycast DNS: Cloud providers (AWS, Cloudflare) absorb DDoS attacks via global anycast networks.
     * Rate Limiting & Sinkholing: BIND 9.16+ and Knot DNS mitigate amplification attacks.
 * Supply Chain & Registrar Defenses: 
-    * Registry Lock: Requires manual approval for domain changes (e.g., Verisign’s Advanced Protection).
+    * Registry Lock: Requires manual approval for domain changes (Verisign’s Advanced Protection).
     * DMARC/DKIM/SPF: Combats DNS-based email spoofing (BEC, phishing).
     * DNSSEC for Email: MTA-STS and DANE (DNS-based Authentication of Named Entities) validate SMTP servers.
 * Internal DNS Protections: 
     * ADIDNS Hardening: Microsoft’s Safe DNS Updates and EPA (Enhanced Protected Mode) for Active Directory.
-    * DNS Sinkholing: Redirects malicious internal DNS queries to a logging server (e.g., Cisco Umbrella).
+    * DNS Sinkholing: Redirects malicious internal DNS queries to a logging server (Cisco Umbrella).
 * Post-Quantum Readiness:
     * Experimentation with PQ Algorithms: Cloudflare and Google test CRYSTALS-Kyber for future DNSSEC.
     * Key Rotation Policies: Shorter key lifespans to reduce harvesting risks.

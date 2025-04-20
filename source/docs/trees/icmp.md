@@ -71,13 +71,13 @@ ICMP is used for error reporting (for example, if a BGP peer is unreachable).
 
         AND: Use ICMP Echo Replies for C2 callbacks
 
-        AND: Abuse whitelisted ICMP types (e.g., PMTUD)
+        AND: Abuse whitelisted ICMP types (PMTUD)
 
     4.2 Lateral Movement via ICMP
 
         OR: APT29-style internal C2 channels
 
-        OR: ICMP-based password spraying (e.g., APT41)
+        OR: ICMP-based password spraying (APT41)
 
     4.3 ICMPv6 Router Advertisement Spoofing
 
@@ -97,7 +97,7 @@ ICMP is used for error reporting (for example, if a BGP peer is unreachable).
 
         AND: Send malformed ICMPv6 to embedded devices
 
-        AND: Trigger firmware bugs (e.g., CVE-2020-10148)
+        AND: Trigger firmware bugs (CVE-2020-10148)
 
     5.3 Cloud Metadata Service Abuse
 

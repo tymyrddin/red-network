@@ -7,7 +7,7 @@
 
     1.1. Remote Code Execution (RCE) via TCP/IP flaws
     
-    1.2. Kernel memory corruption (e.g., SACK-based attacks)
+    1.2. Kernel memory corruption (SACK-based attacks)
 
 2. Protocol-Level Attacks (OR)
 
@@ -86,7 +86,7 @@ connection-oriented session between BGP peers (routers). BGP peers communicate d
 
     2.1. Predict BGP TCP Sequence Numbers (OR)
     
-        2.1.1. Off-Path ISN Prediction (e.g., using timestamp leaks)
+        2.1.1. Off-Path ISN Prediction (using timestamp leaks)
         
         2.1.2. In-Window Guessing (due to poor ISN randomization)
     
@@ -100,13 +100,13 @@ connection-oriented session between BGP peers (routers). BGP peers communicate d
 
     3.1. Trigger Kernel Crashes (DoS) (OR)
     
-        3.1.1. Exploit TCP SACK Handling (e.g., Linux CVE-2019-11477)
+        3.1.1. Exploit TCP SACK Handling (Linux CVE-2019-11477)
         
         3.1.2. Abuse TCP Selective ACK (SACK) Resource Exhaustion
     
     3.2. Remote Code Execution (RCE) via TCP/IP Stack (AND)
     
-        3.2.1. Exploit Router OS TCP Stack (e.g., JunOS, IOS XR flaws)
+        3.2.1. Exploit Router OS TCP Stack (JunOS, IOS XR flaws)
         
         3.2.2. Deploy Malicious BGP Configurations Post-Exploit
 
@@ -116,7 +116,7 @@ connection-oriented session between BGP peers (routers). BGP peers communicate d
     
         4.1.1. ARP/DNS Spoofing to Redirect BGP Traffic
         
-        4.1.2. BGP Peering Over Unencrypted Links (e.g., Internet Exchange Points)
+        4.1.2. BGP Peering Over Unencrypted Links (Internet Exchange Points)
     
     4.2. Decrypt or Modify BGP Messages (OR)
     

@@ -7,7 +7,7 @@
 
 Prerequisite: Attacker has resources to perform cryptanalysis or side-channel attacks.
 
-    1.1.1 Exploit weak/deprecated algorithms (e.g., RSA-1024 in legacy BGPsec deployments).
+    1.1.1 Exploit weak/deprecated algorithms (RSA-1024 in legacy BGPsec deployments).
 
         Prerequisite: Victim AS still uses outdated crypto.
 
@@ -23,23 +23,23 @@ Prerequisite: Attacker has resources to perform cryptanalysis or side-channel at
 
 Prerequisite: Attacker can manipulate RPKI or BGPsec propagation.
 
-    1.2.1 Manipulate RPKI publication points (e.g., compromise CA or abuse auto-renewal).
+    1.2.1 Manipulate RPKI publication points (compromise CA or abuse auto-renewal).
 
-        Prerequisite: CA uses weak authentication (e.g., exposed API keys).
+        Prerequisite: CA uses weak authentication (exposed API keys).
 
-    1.2.2 Exploit misissuance in ROAs (e.g., overclaiming prefixes via compromised CAs).
+    1.2.2 Exploit misissuance in ROAs (overclaiming prefixes via compromised CAs).
 
         Prerequisite: RPKI CA has poor revocation checks.
 
     1.2.3 Bypass RPKI-to-BGPsec propagation delays.
 
-        Prerequisite: Victim AS has slow RPKI sync (e.g., >30 min delays).
+        Prerequisite: Victim AS has slow RPKI sync (>30 min delays).
 
 1.3 Target Implementation Bugs (OR)
 
 Prerequisite: Victim uses vulnerable BGPsec software.
 
-    1.3.1 Exploit memory corruption in BGPsec daemons (e.g., FRRouting/BIRD CVEs).
+    1.3.1 Exploit memory corruption in BGPsec daemons (FRRouting/BIRD CVEs).
 
         Prerequisite: Unpatched software (CVE-2020+).
 
@@ -47,7 +47,7 @@ Prerequisite: Victim uses vulnerable BGPsec software.
 
         Prerequisite: Victim accepts malformed BGPsec attributes.
 
-    1.3.3 Trigger crashes via resource exhaustion (e.g., crafted large signatures).
+    1.3.3 Trigger crashes via resource exhaustion (crafted large signatures).
 
         Prerequisite: Victim lacks rate-limiting.
 
@@ -59,7 +59,7 @@ Prerequisite: Attacker has insider access or social engineering capability.
 
         Prerequisite: Operator lacks MFA/phishing training.
 
-    1.4.2 Exploit misconfigurations (e.g., allow-untrusted in BGPsec policies).
+    1.4.2 Exploit misconfigurations (allow-untrusted in BGPsec policies).
 
         Prerequisite: Network uses permissive default settings.
 
@@ -71,15 +71,15 @@ Prerequisite: Attacker has insider access or social engineering capability.
 
 Prerequisite: Attacker controls or compromises a trusted AS.
 
-    1.5.1 Compromise a trusted AS’s signing keys (e.g., via supply-chain attacks).
+    1.5.1 Compromise a trusted AS’s signing keys (via supply-chain attacks).
 
         Prerequisite: Key storage uses weak HSMs or shared credentials.
 
-    1.5.2 Abuse indirect trust (e.g., hijack a customer cone with valid BGPsec).
+    1.5.2 Abuse indirect trust (hijack a customer cone with valid BGPsec).
 
         Prerequisite: Victim AS accepts routes from "trusted" customers without re-validation.
 
-    1.5.3 Exploit transitive trust flaws (e.g., malicious AS rewriting valid paths).
+    1.5.3 Exploit transitive trust flaws (malicious AS rewriting valid paths).
 
         Prerequisite: BGPsec path validation is not end-to-end.
 ```
@@ -111,7 +111,7 @@ IXP operator reluctance to enforce BGPsec due to complexity makes IXPs and Route
 lack strict BGPsec validation (MANRS 2023), enabling:
 
 * "Validation stripping" (malicious ASes removing BGPsec attributes).
-* Route server impersonation (e.g., advertising invalid paths via IXP).
+* Route server impersonation (advertising invalid paths via IXP).
 
 Automation & AI-Enhanced Attacks. Attackers use ML to:
 

@@ -10,7 +10,7 @@ multiprotocol support).
 
     1.1 Phishing & Social Engineering [OR]
     
-        1.1.1 Spear Phishing (e.g., PDF/Excel malware)
+        1.1.1 Spear Phishing (PDF/Excel malware)
         
         1.1.2 Business Email Compromise (BEC) with deepfake audio/video
         
@@ -26,15 +26,15 @@ multiprotocol support).
     
         1.3.1 Dependency confusion (malicious npm/PyPi packages) (2021)
         
-        1.3.2 Compromised SaaS vendors (e.g., SolarWinds-style attacks)
+        1.3.2 Compromised SaaS vendors (SolarWinds-style attacks)
 
 2. Lateral Movement & Privilege Escalation [AND]
 
     2.1 Exploiting Zero-Day Vulnerabilities [OR]
     
-        2.1.1 RCE in enterprise VPNs (e.g., Pulse Secure, Citrix CVE-2023-3519)
+        2.1.1 RCE in enterprise VPNs (Pulse Secure, Citrix CVE-2023-3519)
         
-        2.1.2 Windows/Linux privilege escalation (e.g., Dirty Pipe, Log4Shell)
+        2.1.2 Windows/Linux privilege escalation (Dirty Pipe, Log4Shell)
         
     2.2 Cloud Identity Attacks [OR]
     
@@ -46,7 +46,7 @@ multiprotocol support).
 
     3.1 Encrypted Exfiltration [OR]
     
-        3.1.1 DNS tunneling (e.g., DoH/DoT for stealth)
+        3.1.1 DNS tunneling (DoH/DoT for stealth)
         
         3.1.2 Legitimate cloud services (Dropbox, Google Drive, Slack)
         
@@ -62,7 +62,7 @@ multiprotocol support).
     
         4.1.1 PowerShell/Cobalt Strike in-memory execution
         
-        4.1.2 Linux rootkits (e.g., Symbiote, 2022)
+        4.1.2 Linux rootkits (Symbiote, 2022)
         
     4.2 Cloud Backdoors [AND]
     

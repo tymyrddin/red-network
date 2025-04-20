@@ -9,7 +9,7 @@ Used for route origin validation (ROV) to prevent BGP hijacking.
 
     1.1. Exploit RPKI Validator Vulnerabilities
 
-        Prerequisite: Unpatched validator software (e.g., Routinator, Fort, OctoRPKI).
+        Prerequisite: Unpatched validator software (Routinator, Fort, OctoRPKI).
 
         Sub-attacks:
 
@@ -29,7 +29,7 @@ Used for route origin validation (ROV) to prevent BGP hijacking.
 
     2.1. Compromise CA Private Keys
 
-        Prerequisite: Weak key management (e.g., leaked HSMs, side-channel attacks).
+        Prerequisite: Weak key management (leaked HSMs, side-channel attacks).
 
         2.1.1. Extract keys via cloud HSM vulnerabilities (CVE-2021-XXX).
 
@@ -71,7 +71,7 @@ Used for route origin validation (ROV) to prevent BGP hijacking.
 
         Prerequisite: Access to TAL update mechanism.
 
-        4.2.1. Distribute malicious TAL (e.g., via compromised package mirrors).
+        4.2.1. Distribute malicious TAL (via compromised package mirrors).
 
 5. Exploit RPKI Protocol Weaknesses (OR-gate)
 
@@ -107,7 +107,7 @@ AND-gates = Requires multiple steps (poison RPKI and spoof BGPsec).
 
     1.2. Abuse BGPsec Key Compromise to Forge Valid Routes (AND-gate)
 
-        Prerequisite: Compromise BGPsec private keys (e.g., via HSM breach or weak key generation).
+        Prerequisite: Compromise BGPsec private keys (via HSM breach or weak key generation).
 
         1.2.1. Sign malicious AS_PATH updates for RPKI-covered prefixes.
 
@@ -117,15 +117,15 @@ AND-gates = Requires multiple steps (poison RPKI and spoof BGPsec).
 
     2.1. Compromise Shared Trust Anchors (AND-gate)
 
-        Prerequisite: Overlapping CA trust (e.g., RPKI TA also used for BGPsec).
+        Prerequisite: Overlapping CA trust (RPKI TA also used for BGPsec).
 
         2.1.1. Revoke RPKI ROAs but keep BGPsec keys valid (or vice versa).
 
-        2.1.2. Forge cross-protocol validity conflicts (e.g., RPKI says valid, BGPsec says invalid).
+        2.1.2. Forge cross-protocol validity conflicts (RPKI says valid, BGPsec says invalid).
 
     2.2. Attack the TAL + BGPsec Trust Distribution (OR-gate)
 
-        Prerequisite: Access to trust anchor distribution channels (e.g., NIST TALs).
+        Prerequisite: Access to trust anchor distribution channels (NIST TALs).
 
         2.2.1. Distribute malicious TALs + BGPsec trust anchors.
 
@@ -143,7 +143,7 @@ AND-gates = Requires multiple steps (poison RPKI and spoof BGPsec).
 
     3.2. Exploit BGPsec’s Slow Rollout (OR-gate)
 
-        Prerequisite: Partial BGPsec adoption (e.g., only some ASes validate).
+        Prerequisite: Partial BGPsec adoption (only some ASes validate).
 
         3.2.1. Route leaks through non-BGPsec ASes (bypassing signed paths).
 
@@ -153,7 +153,7 @@ AND-gates = Requires multiple steps (poison RPKI and spoof BGPsec).
 
     4.1. Precompute Attacks on Shared Algorithms (AND-gate)
 
-        Prerequisite: RPKI/BGPsec use the same weak crypto (e.g., ECDSA with biased nonces).
+        Prerequisite: RPKI/BGPsec use the same weak crypto (ECDSA with biased nonces).
 
         4.1.1. Reuse compromised RPKI keys to sign BGPsec updates.
 

@@ -447,7 +447,7 @@ From a domain joined Windows machine:
 
     findstr /s /n /i /p password \\\\<domain>\sysvol\<domain>\*
 
-From Linux (e.g. Kali Linux):
+From Linux (Kali Linux):
 
     mount.cifs -o domain=<domain>,username=<username>,password=<password> //<DC-IP>/SYSVOL /tmp/mnt
     grep -ir 'password' /tmp/mnt
