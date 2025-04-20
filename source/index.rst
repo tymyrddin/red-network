@@ -90,11 +90,12 @@ Aside from all of the resources to make and maintain the equipment, and the ener
    docs/trees/tcp.md
    docs/trees/ip.md
    docs/trees/bgp.md
+   docs/trees/bgpsec.md
    docs/trees/icmp.md
    docs/trees/dns.md
    docs/trees/tls-ssl.md
-   docs/trees/md5.md
    docs/trees/tcp-ao.md
+   docs/trees/md5.md
    docs/trees/rpki.md
 
 ----

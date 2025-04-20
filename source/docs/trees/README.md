@@ -38,10 +38,11 @@ It is not perfect, Below are the attack trees on some of the various components 
 * [Transmission Control Protocol](tcp.md)
 * [Internet Protocol](ip.md)
 * [Border Gateway Protocol](bgp.md)
+* [BGPsec validation](bgpsec.md)
 * [Internet Control Message Protocol](icmp.md)
 * [Domain Name System](dns.md)
 * [TLS/SSL (for BGPsec)](tls-ssl.md)
-* [MD5 (for TCP-AO)](md5.md)
 * [TCP-AO (Authentication Option)](tcp-ao.md)
+* [MD5 (for TCP-AO)](md5.md)
 * [Resource Public Key Infrastructure](rpki.md)
 
