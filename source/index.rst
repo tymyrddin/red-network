@@ -11,16 +11,35 @@ Aside from all of the resources to make and maintain the equipment, and the ener
 .. toctree::
    :maxdepth: 1
    :includehidden:
-   :caption: Testlab
+   :caption: Highway
 
-   Virtual machines <https://testlab.tymyrddin.dev/docs/vm/README>
-   Network tools <https://testlab.tymyrddin.dev/docs/network/README>
-   Wireless tools <https://testlab.tymyrddin.dev/wireless/README>
+   docs/trees/README.md
+   docs/trees/tcp.md
+   docs/trees/ip.md
+   docs/trees/bgp.md
+   docs/trees/bgpsec.md
+   docs/trees/icmp.md
+   docs/trees/dns.md
+   docs/trees/tls-ssl.md
+   docs/trees/tcp-ao.md
+   docs/trees/md5.md
+   docs/trees/rpki.md
+
+----
 
 .. toctree::
    :maxdepth: 1
    :includehidden:
-   :caption: Preparation
+   :caption: Testlab (Other locations)
+
+   Virtual machines <https://testlab.tymyrddin.dev/docs/vm/README>
+   Network tools <https://testlab.tymyrddin.dev/docs/network/README>
+   Wireless tools <https://testlab.tymyrddin.dev/docs/wireless/readme>
+
+.. toctree::
+   :maxdepth: 1
+   :includehidden:
+   :caption: Preparation (Other locations)
 
    Reconnaissance <https://recon.tymyrddin.dev/docs/scanning/README>
    Enumeration <https://enum.tymyrddin.dev/docs/system/README>
@@ -78,25 +97,6 @@ Aside from all of the resources to make and maintain the equipment, and the ener
    :caption: More labs
 
    Mythical blue lake (scenario) <https://ad.tymyrddin.dev/>
-
-----
-
-.. toctree::
-   :maxdepth: 1
-   :includehidden:
-   :caption: Highway attack trees
-
-   docs/trees/README.md
-   docs/trees/tcp.md
-   docs/trees/ip.md
-   docs/trees/bgp.md
-   docs/trees/bgpsec.md
-   docs/trees/icmp.md
-   docs/trees/dns.md
-   docs/trees/tls-ssl.md
-   docs/trees/tcp-ao.md
-   docs/trees/md5.md
-   docs/trees/rpki.md
 
 ----
 

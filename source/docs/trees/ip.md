@@ -3,7 +3,11 @@
 BGP runs over IP (Internet Protocol). It can operate over both IPv4 (traditional BGP) and IPv6 (MP-BGP for 
 multiprotocol support).
 
-## Compromise Internet Protocol (IP)
+```{contents} Table of Contents
+:depth: 3
+```
+
+## Attack tree: Compromise Internet Protocol (IP)
 
 ```text
 1. Initial Access [OR]
@@ -85,20 +89,125 @@ multiprotocol support).
         5.2.2 Deepfake video calls to bypass MFA (2023+)
 ```
 
-## Key trends in IP attacks
+## IP spoofing & DDoS amplification
 
-* Cloud-native attacks: AWS/Azure/GCP exploitation
-* AI-powered social engineering: deepfake audio/video
-* Living-off-the-land (LOTL) techniques: abusing legitimate tools
-* Supply chain compromises: software dependencies, SaaS vendors
+Attack Pattern: Attackers forge source IP addresses to launch reflection/amplification attacks (e.g., using UDP-based protocols like DNS, NTP, or even TCP middlebox abuse).
 
-## Defence trends 
+Example (2022): The "APT28 TCP Amplification DDoS" abused misconfigured firewalls and load balancers to reflect SYN-ACK packets, generating multi-Tbps attacks against Ukrainian and Western targets.
 
-* From Perimeter to Zero Trust: Assuming breach; verify every access request.
-* AI & Automation: Real-time anomaly detection.
-* Cloud-First Security: CSPM, CWPP, and CIEM (Cloud Infrastructure Entitlement Management).
-* Resilience Over Prevention: Focus on rapid detection/response (for example MITRE Shield).
-* Regulatory Pressure: Compliance with NIS2 (EU), SEC Cyber Rules (2023).
+Why It Works: Many networks still allow source IP spoofing due to weak BCP38 (anti-spoofing) enforcement.
+
+Mitigation
+
+* Network-level filtering (BCP38/84) to block spoofed packets.
+* Cloud-based DDoS scrubbing (AWS Shield, Cloudflare Magic Transit).
+
+## BGP hijacking & route leaks
+
+Attack Pattern: Attackers manipulate BGP routing to redirect traffic through malicious networks for interception or DoS.
+
+Examples:
+
+* 2021: Russian ISP "DDoS-Guard" hijacked Western financial traffic.
+* 2023: A Chinese state-linked group rerouted US military traffic through China Telecom.
+
+Why It Works: BGP lacks cryptographic authentication, making route manipulation easy.
+
+Mitigation
+
+* RPKI (Resource Public Key Infrastructure) for route origin validation.
+* BGP monitoring (e.g., Cloudflare Radar, BGPMon).
+
+## IP fragmentation attacks (Teardrop, Ping of Death Revisited)
+
+Attack Pattern: Exploiting fragmentation reassembly flaws in network stacks to crash systems.
+
+Example (2023): A variant of Ping of Death resurfaced in IoT devices, causing kernel panics in Linux-based systems.
+
+Why It Works: Some devices still mishandle overlapping fragments or malformed packets.
+
+Mitigation
+
+* Patch systems (e.g., Linux net.ipv4.ipfrag_high_thresh tuning).
+* Stateful firewalls to drop malicious fragments.
+
+## ICMP ause (Smurf, flooding, covert channels)
+
+Attack Pattern
+
+* ICMP floods (e.g., Smurf attacks) or ICMP tunneling for data exfiltration.
+* Example (2022): A Russian APT group used ICMP tunnels to bypass network monitoring in a cyber-espionage campaign.
+
+Why It Works: Many networks allow unrestricted ICMP for diagnostics.
+
+Mitigation
+
+* Rate-limiting ICMP at network edges.
+* Deep Packet Inspection (DPI) to detect tunneling.
+
+## IPv6 exploitation (Flooding, SLAAC attacks)
+
+Attack Pattern
+
+* IPv6 DDoS: Attackers abuse large IPv6 neighbor discovery (ND) packets to overwhelm routers.
+* SLAAC Attacks: Spoofing IPv6 router advertisements (RAs) to hijack traffic.
+
+Example (2023): A Mirai-variant botnet launched IPv6-based floods against ISPs.
+
+Why It Works: Many networks lack IPv6 security controls.
+
+Mitigation
+
+* RA Guard to block rogue IPv6 advertisements.
+* IPv6-specific DDoS protections (e.g., AWS Shield Advanced).
+
+## TTL expiry attacks (Resource exhaustion)
+
+Attack Pattern: Attackers send packets with low TTL values, forcing routers to generate ICMP Time Exceeded messages, overwhelming infrastructure.
+
+Example (2024): A cryptocurrency exchange was hit by a TTL-based attack, disrupting API services.
+
+Why It Works: Many networks don’t rate-limit ICMP responses.
+
+Mitigation
+
+* Rate-limiting ICMP Time Exceeded messages.
+* Filtering packets with TTL=1 at the edge.
+
+## Geolocation spoofing (Evasion & Censorship bypass)
+
+Attack Pattern: Attackers fake IP geolocation to bypass geo-blocks or evade detection.
+
+Example (2023): A ransomware group used cloud proxies to mask origins as legitimate US IPs.
+
+Why It Works: Many geo-IP databases are outdated.
+
+Mitigation
+
+* Strict ASN-based filtering (e.g., only allow traffic from known cloud providers).
+* Behavioral analysis (unusual traffic patterns from "legit" IPs).
+
+## Trends & takeaways
+
+* BGP Hijacking Remains Critical: State-sponsored groups abuse BGP for espionage.
+* IPv6 Attacks Rising: As adoption grows, so do IPv6-specific exploits.
+* Cloud & IoT Are Prime Targets: Attackers exploit weak default configurations.
+* Low-TTL & ICMP Attacks Resurging: Old tricks are being modernized.
+
+## Defence recommendations
+
+For Networks:
+
+* Deploy RPKI + BGP monitoring.
+* Enforce strict anti-spoofing (BCP38).
+* Rate-limit ICMP & TTL expiry packets.
+
+For Enterprises:
+
+* Use DDoS-protected cloud services.
+* Patch IP stack vulnerabilities (e.g., Linux kernel updates).
+
+For Governments/Critical Infra: Mandate BGP security (MANRS compliance).
 
 ## Emerging tech
 

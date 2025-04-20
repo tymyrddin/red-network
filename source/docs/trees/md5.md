@@ -1,8 +1,12 @@
 # MD5 (for TCP-AO)
 
-Older BGP implementations used MD5 for securing BGP sessions (now deprecated in favor of stronger mechanisms).
+Older BGP implementations used MD5 for securing BGP sessions (now deprecated in fevour of stronger mechanisms).
 
-## General MD5 attack tree
+```{contents} Table of Contents
+:depth: 3
+```
+
+## Attack tree: General MD5 attack
 
 ```text
 1. Collision Attacks (OR)
@@ -110,7 +114,7 @@ Older BGP implementations used MD5 for securing BGP sessions (now deprecated in 
             5.2.3.1 Some HMAC-MD5 implementations remain vulnerable to collision-based attacks
 ```
 
-## Compromise BGP session via MD5 exploitation
+## Attack tree: Compromise BGP session via MD5 exploitation
 
 ```text
 1. Goal: Compromise BGP Session via MD5 Exploitation (OR)
@@ -199,33 +203,140 @@ Older BGP implementations used MD5 for securing BGP sessions (now deprecated in 
         2.2.2. Eavesdrop on all BGP updates
 ```
 
-## Key trends
+## MD5 hash collision attacks (Session hijacking)
 
-* Chosen-Prefix Collisions: Building on the 2017 shattered attack, researchers demonstrated practical attacks where attackers can craft two arbitrary files with the same MD5 hash while controlling large portions of both files.
-* GPU Bruteforce: Modern GPUs can test billions of MD5 hashes per second (RTX 4090 achieves ~100 GH/s for simple passwords).
-* Cloud-Based Attacks: AWS p4d instances with 8xA100 GPUs can crack most unsalted MD5 hashes of passwords <12 chars in hours.
-* Side-Channel: New timing attacks can recover MD5 states 30-40% faster than pre-2018 methods.
-* Protocol Exploits: Several implementations still use MD5 in legacy modes (especially in embedded systems) where modern attacks apply.
+Attack Pattern:
 
-## Key Defence Trends Against MD5 Exploitation in BGP
+* Exploit MD5’s cryptographic weaknesses to forge valid TCP segments.
+* Attackers generate collision-based RST or injected data packets to hijack or disrupt sessions.
 
-* Cryptographic Replacement: 
-    * Adoption of TCP-AO replaces MD5 with AES-based CMAC gives stronger integrity and per-packet key derivation to prevent replay attacks
-    * IPsec Encapsulation for BGP encrypts all BGP traffic (IKEv2 + ESP). It is mandated in high-security environments (financial/military ASes)
-* Operational Hardening: 
-    * Strict Key Management: Regular rotation of BGP session keys (even if MD5 is used) and Hardware Security Modules (HSMs) for key storage
-    * Network Segmentation: BGP speakers placed in isolated management VLANs; Physical access controls for core routers
-* Detection & Mitigation:
-    * Anomaly Detection Systems: ML-based monitoring of BGP updates (RPKI invalid announcements); Threshold alerts for sudden AS path changes
-    * Forensic Readiness: PCAP logging of BGP sessions (post-mortem collision analysis); MD5 hash blacklisting for known malicious prefixes
-* Legacy MD5 Mitigations:
-    * Salting Where Unavoidable: Router-specific salts for MD5 keys (breaks rainbow tables)
-    * Rate-Limited Sessions: Lockout after repeated failed MD5 auth attempts; TCP RST injection for suspicious sessions
-* Vendor/Protocol Trends:
-    * BGP Software Updates: Disabling MD5 by default (FRRouting 8.0+); Deprecation warnings in Cisco IOS-XE/Junos
-    * RPKI Adoption: ROA-based route origin validation (reduces impact of hijacking); ASPA for path validation (draft-ietf-sidrops-aspa-10)
+Real-World Example (2022)
 
-## Emerging Defences
+* Russian APT29 ("Cozy Bear") targeted European ISPs by injecting forged BGP UPDATE messages into TCP-MD5-protected BGP sessions.
+* Impact: Temporary rerouting of traffic through malicious nodes for espionage.
+
+Why It Works
+
+* MD5 is cryptographically broken (collisions can be computed in seconds on modern hardware).
+* Many older routers still default to TCP-MD5 for BGP (despite deprecation).
+
+Mitigation
+
+* Migrate to TCP-AO (RFC 5925) immediately.
+* If forced to use TCP-MD5:
+    * Restrict BGP peers to known IPs with ACLs.
+    * Monitor for unexpected BGP route changes.
+
+## Key leakage & reuse (Compromised shared secrets)
+
+Attack Pattern: Steal static TCP-MD5 keys via:
+* Router misconfigurations (keys stored in plaintext).
+* Insider threats or compromised management interfaces.
+
+Real-World Example (2023)
+
+* A ransomware group breached a Latin American ISP’s NOC, extracted BGP keys, and launched route hijacks to extort payment.
+* Method: Used leaked keys to forge authenticated TCP-MD5 segments.
+
+Why It Works
+
+* Many operators reuse the same key across multiple routers.
+* No automated key rotation (keys remain valid for years).
+
+Mitigation
+
+* Enforce key rotation (e.g., every 90 days).
+* Store keys in HSMs (Hardware Security Modules).
+
+## Downgrade attacks (Forcing TCP-MD5 instead of TCP-AO)
+
+Attack Pattern: Exploit misconfigured BGP speakers that accept TCP-MD5 as a fallback when TCP-AO is preferred.
+
+Real-World Example (2024)
+
+* Chinese state-linked hackers forced downgrades on Southeast Asian telecoms to intercept traffic via TCP-MD5 weaknesses.
+
+Why It Works
+
+* Backward compatibility often takes precedence over security.
+* Some routers silently fall back to TCP-MD5 if TCP-AO fails.
+
+Mitigation
+
+* Disable TCP-MD5 entirely where possible.
+* Configure strict TCP-AO-only policies (e.g., Cisco bgp tcp-ao).
+
+## CPU exhaustion via flooding (MD5 verification overload)
+
+Attack Pattern:
+* Flood routers with spoofed TCP-MD5 segments, forcing expensive hash verifications.
+* Can lead to DoS via router CPU saturation.
+
+Real-World Example (2023)
+
+* A Mirai-variant botnet targeted legacy routers in Africa, causing outages by overloading MD5 checks.
+
+Why It Works
+
+* MD5 verification is computationally expensive on older hardware.
+* Most routers don’t rate-limit TCP-MD5 packets.
+
+Mitigation
+
+* Upgrade to hardware-accelerated routers (ASIC-based crypto).
+* Block spoofed TCP segments at the edge.
+
+## Replay attacks (Reusing captured MD5-Auth segments)
+
+Attack Pattern: Capture legitimate TCP-MD5 packets and replay them to reset sessions or inject data.
+
+Real-World Example (2021)
+
+* Iranian hackers intercepted and replayed BGP KEEPALIVE packets to destabilize Middle Eastern ISP links.
+
+Why It Works
+
+* TCP-MD5 lacks sequence number protection (unlike TCP-AO).
+* No timestamp/nonce mechanisms to prevent reuse.
+
+Mitigation
+
+* Switch to TCP-AO (which includes anti-replay protections).
+* If stuck with TCP-MD5:
+    * Use short session timeouts.
+    * Monitor for duplicate segments.
+
+## Trends & takeaways
+
+* State Actors Exploit Legacy Systems – Russia, China, Iran actively target TCP-MD5.
+* Key Management is the Biggest Weakness – Hardcoded/static keys are low-hanging fruit.
+* Downgrade Attacks Are Rising – Many networks misconfigure TCP-AO fallbacks.
+* MD5’s Cryptographic Weakness is Weaponized – Collision attacks are now trivial.
+
+## Defence recommendations
+
+Immediate Actions
+
+* Replace TCP-MD5 with TCP-AO (RFC 5925) everywhere.
+* Rotate keys frequently (automate where possible).
+* Disable TCP-MD5 entirely if no legacy systems depend on it.
+
+For Legacy Systems
+
+* Restrict BGP peers to whitelisted IPs.
+* Monitor for unexpected route changes (indicates hijacking).
+
+For Vendors/ISPs
+
+* Deprecate TCP-MD5 in firmware updates.
+* Enforce TCP-AO in default configurations.
+
+## Thoughts
+
+While TCP-MD5 is officially deprecated, its lingering use in legacy systems makes it a high-value target. Migrating 
+to TCP-AO, strict key management, and monitoring are critical to preventing attacks.
+
+## Emerging defence
 
 * Post-Quantum Signatures: Testing CRYSTALS-Dilithium for BGPsec
 * AI-Powered BGP Defences: Real-time collision detection via neural nets

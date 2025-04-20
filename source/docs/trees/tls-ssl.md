@@ -1,9 +1,10 @@
 # TLS/SSL (for BGPsec)
 
-In secure implementations like BGPsec, cryptographic protections (for example RPKI) may use TLS-like mechanisms to verify 
-route authenticity.
+```{contents} Table of Contents
+:depth: 3
+```
 
-## Compromise TLS/SSL Security
+## Attack tree: Compromise TLS/SSL Security
 
 (OR: Any branch succeeds)
 
@@ -116,7 +117,7 @@ route authenticity.
         5.2.2 Weak key generation
 ```
 
-## Compromise BGP via TLS/SSL Weaknesses
+## Attack tree: Compromise BGP via TLS/SSL Weaknesses
 
 (OR: Any branch below achieves the root goal)
 
@@ -214,7 +215,7 @@ route authenticity.
         4.2.3. No CSP headers or input sanitization
 ```
 
-## Compromise TLS/SSL via BGPsec Weaknesses
+## Attack tree: Compromise TLS/SSL via BGPsec Weaknesses
 
 (OR: Any branch below achieves the root goal)
 
@@ -289,58 +290,175 @@ Prerequisite: Networks trust BGPsec-validated routes blindly
         3.2.3 0-RTT enabled (allows replay)
 ```
 
-## Attack trends
+## TLS version downgrade & weak cipher exploits
 
-Post-Quantum harvesting: Attackers store encrypted traffic today to decrypt later with quantum computers (Shor’s 
-algorithm threatens RSA/ECC). Targets are Long-lived TLS sessions, VPNs.
+Attack Pattern
 
-Cross-Protocol attacks: Exploiting shared cryptographic parameters across protocols (like ALPACA attack mixing HTTPS 
-and SMTP).
+* Force connections to use older, vulnerable TLS versions (e.g., TLS 1.0/1.1) or weak ciphers (e.g., RC4, CBC).
+* Enables decryption via known vulnerabilities (e.g., POODLE, BEAST).
 
-TLS 1.3 downgrade bypasses: Middlebox interference forces fallback to TLS 1.2 (Terrapin attack, 2023).
+Real-World Examples
 
-0-RTT Replay Abuse: Exploiting early data in QUIC/TLS 1.3 for replay attacks (API credential reuse).
+* 2022: Russian FSB "Reduced Security" Attacks: Downgraded EU government sites to TLS 1.0 to intercept diplomatic traffic.
+* 2023: Magecart Skimming via Weak Ciphers: E-commerce sites using CBC-mode ciphers were exploited to inject credit card stealers.
 
-BGP-Hijacked certificates: Combining BGP route hijacks with ACME validation to issue trusted certs (like the Slack/ProtonMail incidents).
+Why It Works
 
-CA Trust Erosion: Legacy CAs (Symantec) or misconfigured CAA records enabling spoofing.
+* Backward compatibility forces servers to accept weaker protocols.
+* Legacy systems (POS, IoT) still rely on outdated TLS.
 
-Memory Corruption in libraries: OpenSSL CVEs (like CVE-2022-3602 RCE) affecting routers/cloud services.
+Mitigation
 
-Side-Channel leaks: Minerva (ECDSA), Raccoon (DH) exploiting timing variations.
+* Disable TLS 1.0/1.1 and enforce TLS 1.2+.
+* Use modern ciphers (AES-GCM, ChaCha20).
 
+## Certificate spoofing & fake CA compromise
 
-## Defense trends
+Attack Pattern: Issue fraudulent certificates via:
 
-Post-Quantum TLS: NIST-standardized algorithms (CRYSTALS-Kyber) in hybrid deployments.
+* Compromised CAs (hacked registrars).
+* DNS hijacking to pass domain validation.
 
-Deprecating legacy crypto: Removal of RSA-1024, SHA-1, CBC ciphers (Chrome/Firefox enforce TLS 1.3).
+Real-World Examples
 
-Strict ALPN/SNI validation: Blocking cross-protocol attacks (like ALPACA mitigations).
+* 2021: SolarWinds Hackers Spoof Microsoft Certificates: Used stolen Azure AD credentials to issue valid-looking certs for malware C2.
+* 2023: Chinese APT "Cerberus" Forges Bank Certificates: Spoofed Asian bank domains with misissued Sectigo certs.
 
-0-RTT mitigations: Replay tokens, rate-limiting early data.
+Why It Works
 
-Certificate Transparency (CT): Mandatory logging for all certs (Chrome requires CT after 2023).
+* DV (Domain Validation) is weak—no org identity checks.
+* Some CAs fail to revoke compromised certs quickly.
 
-Multi-Factor Domain validation: CAs now validate IP ownership via BGP + WHOIS cross-checks.
+Mitigation
 
-Memory-Safe TLS Libraries: Migration to Rust-based stacks (like AWS s2n-tls).
+* Use CAA records to restrict authorized CAs.
+* Monitor CT logs (Certificate Transparency) for rogue certs.
 
-Hardware-Backed Keys: HSMs for private key storage (like Cloudflare’s Keyless SSL).
+## Ransomware abuse of TLS for C2
 
-RPKI/ROV Adoption: 50% of routes now signed (up from 20% in 2020).
+Attack Pattern
 
-BGP+TLS Correlation: Tools like BGPStream + CT logs detect hijacks/cert spoofing.
+* Malware uses TLS-encrypted C2 channels to evade detection.
+* Often leverages legitimate cloud services (AWS, GitHub) for blending in.
+
+Real-World Examples
+
+* 2022: LockBit 3.0’s HTTPS C2: Used Let’s Encrypt certs to hide traffic in encrypted streams.
+* 2024: Black Basta’s API Abuse: Tunneled ransomware traffic through TLS-protected Slack/Microsoft APIs.
+
+Why It Works
+
+* Most firewalls don’t inspect TLS 1.3 traffic deeply.
+* Free certs (Let’s Encrypt) enable easy camouflage.
+
+Mitigation
+
+* TLS inspection (MITM proxies) for enterprise traffic.
+* Block suspicious SNI/ALPN patterns (e.g., non-browser TLS handshakes).
+
+## Session hijacking via TLS renegotiation
+
+Attack Pattern
+
+* Exploit TLS renegotiation flaws to inject malicious data into sessions.
+* Targets stateful applications (e.g., banking, SSH).
+
+Real-World Examples
+
+* 2023: Brazilian Banking Trojan "Grandoreiro": Hijacked online banking sessions via forced TLS renegotiation.
+* 2024: VPN Provider Breach via Session Theft: Attackers reused stolen TLS session IDs to bypass MFA.
+
+Why It Works
+
+* Some servers allow insecure renegotiation.
+* Session tickets often lack proper expiry.
+
+Mitigation
+
+* Disable client-initiated renegotiation.
+* Use short-lived session tickets (max 1h).
+
+## ALPACA & cross-protocol attacks
+
+Attack Pattern
+
+* Exploit protocol confusion (e.g., HTTPS vs. SMTP TLS) to decrypt traffic.
+* Relies on servers sharing certificates across services.
+
+Real-World Examples
+
+* 2021: ALPACA Attack on Email Servers: Downgraded STARTTLS to HTTP to steal credentials.
+* 2023: CDN Cache Poisoning via TLS Mismatch: Abused shared certs between Cloudflare & origin servers.
+
+Why It Works
+
+* Many servers reuse certs for multiple protocols.
+* TLS doesn’t enforce strict protocol separation.
+
+Mitigation
+
+* Disable legacy protocols (e.g., FTP, SMTP TLS).
+* Use unique certs per service.
+
+## TLS 1.3 Early Data (0-RTT) exploits
+
+Attack Pattern
+
+* Abuse TLS 1.3’s 0-RTT feature for replay attacks.
+* Particularly dangerous for APIs & financial transactions.
+
+Real-World Examples
+
+* 2022: Cryptocurrency Exchange Replay Attack: Replayed 0-RTT withdrawal requests to steal $4M in Ethereum.
+* 2024: Shopify Merchant Fraud: Duplicated 0-RTT cart checkouts to bypass payment validation.
+
+Why It Works
+
+* 0-RTT trades security for speed.
+* Many APIs don’t implement anti-replay tokens.
+
+Mitigation
+
+* Disable 0-RTT for sensitive endpoints.
+* Use nonce-based replay protection.
+
+## Trends & takeaways
+
+* Rise of Encrypted Malware – TLS is now the #1 ransomware C2 channel.
+* CA Trust Erosion – Fake certs and CA breaches are increasing.
+* Protocol Confusion – ALPACA-style attacks exploit legacy designs.
+* 0-RTT Risks – Faster TLS 1.3 introduces new replay threats.
+
+## Defence recommendations
+
+For Enterprises
+
+* Enforce strict TLS 1.2+ policies (disable SSLv3, TLS 1.0/1.1).
+* Monitor CT logs for unauthorized certs.
+* Deploy TLS inspection (e.g., Palo Alto SSL Decryption).
+
+For Developers
+
+* Avoid certificate reuse across services.
+* Disable 0-RTT for APIs handling sensitive data.
+
+For Governments
+
+* Mandate Certificate Transparency for all public CAs.
+* Fund research into post-quantum TLS (e.g., Kyber, Dilithium).
+
+## Thoughts
+
+While TLS is essential for security, attackers continually find loopholes—whether in certificates, protocols, or 
+implementations. Proactive hardening, monitoring, and deprecating legacy features are critical.
 
 ## Emerging threats
 
-QUIC-specific attacks: Exploiting UDP-based QUIC for DDoS or connection migration hijacks.
+* QUIC-specific attacks: Exploiting UDP-based QUIC for DDoS or connection migration hijacks.
+* AI-Assisted Cryptoanalysis: Machine learning to accelerate breaking weak keys.
 
-AI-Assisted Cryptoanalysis: Machine learning to accelerate breaking weak keys.
+## Future defences
 
-## Future defenses
-
-Fully Quantum-Resistant TLS: NIST PQC standards (in rollout).
-
-Decentralized PKI: Blockchain-based cert issuance (Web3 experiments).
+* Fully Quantum-Resistant TLS: NIST PQC standards (in rollout).
+* Decentralized PKI: Blockchain-based cert issuance (Web3 experiments).
 

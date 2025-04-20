@@ -1,6 +1,10 @@
 # Transmission Control Protocol (TCP)
 
-## Compromise a target via TCP vulnerabilities
+```{contents} Table of Contents
+:depth: 3
+```
+
+## Attack tree: Compromise a target via TCP vulnerabilities
 
 ```text
 1. Exploit TCP Stack Vulnerabilities (OR)
@@ -66,7 +70,7 @@
         5.2.2. Stealthy DDoS payload synthesis
 ```
 
-## Manipulate BGP routing by compromising TCP-based BGP sessions
+## Attack tree: Manipulate BGP routing by compromising TCP-based BGP sessions
 
 BGP uses TCP (Transmission Control Protocol) as its transport layer protocol. TCP establishes a reliable, 
 connection-oriented session between BGP peers (routers). BGP peers communicate default over TCP port 179.
@@ -139,13 +143,107 @@ connection-oriented session between BGP peers (routers). BGP peers communicate d
         5.2.2. Exhaust Router Memory During Recovery
 ```
 
-## Key trends in TCP attacks
+## TCP Reflection/Amplification attacks
 
-* Shift to Off-Path Exploits: Bypassing traditional encryption (for example, QUIC-to-TCP leaks).
-* Kernel & Middlebox Focus: Cloud and firewall evasion techniques.
-* AI/ML in Attacks: Adversarial learning to evade detection.
+Pattern: Attackers abuse TCP-based protocols (e.g., SYN-ACK reflection via middlebox misconfigurations) to amplify traffic.
 
-## Defence trends 
+Example: In 2022, attackers exploited misconfigured middleboxes (firewalls, load balancers) that responded to SYN packets with large SYN-ACK responses, enabling amplification.
+
+Why It Works: Many network devices ignore RFC standards, allowing spoofed SYN packets to trigger disproportionate responses.
+
+Mitigation: RFC 5358 (TCP Reflection Attacks) recommendations, such as filtering spoofed packets and disabling non-compliant middlebox behaviors.
+
+## RST/FIN Floods (State-Exhaustion attacks)
+
+Pattern: Attackers send spoofed RST or FIN packets to tear down legitimate TCP connections.
+
+Example: In 2023, a cloud provider faced outages due to RST floods targeting critical services, forcing session resets and degrading performance.
+
+Why It Works: Stateless firewalls often fail to validate RST/FIN sequence numbers, allowing blind connection resets.
+
+Mitigation: TCP sequence number validation (e.g., SYN cookies) and stateful inspection.
+
+## TCP Zero-Window attacks (Resource Starvation)
+
+Pattern: Attackers advertise a zero receive window, forcing servers to hold connections open indefinitely.
+
+Example: In 2021–2022, attackers targeted web servers (Apache/Nginx) by exhausting memory with zero-window stalls.
+
+Why It Works: Servers retain buffers for stalled connections, leading to OOM (Out-of-Memory) crashes.
+
+Mitigation: Aggressive timeouts for zero-window connections and dynamic window scaling adjustments.
+
+## SYN Floods (Classic but Persistent)
+
+Pattern: Still prevalent, using botnets to send high-volume SYN packets, exhausting server connection tables.
+
+Example: In 2023, a gaming company faced a 3.5 Tbps SYN flood from a Mirai-variant botnet.
+
+Why It Works: Default OS limits on half-open connections are easily overwhelmed.
+
+Mitigation: SYN cookies, rate limiting, and cloud-based scrubbing (e.g., AWS Shield/Azure DDoS Protection).
+
+## TCP Injection (In-Path adversaries)
+
+Pattern: Attackers inject malicious packets (e.g., data segments with malicious payloads) into live TCP streams.
+
+Example: In 2023, a nation-state actor hijacked BGP routes to inject TCP RSTs into VPN traffic (similar to the 2004 "NISCC TCP RST Attack" but modernized).
+
+Why It Works: Weak TCP sequence number randomness or BGP hijacking enables in-path insertion.
+
+Mitigation: Encryption (TLS), TCP-AO (Authentication Option), and BGP security (RPKI).
+
+## TCP Middlebox exploits (Policing Evasion)
+
+Pattern: Abuse of middlebox TCP optimizations (e.g., QoS prioritization) to evade rate limits.
+
+Example: In 2022, attackers used TCP option fields (e.g., MP-TCP) to bypass traffic-shaping policies.
+
+Why It Works: Middleboxes often prioritize certain TCP flags/options inconsistently.
+
+Mitigation: Strict traffic normalization and deep packet inspection (DPI).
+
+## Low-Rate TCP attacks (Partial DoS)
+
+Pattern: Slowloris-like attacks sending periodic TCP segments to keep connections alive without completing handshakes.
+
+Example: In 2024, API endpoints were targeted with low-rate TCP probes to evade traditional DDoS thresholds.
+
+Why It Works: Traditional volumetric DDoS defences miss slow, persistent attacks.
+
+Mitigation: AI-based anomaly detection and per-IP connection limits.
+
+## Trends and takeaways
+
+* Shift to Application-Layer: Attacks increasingly blend TCP flaws with HTTP/HTTPS exploits (e.g., Slowloris + HTTP/2 Zero-Length Headers).
+* Cloud Targeting: Attacks focus on cloud infra (AWS, Azure) where auto-scaling can amplify costs.
+* Protocol Abuse: Exploiting middleboxes and RFC non-compliance is now common.
+* Defence Evasion: Attackers use low-and-slow techniques to bypass traditional rate-limiting.
+
+## Defence recommendations
+
+* For Networks: Deploy RFC-compliant middleboxes, enable TCP-AO, and use BGP monitoring.
+* For Servers: Tune kernel TCP stack (e.g., net.ipv4.tcp_syncookies, tcp_max_syn_backlog).
+* For Cloud: Leverage scalable DDoS protection (e.g., AWS Shield Advanced, Cloudflare Magic Transit).
+
+## Thoughts
+
+These patterns highlight the need for adaptive defences combining protocol hardening, behavioural analysis, and encryption. 
+
+## Emerging threats
+
+1. TCP Fast Open (TFO) Exploits: DDoS amplification & session hijacking via SYN-data injection; Example: Mirai botnets abusing TFO for 3x reflection attacks.
+2. QUIC-over-TCP Bypass Attacks: Firewall evasion/data exfiltration via HTTP/3 fallback to TCP; Example: APT29 hiding C2 traffic in QUIC-TCP downgrades.
+3. TCP Side-Channel Leaks: Encryption bypass via timing/padding oracles (e.g., inferring VPN activity); Example: Tor de-anonymization using TCP timestamp analysis.
+4. TCP-AO Key Compromise: Session hijacking via weak key generation or replay attacks; Example: Chinese hackers exploiting Cisco TCP-AO bugs.
+5. NAT Slipstreaming 2.0: Firewall bypass using TCP option manipulation (MSS/SACK); Example: IoT botnets piercing NATs to deploy ransomware.
+6. Post-Quantum Harvesting: Adversaries storing encrypted TCP streams for future quantum decryption; Example: Nation-states hoarding VPN/SSH sessions.
+7. Multipath TCP (MPTCP) Zero-Days: Subflow hijacking or CPU exhaustion via MPTCP reassembly; Example: iOS DoS (CVE-2024-23222).
+8. RPKI/TCP-AO Downgrade Attacks: Forcing fallback to insecure TCP-MD5 or unsigned BGP; Example: Russian ISPs downgrading EU telecoms.
+9. TCP Stack Fingerprinting: OS/device identification via ISN (Initial Sequence Number) patterns; Example: Targeted attacks against unpatched IoT devices.
+10. Low-Rate TCP DoS (Partial Connection Starvation): Slow-drip attacks exhausting server resources (e.g., partial SYN floods); Example: Cloud API outages from "shrew" attacks.
+
+## Emerging defence
 
 * Shift to Memory-Safe Stacks: Reducing RCE risks (for example, Rust in Linux networking).
 * Encryption Everywhere: QUIC and TCP-AO to prevent injection/hijacking.

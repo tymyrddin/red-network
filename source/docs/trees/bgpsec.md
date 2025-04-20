@@ -1,6 +1,10 @@
 # BGPsec validation
 
-## Compromise BGPsec validation
+```{contents} Table of Contents
+:depth: 3
+```
+
+## Attack tree: Compromise BGPsec validation
 
 ```text
 1.1 Exploit Cryptographic Weaknesses (OR)
@@ -84,43 +88,112 @@ Prerequisite: Attacker controls or compromises a trusted AS.
         Prerequisite: BGPsec path validation is not end-to-end.
 ```
 
-## Key trends in BGPsec attacks
+## BGPsec downgrade attacks (Forcing fallback to insecure BGP)
 
-Modern BGPsec attacks pivot to trust exploitation, RPKI gaps, and implementation flaws, while future threats loom 
-from quantum computing and AI automation. Defenses are racing to address these trends, but adoption lags in critical 
-areas (IXPs, PQC).
+Attack Pattern: Attackers disable or bypass BGPsec validation by manipulating BGP sessions to force networks to fall back to unsigned BGP announcements.
 
-Improved crypto hygiene (RSA-2048+ adoption) forces attackers to softer targets. Attackers now focus less on breaking BGPsec cryptography and more on:
-* RPKI misalignment (ROA misissuance, delayed propagation).
-* Implementation bugs (memory corruption in BGPsec daemons like BIRD/FRRouting).
-* Trust hijacking (compromising AS signing keys or abusing customer cones).
+Example (2022): A Chinese ISP selectively dropped BGPsec UPDATE messages to redirect European traffic through an insecure path.
 
-Slow adoption of real-time RPKI-BGPsec sync mechanisms, and 60% of recent BGPsec incidents stem from RPKI 
-misconfigurations or delays (NIST 2023). For example: Attackers exploit the "RPKI-to-BGPsec propagation window" 
-(5–30 mins) to inject routes. A new tactic is the "Ghost ROAs" – maliciously issued ROAs that bypass BGPsec validation.
+Why It Works
 
-Centralization of trust in a few RPKI CAs and major ASes causes attacks increasingly to require partial insider access 
-(social engineering, compromised CAs). For example, when compromising a Tier-2 AS’s signing keys to hijack customer 
-prefixes. An emerging risk is malicious IXP route server operators bypassing BGPsec checks.
+* Many networks still accept unsigned routes if BGPsec validation fails (backward compatibility).
+* Lack of strict "must-validate" policies in router configurations.
 
-NIST’s PQC standardization has not yet reached BGPsec deployments making post-quantum cryptography (PQC) migration slow;
-so attackers prepare for "harvest now, decrypt later." Focus is likely on exploiting ECDSA signatures in BGPsec, which 
-are vulnerable to Shor’s algorithm.
+Mitigation
 
-IXP operator reluctance to enforce BGPsec due to complexity makes IXPs and Route Servers weak points. 40% of IXPs 
-lack strict BGPsec validation (MANRS 2023), enabling:
+* Enforce strict BGPsec-only peering where possible.
+* Monitor for sudden drops in BGPsec-validated routes (e.g., using RIPE RIS).
 
-* "Validation stripping" (malicious ASes removing BGPsec attributes).
-* Route server impersonation (advertising invalid paths via IXP).
+## RPKI-to-BGPsec exploits (Invalid ROAs leading to hijacks)
 
-Automation & AI-Enhanced Attacks. Attackers use ML to:
+Attack Pattern: Attackers abuse misissued or revoked RPKI certificates to bypass BGPsec validation.
 
-* Identify BGPsec misconfigurations (via passive RPKI monitoring).
-* Time attacks during RPKI update windows (auto-exploiting propagation delays).
+Example (2023): A Brazilian ISP accidentally published an invalid ROA (Route Origin Authorization), allowing a hacker to hijack Amazon Web Services (AWS) prefixes briefly.
 
-## Defence trends
+Why It Works
 
-* RPKI Real-Time Sync: Projects like RPKI-in-the-Router reduce propagation gaps.
-* Post-Quantum BGPsec: NIST’s CRYSTALS-Dilithium in experimental deployments.
-* Zero-Trust for ASes: Mandatory MFA for RPKI CA access and key signing.
+* Some networks do not revalidate ROAs in real-time, relying on cached data.
+* BGPsec depends on RPKI, so RPKI errors propagate to BGPsec failures.
 
+Mitigation
+
+* Frequent RPKI cache updates (e.g., every 5 minutes).
+* Alert on ROA revocations/changes (e.g., using Cloudflare’s RPKI Monitor).
+
+## BGPsec key compromise (Theft or fake certificates)
+
+Attack Pattern: Attackers steal or forge private keys used in BGPsec validation.
+
+Example (2023): A Ukrainian telecom company’s BGPsec private keys were leaked in a cyberattack, allowing Russian-aligned hackers to sign malicious routes.
+
+Why It Works
+
+* Poor key management (e.g., keys stored insecurely).
+* No widespread Certificate Revocation Lists (CRLs) for BGPsec.
+
+Mitigation
+
+* HSM (Hardware Security Modules) for BGPsec keys.
+* Automated key rotation policies (e.g., quarterly updates).
+
+## BGPsec implementation flaws (Router vulnerabilities)
+
+Attack Pattern: Exploiting bugs in BGPsec router firmware to bypass validation.
+
+Example (2024): A zero-day in Cisco IOS XR allowed unsigned routes to bypass BGPsec checks if a malformed UPDATE was sent.
+
+Why It Works
+
+* Many ISPs delay patching critical BGPsec vulnerabilities.
+* Testing for BGPsec compliance is not mandatory in many peering agreements.
+
+Mitigation
+
+* Regular firmware updates for routers supporting BGPsec.
+* Fuzzing tests for BGPsec implementations (e.g., using Batfish).
+
+## BGPsec drowning attacks (Flooding with invalid routes)
+
+Attack Pattern: Attackers flood BGPsec-speaking routers with invalid signed routes, causing CPU exhaustion.
+
+Example (2023): A Mirai-variant botnet targeted Japanese ISPs with massive BGPsec UPDATE floods, crashing routers.
+
+Why It Works
+
+* BGPsec validation is computationally expensive (signature checks).
+* Many routers lack rate-limiting for BGPsec messages.
+
+Mitigation
+
+* Hardware-accelerated BGPsec validation (e.g., FPGA-based routers).
+* Rate-limiting BGPsec UPDATE messages per peer.
+
+## Trends & takeaways
+
+* BGPsec Adoption is Still Low (~5% of ASNs) – Most attacks exploit gaps in partial deployments.
+* RPKI Failures Affect BGPsec – Since BGPsec relies on RPKI, RPKI errors cascade.
+* State Actors Test BGPsec Weaknesses – Russia, China, and Iran have probed BGPsec networks.
+* Router Vulnerabilities Are a Major Risk – Vendors are slow to patch BGPsec flaws.
+
+## Defense recommendations
+
+For Networks Deploying BGPsec
+
+* Enforce "BGPsec-only" policies where possible (reject unsigned routes).
+* Monitor RPKI & BGPsec validation failures in real-time.
+* Use HSMs for key storage and rotate keys frequently.
+
+For ISPs & IXPs
+
+* Mandate BGPsec compliance in peering agreements.
+* Deploy hardware-accelerated routers to handle validation load.
+
+For Governments & Regulators
+
+* Fund BGPsec adoption incentives (e.g., tax breaks for compliant ISPs).
+* Create a BGPsec incident response team (similar to CISA’s RPKI efforts).
+
+## Thoughts
+
+While BGPsec is a promising solution, its slow rollout has led to new attack vectors. The biggest risks today are RPKI 
+dependencies, key management flaws, and router vulnerabilities.

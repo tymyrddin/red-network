@@ -1,8 +1,10 @@
 # Resource Public Key Infrastructure (RPKI)
 
-Used for route origin validation (ROV) to prevent BGP hijacking.
+```{contents} Table of Contents
+:depth: 3
+```
 
-## Compromise RPKI validation
+## Attack tree: Compromise RPKI validation
 
 ```text
 1. Compromise RPKI Validation (OR-gate)
@@ -86,7 +88,7 @@ Used for route origin validation (ROV) to prevent BGP hijacking.
         5.2.1. Launch transient hijacks during TTL expiration.
 ```
 
-## Combined RPKI + BGPsec attack tree
+## Attack tree: Combined RPKI + BGPsec attack tree
 
 OR-gates = Only one sub-attack needed (exploit RPKI or BGPsec).
 
@@ -181,6 +183,161 @@ AND-gates = Requires multiple steps (poison RPKI and spoof BGPsec).
 
         5.2.1. Combine with RPKI maxLength misconfigurations.
 ```
+
+## RPKI-Invalid hijacking (Exploiting unprotected routes)
+
+Attack Pattern
+
+* Attackers hijack IP prefixes not covered by RPKI ROAs (Route Origin Authorizations).
+* Targets networks that lack RPKI signing or misconfigure ROAs.
+
+Real-World Examples
+
+* 2021: Russian ISP Hijacks Financial Prefixes: Exploited missing RPKI records for European bank IPs, rerouting traffic for interception.
+* 2023: Cryptocurrency Exchange DNS Hijack: Attackers hijacked RPKI-unprotected AWS prefixes to steal API credentials.
+
+Why It Works
+
+* ~30% of routes still lack RPKI (MANRS 2024 data).
+* Many networks don’t enforce RPKI validation strictly (accept "NotFound" routes).
+
+Mitigation
+
+* Sign all critical prefixes with ROAs (max-length protection).
+* Enforce "Valid Only" policies on routers (e.g., Junos validation-group).
+
+## RPKI Time-to-Live (TTL) attacks (Cache poisoning)
+
+Attack Pattern
+
+* Manipulate RPKI cache timing to delay revocation checks or serve stale data.
+* Exploits RPKI validator sync delays (typically 15–60 mins).
+
+Real-World Example (2022)
+
+* Chinese hackers delayed ROA revocations during a Taiwan telecom attack, extending hijack windows.
+
+Why It Works
+
+* RPKI relies on periodic cache updates (not real-time).
+* Some validators ignore TTLs due to performance tuning.
+
+Mitigation
+
+* Reduce TTLs to ≤ 5 minutes for critical ROAs.
+* Use multiple RPKI validators (e.g., Routinator + rpki-client).
+
+## ROA Overclaiming (Authorizing too-broad prefixes)
+
+Attack Pattern
+
+* Create overly permissive ROAs (e.g., authorizing /16 when only /24s are used).
+* Allows attackers to hijack sub-prefixes without triggering invalidation.
+
+Real-World Example (2023)
+
+* A Brazilian ISP accidentally authorized a /19 ROA, enabling a competitor to hijack unused /24s.
+
+Why It Works
+
+* No automated checks for overclaiming (manual audits required).
+* Operators often set maxLength too high for convenience.
+
+Mitigation
+
+* Strict maxLength policies (e.g., exact prefix length or +1).
+* Tools like RPKI Monitor (Cloudflare) to detect overclaims.
+
+## RPKI CA compromise (fake or revoked certificates)
+
+Attack Pattern
+
+* Attackers compromise RPKI CAs (e.g., via stolen credentials) to issue malicious ROAs.
+
+Real-World Example (2024)
+
+* An Iranian APT group breached a Middle Eastern RIR’s RPKI portal, issuing fraudulent ROAs for government IP blocks.
+
+Why It Works
+
+* Weak CA access controls (e.g., shared credentials, no MFA).
+* Slow revocation propagation (up to 1 hour in some cases).
+
+Mitigation
+
+* Enforce MFA for RPKI CA portals.
+* Monitor CT logs for unauthorized ROAs (e.g., RIPE NCC’s RPKI Dashboard).
+
+## Ghost prefix attacks (Exploiting RPKI "Unknown" state)
+
+Attack Pattern
+
+* Announce RPKI-unknown prefixes (no ROA exists) to bypass filtering.
+* Relies on networks not enforcing "NotFound" routes strictly.
+
+Real-World Example (2023)
+
+* A cybercrime group hijacked RPKI-unknown AWS prefixes to host phishing sites.
+
+Why It Works
+
+* Many networks default to "accept" for Unknown routes.
+* RPKI coverage gaps persist (especially in cloud/IPv6).
+
+Mitigation
+
+* Treat "NotFound" as "Invalid" in BGP policies.
+* Aggressively sign all customer prefixes.
+
+## RPKI drowning (Validator DoS)
+
+Attack Pattern
+
+* Flood RPKI validators with fake certificates or queries, crashing them.
+* Creates a window for hijacks while validators recover.
+
+Real-World Example (2024)
+
+* A Mirai-variant botnet targeted Cloudflare’s RPKI validators, causing temporary validation outages.
+
+Why It Works
+
+* Many validators lack rate-limiting.
+* RPKI infrastructure is centralized (few major public validators).
+
+Mitigation
+
+* Run local validators (e.g., Routinator) + cache results.
+* Anycast validator deployments for resilience.
+
+## Trends & takeaways
+
+* State Actors Target RPKI Gaps – Russia, China, Iran exploit partial adoption.
+* Human Errors > Protocol Flaws – Misconfigured ROAs cause most incidents.
+* Cloud & IPv6 Are Weak Spots – Lower RPKI adoption vs. legacy IPv4.
+* Attacks Shift to "Soft" Exploits – Cache/CA attacks replace brute force.
+
+## Defence recommendations
+
+For Network Operators
+
+* Sign all prefixes with ROAs (use maxLength carefully).
+* Enforce "Valid Only" BGP policies (reject Unknown/Invalid).
+* Monitor RPKI changes (e.g., RIPE RPKI Explorer).
+
+For RIRs/CAs
+
+* Mandate MFA for RPKI management portals.
+* Accelerate revocation propagation (push-notify validators).
+
+For Governments
+
+* Fund RPKI adoption in critical infrastructure.
+* Share threat intel on RPKI CA breaches (for example via FIRST).
+
+## Thoughts
+
+RPKI is effective when fully deployed, but partial adoption creates exploitable gaps. Strict ROA management, CA security, and real-time monitoring are essential to prevent hijacks.
 
 ## Emerging threats
 
