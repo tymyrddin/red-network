@@ -75,9 +75,27 @@ Aside from all of the resources to make and maintain the equipment, and the ener
 .. toctree::
    :maxdepth: 1
    :includehidden:
-   :caption: More
+   :caption: More labs
 
    Mythical blue lake (scenario) <https://ad.tymyrddin.dev/>
+
+----
+
+.. toctree::
+   :maxdepth: 1
+   :includehidden:
+   :caption: Highway attack trees
+
+   docs/trees/README.md
+   docs/trees/tcp.md
+   docs/trees/ip.md
+   docs/trees/bgp.md
+   docs/trees/icmp.md
+   docs/trees/dns.md
+   docs/trees/tls-ssl.md
+   docs/trees/md5.md
+   docs/trees/tcp-ao.md
+   docs/trees/rpki.md
 
 ----
 
