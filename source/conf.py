@@ -7,7 +7,7 @@
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
 project = 'Riches in the ground'
-copyright = '2022, Ty Myrddin'
+copyright = '2025, Ty Myrddin'
 author = 'Ty Myrddin'
 release = '0.1'
 

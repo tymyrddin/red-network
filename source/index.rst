@@ -11,6 +11,8 @@ deep enough though ...
 .. image:: _static/images/in-progress.png
   :alt: Forever in progress ...
 
+Also see `Network mitigations <https://nm.tymyrddin.dev/>`_
+
 ----
 
 .. toctree::

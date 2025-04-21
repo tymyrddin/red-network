@@ -26,4 +26,3 @@ nectar, strangle fruiting bodies, or twist the whole web into a strangler’s kn
 * [Static Routing](static.md)
 * [First-Hop Redundancy Protocols](fhrp.md)
 
-
