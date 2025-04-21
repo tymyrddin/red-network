@@ -1,7 +1,12 @@
 Riches in the ground
 ================================================
 
-Aside from all of the resources to make and maintain the equipment, and the energy used to keep it all going on the physical level, on the other levels there is hardly any limit to the riches we can dig for, as its grounding principle seems to have been building new features upon new features for human convenience and (increasing) profit, with only some security and privacy concerns in mind. That seems to be improving, and in many cases security measures get tacked on. When one digs deep enough though ...
+*How the Mycelium Whispers Its Maps*
+
+Imagine the Internet as a giant, constantly shifting map where every network (run by companies like Google, ISPs, or
+cloud providers) has to figure out how to send data to every other network. This is not done with a single master
+plan. It works through a mix of cooperation, handshake agreements, and some technology under the hood. When one digs
+deep enough though ...
 
 .. image:: _static/images/in-progress.png
   :alt: Forever in progress ...
@@ -46,26 +51,7 @@ Aside from all of the resources to make and maintain the equipment, and the ener
 .. toctree::
    :maxdepth: 1
    :includehidden:
-   :caption: Spore Nursery (Other locations)
-
-   Mimic Mushrooms <https://testlab.tymyrddin.dev/docs/vm/README>
-   Tidefinger Lichen <https://testlab.tymyrddin.dev/docs/network/README>
-   Driftspore Lanterns <https://testlab.tymyrddin.dev/docs/wireless/readme>
-
-.. toctree::
-   :maxdepth: 1
-   :includehidden:
-   :caption: Preparation (Other locations)
-
-   Mapping the Dew Trails <https://recon.tymyrddin.dev/docs/scanning/README>
-   Counting the Fruiting Bodies <https://enum.tymyrddin.dev/docs/system/README>
-
-----
-
-.. toctree::
-   :maxdepth: 1
-   :includehidden:
-   :caption: Chronicles of the Vein-Pacts
+   :caption: The Spore-Thief's Grimoire
 
    docs/notes/README.md
    docs/notes/manipulation.md
@@ -83,7 +69,26 @@ Aside from all of the resources to make and maintain the equipment, and the ener
 .. toctree::
    :maxdepth: 1
    :includehidden:
-   :caption: Network pentesting scripts
+   :caption: Spore Nursery (Other locations)
+
+   Mimic Mushrooms <https://testlab.tymyrddin.dev/docs/vm/README>
+   Tidefinger Lichen <https://testlab.tymyrddin.dev/docs/network/README>
+   Driftspore Lanterns <https://testlab.tymyrddin.dev/docs/wireless/readme>
+
+.. toctree::
+   :maxdepth: 1
+   :includehidden:
+   :caption: Moonlit Readying (Other locations)
+
+   Mapping the Dew Trails <https://recon.tymyrddin.dev/docs/scanning/README>
+   Counting the Fruiting Bodies <https://enum.tymyrddin.dev/docs/system/README>
+
+----
+
+.. toctree::
+   :maxdepth: 1
+   :includehidden:
+   :caption: Blight-Weaver's Spore-Songs
 
    MAC changer <https://github.com/tymyrddin/scripts-network/tree/master/mac_changer>
    ARP spoofer <https://github.com/tymyrddin/scripts-network/blob/master/arp_spoofer>
@@ -101,7 +106,7 @@ Aside from all of the resources to make and maintain the equipment, and the ener
 .. toctree::
    :maxdepth: 1
    :includehidden:
-   :caption: TryHackMe rooms
+   :caption: TryHackMe grotto
 
    docs/thm/README.md
    docs/thm/attacktive.md
@@ -110,13 +115,13 @@ Aside from all of the resources to make and maintain the equipment, and the ener
 .. toctree::
    :maxdepth: 1
    :includehidden:
-   :caption: More labs
+   :caption: More caves
 
    Mythical blue lake (scenario) <https://ad.tymyrddin.dev/>
 
 ----
 
-Books
+Tomes
 ---------------------------
 
 .. grid:: 3

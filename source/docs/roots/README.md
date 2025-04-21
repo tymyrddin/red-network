@@ -1,12 +1,4 @@
-# Introduction
-
-*How the Mycelium Whispers Its Maps*
-
-Imagine the Internet as a giant, constantly shifting map where every network (run by companies like Google, ISPs, or 
-cloud providers) has to figure out how to send data to every other network. This is not done with a single master 
-plan. It works through a mix of cooperation, handshake agreements, and some technology under the hood.
-
-## Rootways of the World Tree
+# Rootways of the World Tree
 
 *Vast, ancient roots intertwining beneath continents—essential for life, but vulnerable where they surface.*
 
