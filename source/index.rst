@@ -65,7 +65,7 @@ Aside from all of the resources to make and maintain the equipment, and the ener
 .. toctree::
    :maxdepth: 1
    :includehidden:
-   :caption: Mycelial glossary
+   :caption: Chronicles of the Vein-Pacts
 
    docs/notes/README.md
    docs/notes/manipulation.md
