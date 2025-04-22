@@ -6,7 +6,7 @@ An `nmap` port scan may show a host as down or all of the ports as `filtered`. A
 
 ## PCAP files
 
-Packet Capture or PCAP (also known as libpcap) is an application programming interface (API) that captures live network packet data from OSI model Layers 2-7. Network analyzers like Wireshark create `.pcap` files to collect and record packet data from a network. 
+Packet Capture or PCAP (also known as libpcap) is an application programming interface (API) that captures live network packet data from OSI model Layers 2-7. Network analysers like [Wireshark](https://nta.tymyrddin.dev/docs/wireshark/readme) create `.pcap` files to collect and record packet data from a network. 
 
 1. Capture packets  with tcpdump or Wireshark
 2. Analyse packets (packet tracing)
